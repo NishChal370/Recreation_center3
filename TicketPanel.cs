@@ -182,7 +182,7 @@ namespace Recreation_center
                     MessageBox.Show("No ticket found !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else { MessageBox.Show("Please enter ticket Number !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }*/
+            else { MessageBox.Show("Please enter ticket Number !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
                
