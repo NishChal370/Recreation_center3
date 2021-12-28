@@ -550,7 +550,7 @@ namespace Recreation_center
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(229, 25);
             this.dateTimePicker1.TabIndex = 4;
-            this.dateTimePicker1.Value = new System.DateTime(2021, 12, 20, 15, 16, 0, 0);
+            this.dateTimePicker1.Value = new System.DateTime(2021, 12, 28, 16, 48, 49, 0);
             // 
             // txtBoxTicketNo
             // 

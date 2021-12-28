@@ -311,7 +311,7 @@ namespace Recreation_center
             this.labelAgeInfo4.Name = "labelAgeInfo4";
             this.labelAgeInfo4.Size = new System.Drawing.Size(57, 24);
             this.labelAgeInfo4.TabIndex = 8;
-            this.labelAgeInfo4.Text = "30-60";
+            this.labelAgeInfo4.Text = "18-60";
             // 
             // labelAgeInfo2
             // 
@@ -322,7 +322,7 @@ namespace Recreation_center
             this.labelAgeInfo2.Name = "labelAgeInfo2";
             this.labelAgeInfo2.Size = new System.Drawing.Size(57, 24);
             this.labelAgeInfo2.TabIndex = 7;
-            this.labelAgeInfo2.Text = "12-30";
+            this.labelAgeInfo2.Text = "12-18";
             // 
             // labelAgeInfo
             // 
