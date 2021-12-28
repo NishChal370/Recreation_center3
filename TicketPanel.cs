@@ -12,10 +12,11 @@ namespace Recreation_center
     public partial class TicketPanel : UserControl
     {
         private List<Ticket> groupTicketList = new List<Ticket>();
+        private List<Ticket> searchedTicketList = new List<Ticket>();
         public TicketPanel()
         {
             InitializeComponent();
-            resetFields("save"); // clear text field
+            resetFields(""); // clear text field
             readTicketFile(); // reading tickets file
         }
 
@@ -32,7 +33,7 @@ namespace Recreation_center
             {
                 if (Globals.weekDayPriceListG.Count > 0 && Globals.weekEndPriceListG.Count > 0)
                 {
-                    updateTicket();
+                    checkoutTicket();
                 }
                 else 
                 {
@@ -47,17 +48,42 @@ namespace Recreation_center
         {
             if (isUserInputValid())
             {
-                addTicket();
+                addGroupTicket();
             }
         }
 
-        private void addTicket() {
+        private void saveTicket()
+        {
+            int savedTicketNumber;
+
+            if (groupTicketList.Count > 0)  // if save for group ticket
+            {
+                savedTicketNumber = groupTicketList[0].ticketID;
+                Globals.myTicket.AddRange(groupTicketList);
+                groupTicketList.Clear();
+            }
+            else
+            {
+                MessageBox.Show("NO GROUP");
+                Ticket newTicket = generateNewTicket();
+                savedTicketNumber = newTicket.ticketID;
+                Globals.myTicket.Add(newTicket);
+            }
+
+            //resetFields("save");
+            Globals.writeToTextFile(Constants.TICKETFILENAME, JsonConvert.SerializeObject(Globals.myTicket));
+            MessageBox.Show("Ticket: " + savedTicketNumber + " Saved !! ", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            resetFields("save");
+            ticketTable.Rows.Clear();
+        }
+
+        private void addGroupTicket() {
 
             Ticket newTicket = generateNewTicket();
 
             groupTicketList.Add(newTicket);
             fillTicketTable(newTicket);
-
+            resetFields("add");
             // allow user to add save group ticket only if group have more then 1 member
             if (groupTicketList.Count > 1)
             {
@@ -70,33 +96,8 @@ namespace Recreation_center
                 notGroupRadioBtn.Enabled = false;
             }
 
-            resetFields("add");
-            MessageBox.Show("Ticket: " + generateNewTicket().ticketID + " Added !! ", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void saveTicket()
-        {
-            int savedTicketNumber;
-
-            if (groupTicketList.Count > 0)  // if save for group ticket
-            {
-                savedTicketNumber = groupTicketList[0].ticketID;
-                Globals.myTicket.AddRange(groupTicketList);
-
-                resetFields("save");
-                groupTicketList.Clear();
-                ticketTable.Rows.Clear();
-            }
-            else {
-                Ticket newTicket = generateNewTicket();
-                savedTicketNumber = newTicket.ticketID;
-                Globals.myTicket.Add(newTicket);
-                resetFields("save");
-            }
-
-            Globals.writeToTextFile(Constants.TICKETFILENAME, JsonConvert.SerializeObject(Globals.myTicket));
-            MessageBox.Show("Ticket: " + savedTicketNumber + " Saved !! ", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-           
+            
+            MessageBox.Show("Ticket: " + newTicket.ticketID + " Added !! ", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private Ticket generateNewTicket() {
@@ -133,58 +134,89 @@ namespace Recreation_center
             return ticketId;
         }
 
-
         private void btnClear_Click(object sender, EventArgs e)
         {
-            resetFields("add"); // clear textfield
+            resetFields("clear"); // clear textfield
+            makeUserInputsReadOnly(false);
+            groupTicketList.Clear();
+            searchedTicketList.Clear();
         }
 
         private void btnSearchTicket_Click(object sender, EventArgs e)
         {
+            resetFields("clear");
+            makeUserInputsReadOnly(false);
             searchTicket();
-        }
-
-        // change Table according to Calendar
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-            //fillTicketTable();
         }
 
         private void searchTicket() {
             Regex ticketNumberRegex = new Regex(@"^[0-9]*$");
-
-            //search ticket // this changed
+            //->groupTicketList.Clear();  changed
+            searchedTicketList.Clear();
+            ticketTable.Rows.Clear();
+            bool isSearchedTicketCheckedOut = false;
+            //search ticket
             if (txtBoxTicketNo.Text.ToString() != "")
             {
                 //if ticket exist in file and in ticket list && user input ticket number > 0
                 if (Globals.myTicket.Count > 0 && ticketNumberRegex.IsMatch(txtBoxTicketNo.Text.ToString()))
-                {   
-                    try
+                {
+                    int ticketNumber = int.Parse(txtBoxTicketNo.Text);
+                    
+                    if (Globals.myTicket[Globals.myTicket.Count - 1].ticketID >= ticketNumber)
                     {
-                        //clearing price & outTime txtField
-                        txtBoxPrice.ResetText();
-                        txtBoxOutTime.ResetText();
+                        foreach (Ticket ticket in Globals.myTicket)
+                        {
+                            if (ticket.ticketID == ticketNumber)
+                            {
+                                //groupTicketList.Add(ticket); chnaged
+                                searchedTicketList.Add(ticket);
+                                fillTicketTable(ticket);
 
-                        // not allow user to edit the saved ticket when searching for ticket
-                        makeUserInputsReadOnly(true);
+                                btnSave.Text = "Check out";
+                                makeUserInputsReadOnly(true);
 
-                        btnSave.Text = "Check out";
-                        int ticketNumber = int.Parse(txtBoxTicketNo.Text) - 1;
-                        autoFillTextBox(ticketNumber);
+                                // if outTime exist donot allow to checkout
+                                isSearchedTicketCheckedOut = (ticket.outTime != null)
+                                                                    ? true
+                                                                    : false;
+                            }
+                            
+                        }
+
+                        if (isSearchedTicketCheckedOut)
+                        {
+                            btnSave.Enabled = false;
+                            float totalPrice = 0;
+                            btnSave.Enabled = false;
+                            searchedTicketList.ForEach(x =>
+                            {
+                                totalPrice += x.price;
+                            });
+
+                            txtBoxTotalPrice.Text = totalPrice.ToString();
+                            txtBoxDiscount.Text = searchedTicketList[0].discountedPercent.ToString();
+                            txtBoxGrandTotal.Text = (totalPrice - (totalPrice * (searchedTicketList[0].discountedPercent / 100))).ToString();
+                        }
+
+                        System.Diagnostics.Debug.WriteLine("TicketsLocal " + JsonConvert.SerializeObject(searchedTicketList));
                     }
-                    catch
+                    else 
                     {
-                        MessageBox.Show("No ticket found !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No ticket found 1!!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+ 
                 }
                 else
                 {
-                    MessageBox.Show("No ticket found !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No ticket found 2!!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
                 }
             }
-            else { MessageBox.Show("Please enter ticket Number !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            else 
+            {
+                MessageBox.Show("Please enter ticket Number !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
                
         private void fillTicketTable(Ticket ticket)
         {
@@ -202,112 +234,104 @@ namespace Recreation_center
 
         }
 
-        private void updateTicket()
+        private void checkoutTicket()
         {
-            // this changed
-            /*btnSave.Enabled = false;
-            int ticketNumber = int.Parse(txtBoxTicketNo.Text) - 1;
-            //update out time
-            txtBoxOutTime.Text = DateTime.Now.ToShortTimeString();
-            Globals.myTicket[ticketNumber].outTime = txtBoxOutTime.Text;
+            float totalPrice = 0;
+            float[] ticketPriceAndDiscount = null; // changed groupTicketList
+            foreach (Ticket ticket in searchedTicketList) {
+                
+                DateTime inTime = Convert.ToDateTime(ticket.inTime);
+                DateTime outTime = DateTime.Now;
 
-            //update price
-            DateTime inTime = Convert.ToDateTime(Globals.myTicket[ticketNumber].inTime);
-            DateTime outTime = Convert.ToDateTime(Globals.myTicket[ticketNumber].outTime);
+                int totalHrsCustomerStay = (int)(outTime - inTime).TotalHours + 1;
 
-            int totalHrsCustomerStay = (int)(outTime - inTime).TotalHours;
+                int hourStayed = (totalHrsCustomerStay > 4 || totalHrsCustomerStay < 0)
+                                    ? 4
+                                    : totalHrsCustomerStay;
 
-            txtBoxPrice.Text = calculateTicketPrice(totalHrsCustomerStay).ToString();
-            Globals.myTicket[ticketNumber].price = calculateTicketPrice(totalHrsCustomerStay);
+                ticketPriceAndDiscount = findIndividualTicketPrice(hourStayed, ticket.date, ticket.age, ticket.isGroup);
+
+                totalPrice += ticketPriceAndDiscount[0];
+
+                ticket.price = ticketPriceAndDiscount[0];
+                ticket.outTime = outTime.ToShortTimeString();
+                ticket.discountedPercent = ticketPriceAndDiscount[1];
+            }
+
+            txtBoxTotalPrice.Text = totalPrice.ToString();
+            txtBoxDiscount.Text = ticketPriceAndDiscount[1].ToString();
+            txtBoxGrandTotal.Text = (totalPrice - (totalPrice*(ticketPriceAndDiscount[1] /100))).ToString();
 
             Globals.writeToTextFile(Constants.TICKETFILENAME, JsonConvert.SerializeObject(Globals.myTicket));
-            MessageBox.Show("Ticket: " + (ticketNumber + 1) + " Checked out !!", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);*/
-        }
-
-        private void autoFillTextBox(int ticketNumber)
-        {
-            // this changed
-           /* btnSave.Enabled = true;
-            txtBoxName.Text = Globals.myTicket[ticketNumber].name;
-            txtBoxAddress.Text = Globals.myTicket[ticketNumber].address;
-            dateTimePicker1.Value = Globals.myTicket[ticketNumber].date;
-            cmboBoxAge.SelectedIndex = Globals.myTicket[ticketNumber].age;
-            //-> cmboBoxGroup.SelectedIndex = Globals.myTicket[ticketNumber].group;
-            txtBoxPhone.Text = Globals.myTicket[ticketNumber].phone.ToString();
-            txtBoxPrice.Text = Globals.myTicket[ticketNumber].price.ToString();
-            txtBoxInTime.Text = Globals.myTicket[ticketNumber].inTime.ToString();
-
-            if (Globals.myTicket[ticketNumber].outTime != null)
-            {
-                btnSave.Enabled = false;
-                txtBoxPrice.Text = Globals.myTicket[ticketNumber].price.ToString();
-                txtBoxOutTime.Text = Globals.myTicket[ticketNumber].outTime.ToString();
-            }*/
-        }
-
-        
-        private void resetFields(string resetTo)
-        {
-            txtBoxTicketNo.ResetText();
-            txtBoxName.ResetText();
-            txtBoxPhone.ResetText();
-            txtBoxPrice.ResetText();
-            txtBoxOutTime.Text = "";
-            txtBoxOutTime.ResetText();
-            txtBoxInTime.ResetText();
-            txtBoxAddress.ResetText();
-            dateTimePicker1.ResetText();
-            cmboBoxAge.SelectedIndex = -1;
-            cmboBoxAge.Text = "Select age....";
-            txtBoxInTime.Text = DateTime.Now.ToShortTimeString();
-
-            if (resetTo == "save") {
-                btnSave.Text = "Save";
-                btnSave.Enabled = true;
-                isGroupRadioBtn.Enabled = true;
-                notGroupRadioBtn.Enabled = true;
-                notGroupRadioBtn.Checked = true;
-            }
+            //cheng here
+            ticketTable.Rows.Clear();
+            btnSave.Enabled = false;
+            searchedTicketList.ForEach(ticket => {
+                fillTicketTable(ticket);
+            });
             
 
         }
-
-        private float calculateTicketPrice(int totalHourStayed)
+        
+        private void resetFields(string resetFor)
         {
-            float calculatedPrice = 0;
-            //this changed
-            /*Dictionary<string, float> prices;
-            string[] agePrefix = { "ChildTextBox", "AdultTextBox", "SeniorTextBox" };
-            string[] timePrefix = {"hour", "twoHour", "threeHour", "fourHour", "wholeDay" };
-            string[] groupPrefix = { "FiveGrupTextBox", "TenGrupTextBox", "FifteenGrupTextBox", "AboveGrupTextBox" };
-
-            int hourStayed = (totalHourStayed > 4 || totalHourStayed < 0)
-                                    ? 4
-                                    : totalHourStayed;
-
-            if (cmboBoxAge.SelectedIndex != -1) //if age is selected
-            {
-                prices = (isWeekDay()) 
-                            ? Globals.weekDayPriceListG[0] 
-                            : Globals.weekEndPriceListG[0];
-
-                calculatedPrice = prices[timePrefix[hourStayed] + agePrefix[cmboBoxAge.SelectedIndex]];
+            //groupTicketList.Clear();
+            //searchedTicketList.Clear();
+            txtBoxName.ResetText();
+            txtBoxPhone.ResetText();
+            cmboBoxAge.SelectedIndex = -1;
+            cmboBoxAge.Text = "Select age....";
+            txtBoxTotalPrice.ResetText();
+            txtBoxDiscount.ResetText();
+            txtBoxGrandTotal.ResetText();
+            txtBoxAddress.ResetText();
+            txtBoxInTime.Text = DateTime.Now.ToShortTimeString();
+            MessageBox.Show("ALL CLEAR");
+            if (resetFor == "clear") {
+                btnSave.Text = "Save";
+                MessageBox.Show("CLEAR");
+                btnSave.Enabled = true;
             }
-            else if (cmboBoxGroup.SelectedIndex != -1)// if group is selected
-            {
-                prices = (isWeekDay()) 
-                            ? Globals.weekDayPriceListG[1] 
-                            : Globals.weekEndPriceListG[1];
-                                        // FORMAT :  hourChildTextBox
-                calculatedPrice = prices[timePrefix[hourStayed] + groupPrefix[cmboBoxGroup.SelectedIndex]];
-            }*/
 
-            return calculatedPrice;
+            if (resetFor == "save" || resetFor == "clear")
+            {
+                MessageBox.Show("SAVE ANF CLEAR");
+                //->txtBoxInTime.ResetText();
+                txtBoxOutTime.ResetText();
+                ticketTable.Rows.Clear();
+                isGroupRadioBtn.Enabled = true;
+                notGroupRadioBtn.Enabled = true;
+                isGroupRadioBtn.Checked = false;
+                notGroupRadioBtn.Checked = true;
+            }
+            else if (resetFor == "add" ) {
+                isGroupRadioBtn.Enabled = false;
+                notGroupRadioBtn.Enabled = false;
+            }
+        }
+
+        private float[] findIndividualTicketPrice(int hourStayed, DateTime ticketDate, int ticketAge, bool isGroup)
+        {
+            List<Dictionary<string, float>> prices;
+            string[] agePrefix = { "Child", "Teen", "Adult", "Old" };
+            string[] timePrefix = { "hour", "twoHour", "threeHours", "fourHour", "wholeDay" };
+
+            prices = (isWeekDay(ticketDate))
+                            ? Globals.weekDayPriceListG
+                            : Globals.weekEndPriceListG;
+
+            float ticketprice = prices[0][timePrefix[hourStayed] + agePrefix[ticketAge]];
+            float discount = (isGroup) 
+                                ? prices[1][timePrefix[hourStayed] + "Discount"] 
+                                : 0;
+
+            float[] totalPriceDiscountPercent = { ticketprice, discount };
+
+            return totalPriceDiscountPercent;
         }
 
         private void readTicketFile()
         {
-            // this changed
            string fileName = Constants.TICKETFILENAME;
             if (File.Exists(fileName))
             {
@@ -322,14 +346,14 @@ namespace Recreation_center
             }
         }
 
-        private bool isWeekDay()
+        private bool isWeekDay(DateTime ticketDate)
         {
-            string todaysDay = dateTimePicker1.Value.ToString("ddd");
+            string todaysDay = ticketDate.ToString("ddd");
 
             return (todaysDay != "Sun" && todaysDay != "Sat");
         }
 
-        
+
 
         private bool isUserInputValid()
         {
@@ -338,92 +362,21 @@ namespace Recreation_center
                 "txtBoxInTime", 
                 "txtBoxOutTime"    
             };
-            // this changed
-          /*  foreach (Control control in panelTicketForm.Controls)
-            {
-                if (control is TextBox)
-                {
-                    if (!notValidatingList.Contains(control.Name))
-                    {
-                        if (string.IsNullOrEmpty(control.Text))
-                        {
-                            control.BackColor = System.Drawing.Color.LightPink;
-                            MessageBox.Show(control.Name.Substring(6) + " is Empty.", "Empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                            return false;
-                        }
-                        else
-                        {
-                            Regex phoneRegex = new Regex(@"^[0-9]{10}$");
-                            if (control.Name == "txtBoxPhone" && !phoneRegex.IsMatch(control.Text.ToString())) 
-                            {
-                                control.BackColor = System.Drawing.Color.LightPink;
-                                MessageBox.Show("Invalid Phone number !!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                                return false;
-                            }
-                            else if (control.Name != "txtBoxPhone" && !control.Text.ToString().All(i => char.IsLetter(i) || char.IsWhiteSpace(i))) 
-                            {
-                                control.BackColor = System.Drawing.Color.LightPink;
-                                MessageBox.Show("Invalid " + control.Name.Substring(6) + " !!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                                return false;
-                            }
-                        }
-
-                    }
-
-                }
-            }
-
-            // comboBox validation
-            if (cmboBoxAge.SelectedIndex <= -1 && cmboBoxGroup.SelectedIndex <= -1)
-            {
-                cmboBoxAge.BackColor = System.Drawing.Color.LightPink;
-                cmboBoxGroup.BackColor = System.Drawing.Color.LightPink;
-                MessageBox.Show("Age or Group should be selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                return false;
-            }
-            */
+           
             return true;
         }
 
         private void makeUserInputsReadOnly(bool trueOrFalse) 
         {
             //this changed
-            /*txtBoxName.ReadOnly = trueOrFalse;
+            txtBoxName.ReadOnly = trueOrFalse;
             txtBoxPhone.ReadOnly = trueOrFalse;
             txtBoxAddress.ReadOnly = trueOrFalse;
+            //btnAdd.Enabled = !trueOrFalse;
             cmboBoxAge.Enabled = !trueOrFalse;
-            //-> cmboBoxGroup.Enabled = !trueOrFalse;
-            dateTimePicker1.Enabled = !trueOrFalse;*/
-        }
-
-        private void cmboBoxGroup_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //this change
-            /*if (cmboBoxGroup.SelectedIndex > -1) //if group selected
-            {
-                cmboBoxAge.SelectedIndex = -1;
-                cmboBoxAge.Text = "Select age....";
-                cmboBoxAge.BackColor = System.Drawing.Color.White;
-                cmboBoxGroup.BackColor = System.Drawing.Color.White;
-            }*/
-
-        }
-
-        private void cmboBoxAge_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // this change
-            /*if (cmboBoxAge.SelectedIndex > -1) //if age selected
-            {
-                cmboBoxGroup.SelectedIndex = -1;
-                cmboBoxGroup.Text = "Select group....";
-                cmboBoxAge.BackColor = System.Drawing.Color.White;
-                cmboBoxGroup.BackColor = System.Drawing.Color.White;
-            }*/
-
+            dateTimePicker1.Enabled = !trueOrFalse;
+            isGroupRadioBtn.Enabled = !trueOrFalse;
+            notGroupRadioBtn.Enabled = !trueOrFalse;
         }
 
         private void txtBoxPhone_KeyPress(object sender, KeyPressEventArgs e)
@@ -460,6 +413,24 @@ namespace Recreation_center
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -606,3 +577,147 @@ foreach (Ticket ticket in Globals.myTicket)
             System.Diagnostics.Debug.WriteLine("TicketsGlobal " + JsonConvert.SerializeObject(Globals.myTicket));
             System.Diagnostics.Debug.WriteLine("Size " + JsonConvert.SerializeObject(Globals.myTicket.Count));
  */
+
+
+//auto filll
+
+// this changed
+/* btnSave.Enabled = true;
+ txtBoxName.Text = Globals.myTicket[ticketNumber].name;
+ txtBoxAddress.Text = Globals.myTicket[ticketNumber].address;
+ dateTimePicker1.Value = Globals.myTicket[ticketNumber].date;
+ cmboBoxAge.SelectedIndex = Globals.myTicket[ticketNumber].age;
+ //-> cmboBoxGroup.SelectedIndex = Globals.myTicket[ticketNumber].group;
+ txtBoxPhone.Text = Globals.myTicket[ticketNumber].phone.ToString();
+ txtBoxPrice.Text = Globals.myTicket[ticketNumber].price.ToString();
+ txtBoxInTime.Text = Globals.myTicket[ticketNumber].inTime.ToString();
+
+ if (Globals.myTicket[ticketNumber].outTime != null)
+ {
+     btnSave.Enabled = false;
+     txtBoxPrice.Text = Globals.myTicket[ticketNumber].price.ToString();
+     txtBoxOutTime.Text = Globals.myTicket[ticketNumber].outTime.ToString();
+ }*/
+
+/*
+private void cmboBoxGroup_SelectedIndexChanged(object sender, EventArgs e)
+{
+    //this change
+   if (cmboBoxGroup.SelectedIndex > -1) //if group selected
+    {
+        cmboBoxAge.SelectedIndex = -1;
+        cmboBoxAge.Text = "Select age....";
+        cmboBoxAge.BackColor = System.Drawing.Color.White;
+        cmboBoxGroup.BackColor = System.Drawing.Color.White;
+    }
+
+}*/
+
+
+
+/**
+ * 
+ * private float[] calculateTicketPrice(int hourStayed, DateTime ticketDate, int ticketAge)
+        {
+
+            //float calculatedPrice = 0;
+            //this changed
+            List<Dictionary<string, float>> prices;
+            string[] agePrefix = { "Child", "Teen", "Adult", "Senior" };
+            string[] timePrefix = { "hour", "twoHour", "threeHour", "fourHour", "wholeDay" };
+
+            prices = (isWeekDay(ticketDate))
+                            ? Globals.weekDayPriceListG
+                            : Globals.weekEndPriceListG;
+
+
+            System.Diagnostics.Debug.WriteLine("FROM lsir:  " + timePrefix[hourStayed] + agePrefix[ticketAge]);
+            float calculatedPrice = prices[0][timePrefix[hourStayed] + agePrefix[ticketAge]];
+            float discount = prices[1][timePrefix[hourStayed] + "Discount"];
+
+            float[] totalPriceDiscountPercent = { calculatedPrice, discount };
+            return totalPriceDiscountPercent;
+return null;
+        }
+**/
+
+/*
+        private void  calculateTotalHrsStayed() {
+
+            //update out time
+            txtBoxOutTime.Text = DateTime.Now.ToShortTimeString();
+            //Globals.myTicket[ticketNumber].outTime = txtBoxOutTime.Text;
+
+            //update price
+            //DateTime inTime = Convert.ToDateTime(Globals.myTicket[ticketNumber].inTime);
+           // DateTime outTime = Convert.ToDateTime(Globals.myTicket[ticketNumber].outTime);
+
+            //int totalHrsCustomerStay = (int)(outTime - inTime).TotalHours;
+
+        }*/
+
+
+
+//Reset
+/* txtBoxTicketNo.ResetText();
+             txtBoxName.ResetText();
+             txtBoxPhone.ResetText();
+             txtBoxPrice.ResetText();
+             txtBoxOutTime.Text = "";
+             txtBoxOutTime.ResetText();
+             txtBoxInTime.ResetText();
+             txtBoxAddress.ResetText();
+             dateTimePicker1.ResetText();
+             cmboBoxAge.SelectedIndex = -1;
+             cmboBoxAge.Text = "Select age....";
+             txtBoxInTime.Text = DateTime.Now.ToShortTimeString();
+             btnSave.Text = "Save";
+             txtBoxTotalPrice.ResetText();
+             txtBoxDiscount.ResetText();
+             txtBoxGrandTotal.ResetText();
+             if (resetTo == "save") {
+                 groupTicketList.Clear();
+                 ticketTable.Rows.Clear();
+
+                 btnSave.Enabled = true;
+                 isGroupRadioBtn.Enabled = true;
+                 notGroupRadioBtn.Enabled = true;
+                 notGroupRadioBtn.Checked = true;
+             }
+             */
+
+
+/*        private float[] findPrice(Ticket ticket) {
+
+            // find total hour stayed
+            DateTime inTime = Convert.ToDateTime(ticket.inTime);
+            DateTime outTime = DateTime.Now;
+            int totalHrsCustomerStay = (int)(outTime - inTime).TotalHours + 1;
+            int hourStayed = (totalHrsCustomerStay > 4 || totalHrsCustomerStay < 0)
+                                    ? 4
+                                    : totalHrsCustomerStay;
+
+            MessageBox.Show("Total hrs stay "+ hourStayed);
+
+            // find price and discount
+            List<Dictionary<string, float>> prices;
+            string[] agePrefix = { "Child", "Teen", "Adult", "Senior" };
+            string[] timePrefix = { "hour", "twoHour", "threeHour", "fourHour", "wholeDay" };
+
+            prices = (isWeekDay(ticket.date))
+                            ? Globals.weekDayPriceListG
+                            : Globals.weekEndPriceListG;
+
+
+            System.Diagnostics.Debug.WriteLine("FROM lsir:  " + timePrefix[hourStayed] + agePrefix[ticket.age]);
+            float calculatedPrice = prices[0][timePrefix[hourStayed] + agePrefix[ticket.age]];
+            float discount = (ticket.isGroup)
+                                   ? prices[1][timePrefix[hourStayed] + "Discount"]
+                                   : 0;
+
+            float[] priceAndDiscount = { calculatedPrice, discount };
+
+            return priceAndDiscount;
+            
+
+        }*/

@@ -31,6 +31,27 @@ namespace Recreation_center
         {
             this.labelTicketRate = new System.Windows.Forms.Label();
             this.adminAgePricePanel = new System.Windows.Forms.Panel();
+            this.hourChildTextBox = new System.Windows.Forms.TextBox();
+            this.twoHourChildTextBox = new System.Windows.Forms.TextBox();
+            this.threeHourChildTextBox = new System.Windows.Forms.TextBox();
+            this.fourHourChildTextBox = new System.Windows.Forms.TextBox();
+            this.wholeDayChildTextBox = new System.Windows.Forms.TextBox();
+            this.hourTeenTextBox = new System.Windows.Forms.TextBox();
+            this.twoHourTeenTextBox = new System.Windows.Forms.TextBox();
+            this.threeHourTeenTextBox = new System.Windows.Forms.TextBox();
+            this.fourHourTeenTextBox = new System.Windows.Forms.TextBox();
+            this.wholeDayTeenTextBox = new System.Windows.Forms.TextBox();
+            this.hourAdultTextBox = new System.Windows.Forms.TextBox();
+            this.twoHourAdultTextBox = new System.Windows.Forms.TextBox();
+            this.threeHourAdultTextBox = new System.Windows.Forms.TextBox();
+            this.fourHourAdultTextBox = new System.Windows.Forms.TextBox();
+            this.wholeDayAdultTextBox = new System.Windows.Forms.TextBox();
+            this.hourOldTextBox = new System.Windows.Forms.TextBox();
+            this.twoHourOldTextBox = new System.Windows.Forms.TextBox();
+            this.threeHourOldTextBox = new System.Windows.Forms.TextBox();
+            this.fourHourOldTextBox = new System.Windows.Forms.TextBox();
+            this.wholeDayOldTextBox = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.labelAgeInfo4 = new System.Windows.Forms.Label();
             this.labelAgeInfo2 = new System.Windows.Forms.Label();
             this.labelAgeInfo = new System.Windows.Forms.Label();
@@ -56,27 +77,6 @@ namespace Recreation_center
             this.btnSaveTicket = new System.Windows.Forms.Button();
             this.btnClearTicket = new System.Windows.Forms.Button();
             this.priceDayCmboBox = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.wholeDayOldTextBox = new System.Windows.Forms.TextBox();
-            this.fourHourOldTextBox = new System.Windows.Forms.TextBox();
-            this.threeHourOldTextBox = new System.Windows.Forms.TextBox();
-            this.twoHourOldTextBox = new System.Windows.Forms.TextBox();
-            this.hourOldTextBox = new System.Windows.Forms.TextBox();
-            this.wholeDayAdultTextBox = new System.Windows.Forms.TextBox();
-            this.fourHourAdultTextBox = new System.Windows.Forms.TextBox();
-            this.threeHourAdultTextBox = new System.Windows.Forms.TextBox();
-            this.twoHourAdultTextBox = new System.Windows.Forms.TextBox();
-            this.hourAdultTextBox = new System.Windows.Forms.TextBox();
-            this.wholeDayTeenTextBox = new System.Windows.Forms.TextBox();
-            this.fourHourTeenTextBox = new System.Windows.Forms.TextBox();
-            this.threeHourTeenTextBox = new System.Windows.Forms.TextBox();
-            this.twoTeenAdultTextBox = new System.Windows.Forms.TextBox();
-            this.hourTeenTextBox = new System.Windows.Forms.TextBox();
-            this.wholeDayChildTextBox = new System.Windows.Forms.TextBox();
-            this.fourHourChildTextBox = new System.Windows.Forms.TextBox();
-            this.threeHourChildTextBox = new System.Windows.Forms.TextBox();
-            this.twoHourChildTextBox = new System.Windows.Forms.TextBox();
-            this.hourChildTextBox = new System.Windows.Forms.TextBox();
             this.adminAgePricePanel.SuspendLayout();
             this.adminGroupDiscountPanel.SuspendLayout();
             this.SuspendLayout();
@@ -101,7 +101,7 @@ namespace Recreation_center
             this.adminAgePricePanel.Controls.Add(this.fourHourChildTextBox);
             this.adminAgePricePanel.Controls.Add(this.wholeDayChildTextBox);
             this.adminAgePricePanel.Controls.Add(this.hourTeenTextBox);
-            this.adminAgePricePanel.Controls.Add(this.twoTeenAdultTextBox);
+            this.adminAgePricePanel.Controls.Add(this.twoHourTeenTextBox);
             this.adminAgePricePanel.Controls.Add(this.threeHourTeenTextBox);
             this.adminAgePricePanel.Controls.Add(this.fourHourTeenTextBox);
             this.adminAgePricePanel.Controls.Add(this.wholeDayTeenTextBox);
@@ -130,6 +130,177 @@ namespace Recreation_center
             this.adminAgePricePanel.Name = "adminAgePricePanel";
             this.adminAgePricePanel.Size = new System.Drawing.Size(675, 204);
             this.adminAgePricePanel.TabIndex = 3;
+            // 
+            // hourChildTextBox
+            // 
+            this.hourChildTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.hourChildTextBox.Location = new System.Drawing.Point(151, 61);
+            this.hourChildTextBox.Name = "hourChildTextBox";
+            this.hourChildTextBox.Size = new System.Drawing.Size(80, 23);
+            this.hourChildTextBox.TabIndex = 9;
+            // 
+            // twoHourChildTextBox
+            // 
+            this.twoHourChildTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.twoHourChildTextBox.Location = new System.Drawing.Point(256, 61);
+            this.twoHourChildTextBox.Name = "twoHourChildTextBox";
+            this.twoHourChildTextBox.Size = new System.Drawing.Size(80, 23);
+            this.twoHourChildTextBox.TabIndex = 9;
+            // 
+            // threeHourChildTextBox
+            // 
+            this.threeHourChildTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.threeHourChildTextBox.Location = new System.Drawing.Point(362, 61);
+            this.threeHourChildTextBox.Name = "threeHourChildTextBox";
+            this.threeHourChildTextBox.Size = new System.Drawing.Size(80, 23);
+            this.threeHourChildTextBox.TabIndex = 9;
+            // 
+            // fourHourChildTextBox
+            // 
+            this.fourHourChildTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.fourHourChildTextBox.Location = new System.Drawing.Point(469, 61);
+            this.fourHourChildTextBox.Name = "fourHourChildTextBox";
+            this.fourHourChildTextBox.Size = new System.Drawing.Size(80, 23);
+            this.fourHourChildTextBox.TabIndex = 9;
+            // 
+            // wholeDayChildTextBox
+            // 
+            this.wholeDayChildTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.wholeDayChildTextBox.Location = new System.Drawing.Point(571, 61);
+            this.wholeDayChildTextBox.Name = "wholeDayChildTextBox";
+            this.wholeDayChildTextBox.Size = new System.Drawing.Size(80, 23);
+            this.wholeDayChildTextBox.TabIndex = 9;
+            // 
+            // hourTeenTextBox
+            // 
+            this.hourTeenTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.hourTeenTextBox.Location = new System.Drawing.Point(151, 95);
+            this.hourTeenTextBox.Name = "hourTeenTextBox";
+            this.hourTeenTextBox.Size = new System.Drawing.Size(80, 23);
+            this.hourTeenTextBox.TabIndex = 9;
+            // 
+            // twoHourTeenTextBox
+            // 
+            this.twoHourTeenTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.twoHourTeenTextBox.Location = new System.Drawing.Point(256, 95);
+            this.twoHourTeenTextBox.Name = "twoHourTeenTextBox";
+            this.twoHourTeenTextBox.Size = new System.Drawing.Size(80, 23);
+            this.twoHourTeenTextBox.TabIndex = 9;
+            // 
+            // threeHourTeenTextBox
+            // 
+            this.threeHourTeenTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.threeHourTeenTextBox.Location = new System.Drawing.Point(362, 95);
+            this.threeHourTeenTextBox.Name = "threeHourTeenTextBox";
+            this.threeHourTeenTextBox.Size = new System.Drawing.Size(80, 23);
+            this.threeHourTeenTextBox.TabIndex = 9;
+            // 
+            // fourHourTeenTextBox
+            // 
+            this.fourHourTeenTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.fourHourTeenTextBox.Location = new System.Drawing.Point(469, 95);
+            this.fourHourTeenTextBox.Name = "fourHourTeenTextBox";
+            this.fourHourTeenTextBox.Size = new System.Drawing.Size(80, 23);
+            this.fourHourTeenTextBox.TabIndex = 9;
+            // 
+            // wholeDayTeenTextBox
+            // 
+            this.wholeDayTeenTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.wholeDayTeenTextBox.Location = new System.Drawing.Point(571, 95);
+            this.wholeDayTeenTextBox.Name = "wholeDayTeenTextBox";
+            this.wholeDayTeenTextBox.Size = new System.Drawing.Size(80, 23);
+            this.wholeDayTeenTextBox.TabIndex = 9;
+            // 
+            // hourAdultTextBox
+            // 
+            this.hourAdultTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.hourAdultTextBox.Location = new System.Drawing.Point(151, 129);
+            this.hourAdultTextBox.Name = "hourAdultTextBox";
+            this.hourAdultTextBox.Size = new System.Drawing.Size(80, 23);
+            this.hourAdultTextBox.TabIndex = 9;
+            // 
+            // twoHourAdultTextBox
+            // 
+            this.twoHourAdultTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.twoHourAdultTextBox.Location = new System.Drawing.Point(256, 129);
+            this.twoHourAdultTextBox.Name = "twoHourAdultTextBox";
+            this.twoHourAdultTextBox.Size = new System.Drawing.Size(80, 23);
+            this.twoHourAdultTextBox.TabIndex = 9;
+            // 
+            // threeHourAdultTextBox
+            // 
+            this.threeHourAdultTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.threeHourAdultTextBox.Location = new System.Drawing.Point(362, 129);
+            this.threeHourAdultTextBox.Name = "threeHourAdultTextBox";
+            this.threeHourAdultTextBox.Size = new System.Drawing.Size(80, 23);
+            this.threeHourAdultTextBox.TabIndex = 9;
+            // 
+            // fourHourAdultTextBox
+            // 
+            this.fourHourAdultTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.fourHourAdultTextBox.Location = new System.Drawing.Point(469, 129);
+            this.fourHourAdultTextBox.Name = "fourHourAdultTextBox";
+            this.fourHourAdultTextBox.Size = new System.Drawing.Size(80, 23);
+            this.fourHourAdultTextBox.TabIndex = 9;
+            // 
+            // wholeDayAdultTextBox
+            // 
+            this.wholeDayAdultTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.wholeDayAdultTextBox.Location = new System.Drawing.Point(571, 129);
+            this.wholeDayAdultTextBox.Name = "wholeDayAdultTextBox";
+            this.wholeDayAdultTextBox.Size = new System.Drawing.Size(80, 23);
+            this.wholeDayAdultTextBox.TabIndex = 9;
+            // 
+            // hourOldTextBox
+            // 
+            this.hourOldTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.hourOldTextBox.Location = new System.Drawing.Point(151, 163);
+            this.hourOldTextBox.Name = "hourOldTextBox";
+            this.hourOldTextBox.Size = new System.Drawing.Size(80, 23);
+            this.hourOldTextBox.TabIndex = 9;
+            // 
+            // twoHourOldTextBox
+            // 
+            this.twoHourOldTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.twoHourOldTextBox.Location = new System.Drawing.Point(256, 163);
+            this.twoHourOldTextBox.Name = "twoHourOldTextBox";
+            this.twoHourOldTextBox.Size = new System.Drawing.Size(80, 23);
+            this.twoHourOldTextBox.TabIndex = 9;
+            // 
+            // threeHourOldTextBox
+            // 
+            this.threeHourOldTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.threeHourOldTextBox.Location = new System.Drawing.Point(362, 163);
+            this.threeHourOldTextBox.Name = "threeHourOldTextBox";
+            this.threeHourOldTextBox.Size = new System.Drawing.Size(80, 23);
+            this.threeHourOldTextBox.TabIndex = 9;
+            // 
+            // fourHourOldTextBox
+            // 
+            this.fourHourOldTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.fourHourOldTextBox.Location = new System.Drawing.Point(469, 163);
+            this.fourHourOldTextBox.Name = "fourHourOldTextBox";
+            this.fourHourOldTextBox.Size = new System.Drawing.Size(80, 23);
+            this.fourHourOldTextBox.TabIndex = 9;
+            // 
+            // wholeDayOldTextBox
+            // 
+            this.wholeDayOldTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.wholeDayOldTextBox.Location = new System.Drawing.Point(571, 163);
+            this.wholeDayOldTextBox.Name = "wholeDayOldTextBox";
+            this.wholeDayOldTextBox.Size = new System.Drawing.Size(80, 23);
+            this.wholeDayOldTextBox.TabIndex = 9;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Modern No. 20", 16.2F);
+            this.label12.Location = new System.Drawing.Point(12, 159);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(88, 24);
+            this.label12.TabIndex = 8;
+            this.label12.Text = "Above 60";
             // 
             // labelAgeInfo4
             // 
@@ -256,7 +427,7 @@ namespace Recreation_center
             this.hourDiscountTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.hourDiscountTextBox.Location = new System.Drawing.Point(151, 62);
             this.hourDiscountTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.hourDiscountTextBox.MaxLength = 3;
+            this.hourDiscountTextBox.MaxLength = 2;
             this.hourDiscountTextBox.Name = "hourDiscountTextBox";
             this.hourDiscountTextBox.Size = new System.Drawing.Size(80, 23);
             this.hourDiscountTextBox.TabIndex = 66;
@@ -268,7 +439,7 @@ namespace Recreation_center
             this.twoHourDiscountTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.twoHourDiscountTextBox.Location = new System.Drawing.Point(256, 62);
             this.twoHourDiscountTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.twoHourDiscountTextBox.MaxLength = 3;
+            this.twoHourDiscountTextBox.MaxLength = 2;
             this.twoHourDiscountTextBox.Name = "twoHourDiscountTextBox";
             this.twoHourDiscountTextBox.Size = new System.Drawing.Size(80, 23);
             this.twoHourDiscountTextBox.TabIndex = 65;
@@ -280,7 +451,7 @@ namespace Recreation_center
             this.threeHoursDiscountTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.threeHoursDiscountTextBox.Location = new System.Drawing.Point(362, 62);
             this.threeHoursDiscountTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.threeHoursDiscountTextBox.MaxLength = 3;
+            this.threeHoursDiscountTextBox.MaxLength = 2;
             this.threeHoursDiscountTextBox.Name = "threeHoursDiscountTextBox";
             this.threeHoursDiscountTextBox.Size = new System.Drawing.Size(80, 23);
             this.threeHoursDiscountTextBox.TabIndex = 64;
@@ -292,7 +463,7 @@ namespace Recreation_center
             this.fourHoursDiscountTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.fourHoursDiscountTextBox.Location = new System.Drawing.Point(469, 62);
             this.fourHoursDiscountTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.fourHoursDiscountTextBox.MaxLength = 3;
+            this.fourHoursDiscountTextBox.MaxLength = 2;
             this.fourHoursDiscountTextBox.Name = "fourHoursDiscountTextBox";
             this.fourHoursDiscountTextBox.Size = new System.Drawing.Size(80, 23);
             this.fourHoursDiscountTextBox.TabIndex = 63;
@@ -304,7 +475,7 @@ namespace Recreation_center
             this.wholeDayDiscountTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.wholeDayDiscountTextBox.Location = new System.Drawing.Point(571, 62);
             this.wholeDayDiscountTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.wholeDayDiscountTextBox.MaxLength = 3;
+            this.wholeDayDiscountTextBox.MaxLength = 2;
             this.wholeDayDiscountTextBox.Name = "wholeDayDiscountTextBox";
             this.wholeDayDiscountTextBox.Size = new System.Drawing.Size(80, 23);
             this.wholeDayDiscountTextBox.TabIndex = 62;
@@ -437,177 +608,6 @@ namespace Recreation_center
             this.priceDayCmboBox.Text = "Select day...";
             this.priceDayCmboBox.SelectedIndexChanged += new System.EventHandler(this.daySelectionCmboBox_SelectedIndexChanged);
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Modern No. 20", 16.2F);
-            this.label12.Location = new System.Drawing.Point(12, 159);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(88, 24);
-            this.label12.TabIndex = 8;
-            this.label12.Text = "Above 60";
-            // 
-            // wholeDayOldTextBox
-            // 
-            this.wholeDayOldTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.wholeDayOldTextBox.Location = new System.Drawing.Point(571, 163);
-            this.wholeDayOldTextBox.Name = "wholeDayOldTextBox";
-            this.wholeDayOldTextBox.Size = new System.Drawing.Size(80, 23);
-            this.wholeDayOldTextBox.TabIndex = 9;
-            // 
-            // fourHourOldTextBox
-            // 
-            this.fourHourOldTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.fourHourOldTextBox.Location = new System.Drawing.Point(469, 163);
-            this.fourHourOldTextBox.Name = "fourHourOldTextBox";
-            this.fourHourOldTextBox.Size = new System.Drawing.Size(80, 23);
-            this.fourHourOldTextBox.TabIndex = 9;
-            // 
-            // threeHourOldTextBox
-            // 
-            this.threeHourOldTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.threeHourOldTextBox.Location = new System.Drawing.Point(362, 163);
-            this.threeHourOldTextBox.Name = "threeHourOldTextBox";
-            this.threeHourOldTextBox.Size = new System.Drawing.Size(80, 23);
-            this.threeHourOldTextBox.TabIndex = 9;
-            // 
-            // twoHourOldTextBox
-            // 
-            this.twoHourOldTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.twoHourOldTextBox.Location = new System.Drawing.Point(256, 163);
-            this.twoHourOldTextBox.Name = "twoHourOldTextBox";
-            this.twoHourOldTextBox.Size = new System.Drawing.Size(80, 23);
-            this.twoHourOldTextBox.TabIndex = 9;
-            // 
-            // hourOldTextBox
-            // 
-            this.hourOldTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.hourOldTextBox.Location = new System.Drawing.Point(151, 163);
-            this.hourOldTextBox.Name = "hourOldTextBox";
-            this.hourOldTextBox.Size = new System.Drawing.Size(80, 23);
-            this.hourOldTextBox.TabIndex = 9;
-            // 
-            // wholeDayAdultTextBox
-            // 
-            this.wholeDayAdultTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.wholeDayAdultTextBox.Location = new System.Drawing.Point(571, 129);
-            this.wholeDayAdultTextBox.Name = "wholeDayAdultTextBox";
-            this.wholeDayAdultTextBox.Size = new System.Drawing.Size(80, 23);
-            this.wholeDayAdultTextBox.TabIndex = 9;
-            // 
-            // fourHourAdultTextBox
-            // 
-            this.fourHourAdultTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.fourHourAdultTextBox.Location = new System.Drawing.Point(469, 129);
-            this.fourHourAdultTextBox.Name = "fourHourAdultTextBox";
-            this.fourHourAdultTextBox.Size = new System.Drawing.Size(80, 23);
-            this.fourHourAdultTextBox.TabIndex = 9;
-            // 
-            // threeHourAdultTextBox
-            // 
-            this.threeHourAdultTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.threeHourAdultTextBox.Location = new System.Drawing.Point(362, 129);
-            this.threeHourAdultTextBox.Name = "threeHourAdultTextBox";
-            this.threeHourAdultTextBox.Size = new System.Drawing.Size(80, 23);
-            this.threeHourAdultTextBox.TabIndex = 9;
-            // 
-            // twoHourAdultTextBox
-            // 
-            this.twoHourAdultTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.twoHourAdultTextBox.Location = new System.Drawing.Point(256, 129);
-            this.twoHourAdultTextBox.Name = "twoHourAdultTextBox";
-            this.twoHourAdultTextBox.Size = new System.Drawing.Size(80, 23);
-            this.twoHourAdultTextBox.TabIndex = 9;
-            // 
-            // hourAdultTextBox
-            // 
-            this.hourAdultTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.hourAdultTextBox.Location = new System.Drawing.Point(151, 129);
-            this.hourAdultTextBox.Name = "hourAdultTextBox";
-            this.hourAdultTextBox.Size = new System.Drawing.Size(80, 23);
-            this.hourAdultTextBox.TabIndex = 9;
-            // 
-            // wholeDayTeenTextBox
-            // 
-            this.wholeDayTeenTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.wholeDayTeenTextBox.Location = new System.Drawing.Point(571, 95);
-            this.wholeDayTeenTextBox.Name = "wholeDayTeenTextBox";
-            this.wholeDayTeenTextBox.Size = new System.Drawing.Size(80, 23);
-            this.wholeDayTeenTextBox.TabIndex = 9;
-            // 
-            // fourHourTeenTextBox
-            // 
-            this.fourHourTeenTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.fourHourTeenTextBox.Location = new System.Drawing.Point(469, 95);
-            this.fourHourTeenTextBox.Name = "fourHourTeenTextBox";
-            this.fourHourTeenTextBox.Size = new System.Drawing.Size(80, 23);
-            this.fourHourTeenTextBox.TabIndex = 9;
-            // 
-            // threeHourTeenTextBox
-            // 
-            this.threeHourTeenTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.threeHourTeenTextBox.Location = new System.Drawing.Point(362, 95);
-            this.threeHourTeenTextBox.Name = "threeHourTeenTextBox";
-            this.threeHourTeenTextBox.Size = new System.Drawing.Size(80, 23);
-            this.threeHourTeenTextBox.TabIndex = 9;
-            // 
-            // twoTeenAdultTextBox
-            // 
-            this.twoTeenAdultTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.twoTeenAdultTextBox.Location = new System.Drawing.Point(256, 95);
-            this.twoTeenAdultTextBox.Name = "twoTeenAdultTextBox";
-            this.twoTeenAdultTextBox.Size = new System.Drawing.Size(80, 23);
-            this.twoTeenAdultTextBox.TabIndex = 9;
-            // 
-            // hourTeenTextBox
-            // 
-            this.hourTeenTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.hourTeenTextBox.Location = new System.Drawing.Point(151, 95);
-            this.hourTeenTextBox.Name = "hourTeenTextBox";
-            this.hourTeenTextBox.Size = new System.Drawing.Size(80, 23);
-            this.hourTeenTextBox.TabIndex = 9;
-            // 
-            // wholeDayChildTextBox
-            // 
-            this.wholeDayChildTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.wholeDayChildTextBox.Location = new System.Drawing.Point(571, 61);
-            this.wholeDayChildTextBox.Name = "wholeDayChildTextBox";
-            this.wholeDayChildTextBox.Size = new System.Drawing.Size(80, 23);
-            this.wholeDayChildTextBox.TabIndex = 9;
-            // 
-            // fourHourChildTextBox
-            // 
-            this.fourHourChildTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.fourHourChildTextBox.Location = new System.Drawing.Point(469, 61);
-            this.fourHourChildTextBox.Name = "fourHourChildTextBox";
-            this.fourHourChildTextBox.Size = new System.Drawing.Size(80, 23);
-            this.fourHourChildTextBox.TabIndex = 9;
-            // 
-            // threeHourChildTextBox
-            // 
-            this.threeHourChildTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.threeHourChildTextBox.Location = new System.Drawing.Point(362, 61);
-            this.threeHourChildTextBox.Name = "threeHourChildTextBox";
-            this.threeHourChildTextBox.Size = new System.Drawing.Size(80, 23);
-            this.threeHourChildTextBox.TabIndex = 9;
-            // 
-            // twoHourChildTextBox
-            // 
-            this.twoHourChildTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.twoHourChildTextBox.Location = new System.Drawing.Point(256, 61);
-            this.twoHourChildTextBox.Name = "twoHourChildTextBox";
-            this.twoHourChildTextBox.Size = new System.Drawing.Size(80, 23);
-            this.twoHourChildTextBox.TabIndex = 9;
-            // 
-            // hourChildTextBox
-            // 
-            this.hourChildTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.hourChildTextBox.Location = new System.Drawing.Point(151, 61);
-            this.hourChildTextBox.Name = "hourChildTextBox";
-            this.hourChildTextBox.Size = new System.Drawing.Size(80, 23);
-            this.hourChildTextBox.TabIndex = 9;
-            // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -665,7 +665,7 @@ namespace Recreation_center
         private System.Windows.Forms.TextBox fourHourChildTextBox;
         private System.Windows.Forms.TextBox wholeDayChildTextBox;
         private System.Windows.Forms.TextBox hourTeenTextBox;
-        private System.Windows.Forms.TextBox twoTeenAdultTextBox;
+        private System.Windows.Forms.TextBox twoHourTeenTextBox;
         private System.Windows.Forms.TextBox threeHourTeenTextBox;
         private System.Windows.Forms.TextBox fourHourTeenTextBox;
         private System.Windows.Forms.TextBox wholeDayTeenTextBox;

@@ -30,6 +30,18 @@ namespace Recreation_center
         private void InitializeComponent()
         {
             this.panelTicketForm = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtBoxTotalPrice = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtBoxDiscount = new System.Windows.Forms.TextBox();
+            this.txtBoxGrandTotal = new System.Windows.Forms.TextBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.notGroupRadioBtn = new System.Windows.Forms.RadioButton();
+            this.isGroupRadioBtn = new System.Windows.Forms.RadioButton();
             this.ticketTable = new System.Windows.Forms.DataGridView();
             this.TicketNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ticketDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,11 +57,9 @@ namespace Recreation_center
             this.txtBoxInTime = new System.Windows.Forms.TextBox();
             this.txtBoxPrice = new System.Windows.Forms.TextBox();
             this.labelPrice = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
             this.labelOutTime = new System.Windows.Forms.Label();
-            this.labelInTime = new System.Windows.Forms.Label();
             this.labelGroup = new System.Windows.Forms.Label();
+            this.labelInTime = new System.Windows.Forms.Label();
             this.cmboBoxAge = new System.Windows.Forms.ComboBox();
             this.txtBoxAddress = new System.Windows.Forms.TextBox();
             this.labelAddress = new System.Windows.Forms.Label();
@@ -62,19 +72,9 @@ namespace Recreation_center
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.txtBoxTicketNo = new System.Windows.Forms.TextBox();
             this.btnSearchTicket = new System.Windows.Forms.Button();
-            this.isGroupRadioBtn = new System.Windows.Forms.RadioButton();
-            this.notGroupRadioBtn = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.panelTicketForm.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ticketTable)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketTable)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTicketForm
@@ -106,6 +106,163 @@ namespace Recreation_center
             this.panelTicketForm.Size = new System.Drawing.Size(680, 374);
             this.panelTicketForm.TabIndex = 2;
             // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdd.Enabled = false;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(565, 141);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(103, 25);
+            this.btnAdd.TabIndex = 19;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.txtBoxTotalPrice);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.txtBoxDiscount);
+            this.panel1.Controls.Add(this.txtBoxGrandTotal);
+            this.panel1.Controls.Add(this.btnSave);
+            this.panel1.Controls.Add(this.btnClear);
+            this.panel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel1.Location = new System.Drawing.Point(358, 183);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(312, 179);
+            this.panel1.TabIndex = 27;
+            // 
+            // txtBoxTotalPrice
+            // 
+            this.txtBoxTotalPrice.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtBoxTotalPrice.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxTotalPrice.Location = new System.Drawing.Point(151, 23);
+            this.txtBoxTotalPrice.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBoxTotalPrice.Name = "txtBoxTotalPrice";
+            this.txtBoxTotalPrice.ReadOnly = true;
+            this.txtBoxTotalPrice.Size = new System.Drawing.Size(159, 24);
+            this.txtBoxTotalPrice.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Modern No. 20", 16.2F);
+            this.label1.Location = new System.Drawing.Point(6, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 24);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Total Price";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Modern No. 20", 16.2F);
+            this.label2.Location = new System.Drawing.Point(4, 49);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(121, 24);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Discount (%)";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Modern No. 20", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 79);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(136, 25);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Grand Total";
+            // 
+            // txtBoxDiscount
+            // 
+            this.txtBoxDiscount.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtBoxDiscount.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxDiscount.Location = new System.Drawing.Point(151, 51);
+            this.txtBoxDiscount.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBoxDiscount.Name = "txtBoxDiscount";
+            this.txtBoxDiscount.ReadOnly = true;
+            this.txtBoxDiscount.Size = new System.Drawing.Size(159, 24);
+            this.txtBoxDiscount.TabIndex = 6;
+            // 
+            // txtBoxGrandTotal
+            // 
+            this.txtBoxGrandTotal.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtBoxGrandTotal.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxGrandTotal.Location = new System.Drawing.Point(150, 79);
+            this.txtBoxGrandTotal.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBoxGrandTotal.Name = "txtBoxGrandTotal";
+            this.txtBoxGrandTotal.ReadOnly = true;
+            this.txtBoxGrandTotal.Size = new System.Drawing.Size(160, 24);
+            this.txtBoxGrandTotal.TabIndex = 6;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold);
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(2, 113);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(308, 30);
+            this.btnSave.TabIndex = 18;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold);
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Location = new System.Drawing.Point(2, 147);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(308, 30);
+            this.btnClear.TabIndex = 17;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // notGroupRadioBtn
+            // 
+            this.notGroupRadioBtn.AutoSize = true;
+            this.notGroupRadioBtn.Checked = true;
+            this.notGroupRadioBtn.Font = new System.Drawing.Font("Modern No. 20", 14.25F);
+            this.notGroupRadioBtn.Location = new System.Drawing.Point(510, 141);
+            this.notGroupRadioBtn.Name = "notGroupRadioBtn";
+            this.notGroupRadioBtn.Size = new System.Drawing.Size(50, 25);
+            this.notGroupRadioBtn.TabIndex = 26;
+            this.notGroupRadioBtn.TabStop = true;
+            this.notGroupRadioBtn.Text = "No";
+            this.notGroupRadioBtn.UseVisualStyleBackColor = true;
+            this.notGroupRadioBtn.CheckedChanged += new System.EventHandler(this.notGroupRadioBtn_CheckedChanged);
+            // 
+            // isGroupRadioBtn
+            // 
+            this.isGroupRadioBtn.AutoSize = true;
+            this.isGroupRadioBtn.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.isGroupRadioBtn.Location = new System.Drawing.Point(446, 141);
+            this.isGroupRadioBtn.Name = "isGroupRadioBtn";
+            this.isGroupRadioBtn.Size = new System.Drawing.Size(57, 25);
+            this.isGroupRadioBtn.TabIndex = 25;
+            this.isGroupRadioBtn.Text = "Yes";
+            this.isGroupRadioBtn.UseVisualStyleBackColor = true;
+            this.isGroupRadioBtn.CheckedChanged += new System.EventHandler(this.isGroupRadioBtn_CheckedChanged);
+            // 
             // ticketTable
             // 
             this.ticketTable.AllowUserToAddRows = false;
@@ -126,7 +283,7 @@ namespace Recreation_center
             this.ticketTable.Location = new System.Drawing.Point(3, 183);
             this.ticketTable.Name = "ticketTable";
             this.ticketTable.ReadOnly = true;
-            this.ticketTable.Size = new System.Drawing.Size(378, 179);
+            this.ticketTable.Size = new System.Drawing.Size(311, 179);
             this.ticketTable.TabIndex = 24;
             // 
             // TicketNo
@@ -240,38 +397,6 @@ namespace Recreation_center
             this.labelPrice.TabIndex = 19;
             this.labelPrice.Text = "Price";
             // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold);
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(2, 113);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(281, 30);
-            this.btnSave.TabIndex = 18;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold);
-            this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(2, 147);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(281, 30);
-            this.btnClear.TabIndex = 17;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
             // labelOutTime
             // 
             this.labelOutTime.AutoSize = true;
@@ -283,17 +408,6 @@ namespace Recreation_center
             this.labelOutTime.TabIndex = 13;
             this.labelOutTime.Text = "Out Time";
             // 
-            // labelInTime
-            // 
-            this.labelInTime.AutoSize = true;
-            this.labelInTime.Font = new System.Drawing.Font("Modern No. 20", 16.2F);
-            this.labelInTime.Location = new System.Drawing.Point(354, 19);
-            this.labelInTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelInTime.Name = "labelInTime";
-            this.labelInTime.Size = new System.Drawing.Size(82, 24);
-            this.labelInTime.TabIndex = 11;
-            this.labelInTime.Text = "In Time";
-            // 
             // labelGroup
             // 
             this.labelGroup.AutoSize = true;
@@ -304,6 +418,17 @@ namespace Recreation_center
             this.labelGroup.Size = new System.Drawing.Size(66, 24);
             this.labelGroup.TabIndex = 9;
             this.labelGroup.Text = "Group";
+            // 
+            // labelInTime
+            // 
+            this.labelInTime.AutoSize = true;
+            this.labelInTime.Font = new System.Drawing.Font("Modern No. 20", 16.2F);
+            this.labelInTime.Location = new System.Drawing.Point(354, 19);
+            this.labelInTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelInTime.Name = "labelInTime";
+            this.labelInTime.Size = new System.Drawing.Size(82, 24);
+            this.labelInTime.TabIndex = 11;
+            this.labelInTime.Text = "In Time";
             // 
             // cmboBoxAge
             // 
@@ -324,7 +449,6 @@ namespace Recreation_center
             this.cmboBoxAge.Size = new System.Drawing.Size(220, 25);
             this.cmboBoxAge.TabIndex = 2;
             this.cmboBoxAge.Text = "Select age...";
-            this.cmboBoxAge.SelectedIndexChanged += new System.EventHandler(this.cmboBoxAge_SelectedIndexChanged);
             // 
             // txtBoxAddress
             // 
@@ -425,7 +549,6 @@ namespace Recreation_center
             this.dateTimePicker1.Size = new System.Drawing.Size(229, 25);
             this.dateTimePicker1.TabIndex = 4;
             this.dateTimePicker1.Value = new System.DateTime(2021, 12, 20, 15, 16, 0, 0);
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // txtBoxTicketNo
             // 
@@ -455,130 +578,6 @@ namespace Recreation_center
             this.btnSearchTicket.UseVisualStyleBackColor = false;
             this.btnSearchTicket.Click += new System.EventHandler(this.btnSearchTicket_Click);
             // 
-            // isGroupRadioBtn
-            // 
-            this.isGroupRadioBtn.AutoSize = true;
-            this.isGroupRadioBtn.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.isGroupRadioBtn.Location = new System.Drawing.Point(446, 141);
-            this.isGroupRadioBtn.Name = "isGroupRadioBtn";
-            this.isGroupRadioBtn.Size = new System.Drawing.Size(57, 25);
-            this.isGroupRadioBtn.TabIndex = 25;
-            this.isGroupRadioBtn.TabStop = true;
-            this.isGroupRadioBtn.Text = "Yes";
-            this.isGroupRadioBtn.UseVisualStyleBackColor = true;
-            this.isGroupRadioBtn.CheckedChanged += new System.EventHandler(this.isGroupRadioBtn_CheckedChanged);
-            // 
-            // notGroupRadioBtn
-            // 
-            this.notGroupRadioBtn.AutoSize = true;
-            this.notGroupRadioBtn.Font = new System.Drawing.Font("Modern No. 20", 14.25F);
-            this.notGroupRadioBtn.Location = new System.Drawing.Point(510, 141);
-            this.notGroupRadioBtn.Name = "notGroupRadioBtn";
-            this.notGroupRadioBtn.Size = new System.Drawing.Size(50, 25);
-            this.notGroupRadioBtn.TabIndex = 26;
-            this.notGroupRadioBtn.TabStop = true;
-            this.notGroupRadioBtn.Text = "No";
-            this.notGroupRadioBtn.UseVisualStyleBackColor = true;
-            this.notGroupRadioBtn.CheckedChanged += new System.EventHandler(this.notGroupRadioBtn_CheckedChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox1.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(151, 23);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(130, 24);
-            this.textBox1.TabIndex = 6;
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox2.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(151, 51);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(130, 24);
-            this.textBox2.TabIndex = 6;
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox3.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(150, 79);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(131, 24);
-            this.textBox3.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Modern No. 20", 16.2F);
-            this.label1.Location = new System.Drawing.Point(6, 21);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 24);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Total Price";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Modern No. 20", 16.2F);
-            this.label2.Location = new System.Drawing.Point(4, 49);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 24);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Discount (%)";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Modern No. 20", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 79);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(136, 25);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Grand Total";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.btnSave);
-            this.panel1.Controls.Add(this.btnClear);
-            this.panel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel1.Location = new System.Drawing.Point(387, 183);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(283, 179);
-            this.panel1.TabIndex = 27;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(565, 141);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(103, 25);
-            this.btnAdd.TabIndex = 19;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
             // TicketPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -594,9 +593,9 @@ namespace Recreation_center
             this.Size = new System.Drawing.Size(706, 483);
             this.panelTicketForm.ResumeLayout(false);
             this.panelTicketForm.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ticketTable)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -638,9 +637,9 @@ namespace Recreation_center
         private System.Windows.Forms.TextBox txtBoxName;
         private System.Windows.Forms.RadioButton notGroupRadioBtn;
         private System.Windows.Forms.RadioButton isGroupRadioBtn;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBoxGrandTotal;
+        private System.Windows.Forms.TextBox txtBoxDiscount;
+        private System.Windows.Forms.TextBox txtBoxTotalPrice;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
