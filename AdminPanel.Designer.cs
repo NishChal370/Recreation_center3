@@ -64,8 +64,8 @@ namespace Recreation_center
             this.adminGroupDiscountPanel = new System.Windows.Forms.Panel();
             this.hourDiscountTextBox = new System.Windows.Forms.TextBox();
             this.twoHourDiscountTextBox = new System.Windows.Forms.TextBox();
-            this.threeHoursDiscountTextBox = new System.Windows.Forms.TextBox();
-            this.fourHoursDiscountTextBox = new System.Windows.Forms.TextBox();
+            this.threeHourDiscountTextBox = new System.Windows.Forms.TextBox();
+            this.fourHourDiscountTextBox = new System.Windows.Forms.TextBox();
             this.wholeDayDiscountTextBox = new System.Windows.Forms.TextBox();
             this.discountLabel = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -138,6 +138,7 @@ namespace Recreation_center
             this.hourChildTextBox.Name = "hourChildTextBox";
             this.hourChildTextBox.Size = new System.Drawing.Size(80, 23);
             this.hourChildTextBox.TabIndex = 9;
+            this.hourChildTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hourChildTextBox_KeyPress);
             // 
             // twoHourChildTextBox
             // 
@@ -146,6 +147,7 @@ namespace Recreation_center
             this.twoHourChildTextBox.Name = "twoHourChildTextBox";
             this.twoHourChildTextBox.Size = new System.Drawing.Size(80, 23);
             this.twoHourChildTextBox.TabIndex = 9;
+            this.twoHourChildTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.twoHourChildTextBox_KeyPress);
             // 
             // threeHourChildTextBox
             // 
@@ -154,6 +156,7 @@ namespace Recreation_center
             this.threeHourChildTextBox.Name = "threeHourChildTextBox";
             this.threeHourChildTextBox.Size = new System.Drawing.Size(80, 23);
             this.threeHourChildTextBox.TabIndex = 9;
+            this.threeHourChildTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.threeHourChildTextBox_KeyPress);
             // 
             // fourHourChildTextBox
             // 
@@ -162,6 +165,7 @@ namespace Recreation_center
             this.fourHourChildTextBox.Name = "fourHourChildTextBox";
             this.fourHourChildTextBox.Size = new System.Drawing.Size(80, 23);
             this.fourHourChildTextBox.TabIndex = 9;
+            this.fourHourChildTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fourHourChildTextBox_KeyPress);
             // 
             // wholeDayChildTextBox
             // 
@@ -170,6 +174,7 @@ namespace Recreation_center
             this.wholeDayChildTextBox.Name = "wholeDayChildTextBox";
             this.wholeDayChildTextBox.Size = new System.Drawing.Size(80, 23);
             this.wholeDayChildTextBox.TabIndex = 9;
+            this.wholeDayChildTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.wholeDayChildTextBox_KeyPress);
             // 
             // hourTeenTextBox
             // 
@@ -178,6 +183,7 @@ namespace Recreation_center
             this.hourTeenTextBox.Name = "hourTeenTextBox";
             this.hourTeenTextBox.Size = new System.Drawing.Size(80, 23);
             this.hourTeenTextBox.TabIndex = 9;
+            this.hourTeenTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hourTeenTextBox_KeyPress);
             // 
             // twoHourTeenTextBox
             // 
@@ -186,6 +192,7 @@ namespace Recreation_center
             this.twoHourTeenTextBox.Name = "twoHourTeenTextBox";
             this.twoHourTeenTextBox.Size = new System.Drawing.Size(80, 23);
             this.twoHourTeenTextBox.TabIndex = 9;
+            this.twoHourTeenTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.twoHourTeenTextBox_KeyPress);
             // 
             // threeHourTeenTextBox
             // 
@@ -194,6 +201,7 @@ namespace Recreation_center
             this.threeHourTeenTextBox.Name = "threeHourTeenTextBox";
             this.threeHourTeenTextBox.Size = new System.Drawing.Size(80, 23);
             this.threeHourTeenTextBox.TabIndex = 9;
+            this.threeHourTeenTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.threeHourTeenTextBox_KeyPress);
             // 
             // fourHourTeenTextBox
             // 
@@ -202,6 +210,7 @@ namespace Recreation_center
             this.fourHourTeenTextBox.Name = "fourHourTeenTextBox";
             this.fourHourTeenTextBox.Size = new System.Drawing.Size(80, 23);
             this.fourHourTeenTextBox.TabIndex = 9;
+            this.fourHourTeenTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fourHourTeenTextBox_KeyPress);
             // 
             // wholeDayTeenTextBox
             // 
@@ -210,6 +219,7 @@ namespace Recreation_center
             this.wholeDayTeenTextBox.Name = "wholeDayTeenTextBox";
             this.wholeDayTeenTextBox.Size = new System.Drawing.Size(80, 23);
             this.wholeDayTeenTextBox.TabIndex = 9;
+            this.wholeDayTeenTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.wholeDayTeenTextBox_KeyPress);
             // 
             // hourAdultTextBox
             // 
@@ -218,6 +228,7 @@ namespace Recreation_center
             this.hourAdultTextBox.Name = "hourAdultTextBox";
             this.hourAdultTextBox.Size = new System.Drawing.Size(80, 23);
             this.hourAdultTextBox.TabIndex = 9;
+            this.hourAdultTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hourAdultTextBox_KeyPress);
             // 
             // twoHourAdultTextBox
             // 
@@ -226,6 +237,7 @@ namespace Recreation_center
             this.twoHourAdultTextBox.Name = "twoHourAdultTextBox";
             this.twoHourAdultTextBox.Size = new System.Drawing.Size(80, 23);
             this.twoHourAdultTextBox.TabIndex = 9;
+            this.twoHourAdultTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.twoHourAdultTextBox_KeyPress);
             // 
             // threeHourAdultTextBox
             // 
@@ -234,6 +246,7 @@ namespace Recreation_center
             this.threeHourAdultTextBox.Name = "threeHourAdultTextBox";
             this.threeHourAdultTextBox.Size = new System.Drawing.Size(80, 23);
             this.threeHourAdultTextBox.TabIndex = 9;
+            this.threeHourAdultTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.threeHourAdultTextBox_KeyPress);
             // 
             // fourHourAdultTextBox
             // 
@@ -242,6 +255,7 @@ namespace Recreation_center
             this.fourHourAdultTextBox.Name = "fourHourAdultTextBox";
             this.fourHourAdultTextBox.Size = new System.Drawing.Size(80, 23);
             this.fourHourAdultTextBox.TabIndex = 9;
+            this.fourHourAdultTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fourHourAdultTextBox_KeyPress);
             // 
             // wholeDayAdultTextBox
             // 
@@ -250,6 +264,7 @@ namespace Recreation_center
             this.wholeDayAdultTextBox.Name = "wholeDayAdultTextBox";
             this.wholeDayAdultTextBox.Size = new System.Drawing.Size(80, 23);
             this.wholeDayAdultTextBox.TabIndex = 9;
+            this.wholeDayAdultTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.wholeDayAdultTextBox_KeyPress);
             // 
             // hourOldTextBox
             // 
@@ -258,6 +273,7 @@ namespace Recreation_center
             this.hourOldTextBox.Name = "hourOldTextBox";
             this.hourOldTextBox.Size = new System.Drawing.Size(80, 23);
             this.hourOldTextBox.TabIndex = 9;
+            this.hourOldTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hourOldTextBox_KeyPress);
             // 
             // twoHourOldTextBox
             // 
@@ -266,6 +282,7 @@ namespace Recreation_center
             this.twoHourOldTextBox.Name = "twoHourOldTextBox";
             this.twoHourOldTextBox.Size = new System.Drawing.Size(80, 23);
             this.twoHourOldTextBox.TabIndex = 9;
+            this.twoHourOldTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.twoHourOldTextBox_KeyPress);
             // 
             // threeHourOldTextBox
             // 
@@ -274,6 +291,7 @@ namespace Recreation_center
             this.threeHourOldTextBox.Name = "threeHourOldTextBox";
             this.threeHourOldTextBox.Size = new System.Drawing.Size(80, 23);
             this.threeHourOldTextBox.TabIndex = 9;
+            this.threeHourOldTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.threeHourOldTextBox_KeyPress);
             // 
             // fourHourOldTextBox
             // 
@@ -282,6 +300,7 @@ namespace Recreation_center
             this.fourHourOldTextBox.Name = "fourHourOldTextBox";
             this.fourHourOldTextBox.Size = new System.Drawing.Size(80, 23);
             this.fourHourOldTextBox.TabIndex = 9;
+            this.fourHourOldTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fourHourOldTextBox_KeyPress);
             // 
             // wholeDayOldTextBox
             // 
@@ -290,6 +309,7 @@ namespace Recreation_center
             this.wholeDayOldTextBox.Name = "wholeDayOldTextBox";
             this.wholeDayOldTextBox.Size = new System.Drawing.Size(80, 23);
             this.wholeDayOldTextBox.TabIndex = 9;
+            this.wholeDayOldTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.wholeDayOldTextBox_KeyPress);
             // 
             // label12
             // 
@@ -406,8 +426,8 @@ namespace Recreation_center
             this.adminGroupDiscountPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.adminGroupDiscountPanel.Controls.Add(this.hourDiscountTextBox);
             this.adminGroupDiscountPanel.Controls.Add(this.twoHourDiscountTextBox);
-            this.adminGroupDiscountPanel.Controls.Add(this.threeHoursDiscountTextBox);
-            this.adminGroupDiscountPanel.Controls.Add(this.fourHoursDiscountTextBox);
+            this.adminGroupDiscountPanel.Controls.Add(this.threeHourDiscountTextBox);
+            this.adminGroupDiscountPanel.Controls.Add(this.fourHourDiscountTextBox);
             this.adminGroupDiscountPanel.Controls.Add(this.wholeDayDiscountTextBox);
             this.adminGroupDiscountPanel.Controls.Add(this.discountLabel);
             this.adminGroupDiscountPanel.Controls.Add(this.label11);
@@ -432,7 +452,7 @@ namespace Recreation_center
             this.hourDiscountTextBox.Size = new System.Drawing.Size(80, 23);
             this.hourDiscountTextBox.TabIndex = 66;
             this.hourDiscountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.hourDiscountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hourFiveGrupTextBox_KeyPress);
+            this.hourDiscountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hourDiscountTextBox_KeyPress);
             // 
             // twoHourDiscountTextBox
             // 
@@ -444,31 +464,31 @@ namespace Recreation_center
             this.twoHourDiscountTextBox.Size = new System.Drawing.Size(80, 23);
             this.twoHourDiscountTextBox.TabIndex = 65;
             this.twoHourDiscountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.twoHourDiscountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.twoHourFiveGrupTextBox_KeyPress);
+            this.twoHourDiscountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.twoHourDiscountTextBox_KeyPress);
             // 
-            // threeHoursDiscountTextBox
+            // threeHourDiscountTextBox
             // 
-            this.threeHoursDiscountTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.threeHoursDiscountTextBox.Location = new System.Drawing.Point(362, 62);
-            this.threeHoursDiscountTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.threeHoursDiscountTextBox.MaxLength = 2;
-            this.threeHoursDiscountTextBox.Name = "threeHoursDiscountTextBox";
-            this.threeHoursDiscountTextBox.Size = new System.Drawing.Size(80, 23);
-            this.threeHoursDiscountTextBox.TabIndex = 64;
-            this.threeHoursDiscountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.threeHoursDiscountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.threeHoursFiveGrupTextBox_KeyPress);
+            this.threeHourDiscountTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.threeHourDiscountTextBox.Location = new System.Drawing.Point(362, 62);
+            this.threeHourDiscountTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.threeHourDiscountTextBox.MaxLength = 2;
+            this.threeHourDiscountTextBox.Name = "threeHourDiscountTextBox";
+            this.threeHourDiscountTextBox.Size = new System.Drawing.Size(80, 23);
+            this.threeHourDiscountTextBox.TabIndex = 64;
+            this.threeHourDiscountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.threeHourDiscountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.threeHourDiscountTextBox_KeyPress);
             // 
-            // fourHoursDiscountTextBox
+            // fourHourDiscountTextBox
             // 
-            this.fourHoursDiscountTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.fourHoursDiscountTextBox.Location = new System.Drawing.Point(469, 62);
-            this.fourHoursDiscountTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.fourHoursDiscountTextBox.MaxLength = 2;
-            this.fourHoursDiscountTextBox.Name = "fourHoursDiscountTextBox";
-            this.fourHoursDiscountTextBox.Size = new System.Drawing.Size(80, 23);
-            this.fourHoursDiscountTextBox.TabIndex = 63;
-            this.fourHoursDiscountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.fourHoursDiscountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fourHoursFiveGrupTextBox_KeyPress);
+            this.fourHourDiscountTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.fourHourDiscountTextBox.Location = new System.Drawing.Point(469, 62);
+            this.fourHourDiscountTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.fourHourDiscountTextBox.MaxLength = 2;
+            this.fourHourDiscountTextBox.Name = "fourHourDiscountTextBox";
+            this.fourHourDiscountTextBox.Size = new System.Drawing.Size(80, 23);
+            this.fourHourDiscountTextBox.TabIndex = 63;
+            this.fourHourDiscountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.fourHourDiscountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fourHourDiscountTextBox_KeyPress);
             // 
             // wholeDayDiscountTextBox
             // 
@@ -480,7 +500,7 @@ namespace Recreation_center
             this.wholeDayDiscountTextBox.Size = new System.Drawing.Size(80, 23);
             this.wholeDayDiscountTextBox.TabIndex = 62;
             this.wholeDayDiscountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.wholeDayDiscountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.wholeDayFiveGrupTextBox_KeyPress);
+            this.wholeDayDiscountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.wholeDayDiscountTextBox_KeyPress);
             // 
             // discountLabel
             // 
@@ -652,8 +672,8 @@ namespace Recreation_center
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox hourDiscountTextBox;
         private System.Windows.Forms.TextBox twoHourDiscountTextBox;
-        private System.Windows.Forms.TextBox threeHoursDiscountTextBox;
-        private System.Windows.Forms.TextBox fourHoursDiscountTextBox;
+        private System.Windows.Forms.TextBox threeHourDiscountTextBox;
+        private System.Windows.Forms.TextBox fourHourDiscountTextBox;
         private System.Windows.Forms.TextBox wholeDayDiscountTextBox;
         private System.Windows.Forms.Label discountLabel;
         private System.Windows.Forms.Button btnSaveTicket;

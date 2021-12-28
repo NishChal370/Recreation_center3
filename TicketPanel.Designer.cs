@@ -543,7 +543,6 @@ namespace Recreation_center
             // dateTimePicker1
             // 
             this.dateTimePicker1.CalendarMonthBackground = System.Drawing.SystemColors.ControlLightLight;
-            this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Font = new System.Drawing.Font("Modern No. 20", 12F);
             this.dateTimePicker1.Location = new System.Drawing.Point(464, 59);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);

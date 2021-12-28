@@ -88,23 +88,14 @@ namespace Recreation_center
             }
             else
             {
-                /*if (isUserInputValid())
-                {
-                    Ticket newTicket = generateNewTicket();
-                    savedTicketNumber = newTicket.ticketID;
-
-                    Globals.myTicket.Add(newTicket);
-                }*/
                 Ticket newTicket = generateNewTicket();
                 savedTicketNumber = newTicket.ticketID;
 
                 Globals.myTicket.Add(newTicket);
             }
-            //if (savedTicketNumber != 0) { // if ticket is saved i.e. savedTicketNumbersavedTicketNumber savedTicketNumber > 0
-                Globals.writeToTextFile(Constants.TICKETFILENAME, JsonConvert.SerializeObject(Globals.myTicket));
-                MessageBox.Show("Ticket: " + savedTicketNumber + " Saved !! ", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-            
+
+            Globals.writeToTextFile(Constants.TICKETFILENAME, JsonConvert.SerializeObject(Globals.myTicket));
+            MessageBox.Show("Ticket: " + savedTicketNumber + " Saved !! ", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             resetFields("save");
             ticketTable.Rows.Clear();
@@ -264,9 +255,6 @@ namespace Recreation_center
 
                 int totalHrsCustomerStay = (int)(outTime - inTime).TotalHours + 1;
 
-                System.Diagnostics.Debug.WriteLine("time11 -> " + JsonConvert.SerializeObject(totalHrsCustomerStay));
-                System.Diagnostics.Debug.WriteLine("date12 -> " + JsonConvert.SerializeObject(ticket.date.Date.ToShortDateString()));
-                System.Diagnostics.Debug.WriteLine("date13 -> " + JsonConvert.SerializeObject(DateTime.Now.Date.ToShortDateString()));
                 int hourStayed = (totalHrsCustomerStay > 4 || totalHrsCustomerStay < 0 || ticket.date.Date.ToShortDateString() != DateTime.Now.Date.ToShortDateString())
                                     ? 4
                                     : totalHrsCustomerStay;
@@ -333,16 +321,12 @@ namespace Recreation_center
         {
             List<Dictionary<string, float>> prices;
             string[] agePrefix = { "Child", "Teen", "Adult", "Old" };
-            string[] timePrefix = { "hour", "twoHour", "threeHours", "fourHour", "wholeDay" };
+            string[] timePrefix = { "hour", "twoHour", "threeHour", "fourHour", "wholeDay" };
 
             prices = (isWeekDay(ticketDate))
                             ? Globals.weekDayPriceListG
                             : Globals.weekEndPriceListG;
-            MessageBox.Show(timePrefix[hourStayed] + agePrefix[ticketAge]);
-            System.Diagnostics.Debug.WriteLine("time1 -> " + JsonConvert.SerializeObject(hourStayed));
-            System.Diagnostics.Debug.WriteLine("age2 -> " + JsonConvert.SerializeObject(ticketAge));
-            System.Diagnostics.Debug.WriteLine("pricetime3 -> " + JsonConvert.SerializeObject(timePrefix[hourStayed] + agePrefix[ticketAge]));
-            System.Diagnostics.Debug.WriteLine("price4 -> " + JsonConvert.SerializeObject(prices[0]));
+
             float ticketprice = prices[0][timePrefix[hourStayed] + agePrefix[ticketAge]];
             float discount = (isGroup) 
                                 ? prices[1][timePrefix[hourStayed] + "Discount"] 
@@ -376,8 +360,6 @@ namespace Recreation_center
             return (todaysDay != "Sun" && todaysDay != "Sat");
         }
 
-
-
         private bool isUserInputValid()
         {
             string[] notValidatingList = {
@@ -387,7 +369,6 @@ namespace Recreation_center
                 "txtBoxAddress",
             };
 
-            // this changed
             foreach (Control control in panelTicketForm.Controls)
               {
                   if (control is TextBox)

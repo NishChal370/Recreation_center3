@@ -18,7 +18,6 @@ namespace Recreation_center
         public WeeklyReport()
         {
             InitializeComponent();
-			loadReportToChart();
 			sortByEarningRatioBtn.Checked = true;
 		}
 
@@ -40,7 +39,7 @@ namespace Recreation_center
 		//finding toal visitors a day in a week and total earning a day in a week.
 		private Dictionary<string, float[]> calculateWeeklyReport(Dictionary<string, float[]> weeklyReportList) {
 			
-			/*foreach (Ticket tk in Globals.myTicket)
+			foreach (Ticket tk in Globals.myTicket)
 			{
 				if (isBetweenStartAndEndDate(tk.date, selectedWeeklyReportDate.Value))
 				{
@@ -59,14 +58,14 @@ namespace Recreation_center
 					}
 				}
 
-			};*/
+			};
 
 			return weeklyReportList;
 		}
 
 		public void loadReportToChart() {
 
-			/*Dictionary<string, float[]> weeklyReportList = new Dictionary<string, float[]>();
+			Dictionary<string, float[]> weeklyReportList = new Dictionary<string, float[]>();
 
 			weeklyReportList =  calculateWeeklyReport(weeklyReportList);
 
@@ -83,7 +82,7 @@ namespace Recreation_center
 				weeklyReportChart.Series["TotalEarning"].Points.AddXY(Convert.ToDateTime(item.Key).ToString("dddd"), item.Value[1]);
 				// table
 				weeklyReportTable.Rows.Add(Convert.ToDateTime(item.Key).ToString("ddd, dd MMMM yyyy"), item.Value[0], item.Value[1]);
-			}*/
+			}
 		}
 
 		// it return true if the ticket date is between the user selected week.
@@ -133,9 +132,10 @@ namespace Recreation_center
 		}
 
 		private void calculateTotalEarningAndVisitors(Dictionary<string, float[]> weeklyReportList) {
-			float totalVisitorsOfWeek = 0;
 			float totalEarningOfWeek = 0;
-			foreach(KeyValuePair<string, float[]> data in weeklyReportList) {
+			float totalVisitorsOfWeek = 0;
+
+			foreach (KeyValuePair<string, float[]> data in weeklyReportList) {
 				totalEarningOfWeek += data.Value[1];
 				totalVisitorsOfWeek += data.Value[0];
 			}
