@@ -16,6 +16,7 @@ namespace Recreation_center
         public TicketPanel()
         {
             InitializeComponent();
+
             resetFields(""); // clear text field
             readTicketFile(); // reading tickets file
         }
@@ -24,10 +25,17 @@ namespace Recreation_center
         {
             if (btnSave.Text.ToString() == "Save")
             {
-                if (isUserInputValid())
+                if (groupTicketList.Count <= 0)
                 {
+                    if (isUserInputValid())
+                    {
+                        saveTicket();
+                    }
+                }
+                else {
                     saveTicket();
                 }
+                
             }
             else
             {
@@ -52,9 +60,25 @@ namespace Recreation_center
             }
         }
 
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            resetFields("clear"); // clear textfield
+            makeUserInputsReadOnly(false);
+            groupTicketList.Clear();
+            searchedTicketList.Clear();
+            txtBoxTicketNo.ResetText();
+
+        }
+
+        private void btnSearchTicket_Click(object sender, EventArgs e)
+        {
+            resetFields("clear");
+            searchTicket();
+        }
+
         private void saveTicket()
         {
-            int savedTicketNumber;
+            int savedTicketNumber = 0;
 
             if (groupTicketList.Count > 0)  // if save for group ticket
             {
@@ -64,15 +88,24 @@ namespace Recreation_center
             }
             else
             {
-                MessageBox.Show("NO GROUP");
+                /*if (isUserInputValid())
+                {
+                    Ticket newTicket = generateNewTicket();
+                    savedTicketNumber = newTicket.ticketID;
+
+                    Globals.myTicket.Add(newTicket);
+                }*/
                 Ticket newTicket = generateNewTicket();
                 savedTicketNumber = newTicket.ticketID;
+
                 Globals.myTicket.Add(newTicket);
             }
+            //if (savedTicketNumber != 0) { // if ticket is saved i.e. savedTicketNumbersavedTicketNumber savedTicketNumber > 0
+                Globals.writeToTextFile(Constants.TICKETFILENAME, JsonConvert.SerializeObject(Globals.myTicket));
+                MessageBox.Show("Ticket: " + savedTicketNumber + " Saved !! ", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            
 
-            //resetFields("save");
-            Globals.writeToTextFile(Constants.TICKETFILENAME, JsonConvert.SerializeObject(Globals.myTicket));
-            MessageBox.Show("Ticket: " + savedTicketNumber + " Saved !! ", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             resetFields("save");
             ticketTable.Rows.Clear();
         }
@@ -80,9 +113,9 @@ namespace Recreation_center
         private void addGroupTicket() {
 
             Ticket newTicket = generateNewTicket();
-
             groupTicketList.Add(newTicket);
             fillTicketTable(newTicket);
+
             resetFields("add");
             // allow user to add save group ticket only if group have more then 1 member
             if (groupTicketList.Count > 1)
@@ -96,7 +129,6 @@ namespace Recreation_center
                 notGroupRadioBtn.Enabled = false;
             }
 
-            
             MessageBox.Show("Ticket: " + newTicket.ticketID + " Added !! ", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -134,27 +166,14 @@ namespace Recreation_center
             return ticketId;
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            resetFields("clear"); // clear textfield
-            makeUserInputsReadOnly(false);
-            groupTicketList.Clear();
-            searchedTicketList.Clear();
-        }
-
-        private void btnSearchTicket_Click(object sender, EventArgs e)
-        {
-            resetFields("clear");
-            makeUserInputsReadOnly(false);
-            searchTicket();
-        }
-
         private void searchTicket() {
-            Regex ticketNumberRegex = new Regex(@"^[0-9]*$");
-            //->groupTicketList.Clear();  changed
-            searchedTicketList.Clear();
             ticketTable.Rows.Clear();
+            searchedTicketList.Clear();
+            makeUserInputsReadOnly(false);
+
             bool isSearchedTicketCheckedOut = false;
+            Regex ticketNumberRegex = new Regex(@"^[0-9]*$");
+            
             //search ticket
             if (txtBoxTicketNo.Text.ToString() != "")
             {
@@ -164,12 +183,12 @@ namespace Recreation_center
                     int ticketNumber = int.Parse(txtBoxTicketNo.Text);
                     
                     if (Globals.myTicket[Globals.myTicket.Count - 1].ticketID >= ticketNumber)
-                    {
-                        foreach (Ticket ticket in Globals.myTicket)
+                    {   
+                        //search ticket
+                        foreach (Ticket ticket in Globals.myTicket) 
                         {
                             if (ticket.ticketID == ticketNumber)
                             {
-                                //groupTicketList.Add(ticket); chnaged
                                 searchedTicketList.Add(ticket);
                                 fillTicketTable(ticket);
 
@@ -183,7 +202,8 @@ namespace Recreation_center
                             }
                             
                         }
-
+                        
+                        //calculating ticket price for checked out ticket
                         if (isSearchedTicketCheckedOut)
                         {
                             btnSave.Enabled = false;
@@ -199,17 +219,16 @@ namespace Recreation_center
                             txtBoxGrandTotal.Text = (totalPrice - (totalPrice * (searchedTicketList[0].discountedPercent / 100))).ToString();
                         }
 
-                        System.Diagnostics.Debug.WriteLine("TicketsLocal " + JsonConvert.SerializeObject(searchedTicketList));
                     }
                     else 
                     {
-                        MessageBox.Show("No ticket found 1!!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No ticket found !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
  
                 }
                 else
                 {
-                    MessageBox.Show("No ticket found 2!!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                    MessageBox.Show("No ticket found !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
                 }
             }
             else 
@@ -237,18 +256,21 @@ namespace Recreation_center
         private void checkoutTicket()
         {
             float totalPrice = 0;
-            float[] ticketPriceAndDiscount = null; // changed groupTicketList
+            float[] ticketPriceAndDiscount = null; 
             foreach (Ticket ticket in searchedTicketList) {
-                
+                // calculating total hrs stayed
                 DateTime inTime = Convert.ToDateTime(ticket.inTime);
                 DateTime outTime = DateTime.Now;
 
                 int totalHrsCustomerStay = (int)(outTime - inTime).TotalHours + 1;
 
-                int hourStayed = (totalHrsCustomerStay > 4 || totalHrsCustomerStay < 0)
+                System.Diagnostics.Debug.WriteLine("time11 -> " + JsonConvert.SerializeObject(totalHrsCustomerStay));
+                System.Diagnostics.Debug.WriteLine("date12 -> " + JsonConvert.SerializeObject(ticket.date.Date.ToShortDateString()));
+                System.Diagnostics.Debug.WriteLine("date13 -> " + JsonConvert.SerializeObject(DateTime.Now.Date.ToShortDateString()));
+                int hourStayed = (totalHrsCustomerStay > 4 || totalHrsCustomerStay < 0 || ticket.date.Date.ToShortDateString() != DateTime.Now.Date.ToShortDateString())
                                     ? 4
                                     : totalHrsCustomerStay;
-
+                // ticket price and discount
                 ticketPriceAndDiscount = findIndividualTicketPrice(hourStayed, ticket.date, ticket.age, ticket.isGroup);
 
                 totalPrice += ticketPriceAndDiscount[0];
@@ -262,41 +284,38 @@ namespace Recreation_center
             txtBoxDiscount.Text = ticketPriceAndDiscount[1].ToString();
             txtBoxGrandTotal.Text = (totalPrice - (totalPrice*(ticketPriceAndDiscount[1] /100))).ToString();
 
+            //update file after checked out
             Globals.writeToTextFile(Constants.TICKETFILENAME, JsonConvert.SerializeObject(Globals.myTicket));
-            //cheng here
-            ticketTable.Rows.Clear();
+
             btnSave.Enabled = false;
+            ticketTable.Rows.Clear();
+
+            // update table with updated data
             searchedTicketList.ForEach(ticket => {
                 fillTicketTable(ticket);
             });
-            
 
+            MessageBox.Show("Ticket checked out !!!", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         
         private void resetFields(string resetFor)
         {
-            //groupTicketList.Clear();
-            //searchedTicketList.Clear();
             txtBoxName.ResetText();
             txtBoxPhone.ResetText();
             cmboBoxAge.SelectedIndex = -1;
             cmboBoxAge.Text = "Select age....";
             txtBoxTotalPrice.ResetText();
             txtBoxDiscount.ResetText();
-            txtBoxGrandTotal.ResetText();
             txtBoxAddress.ResetText();
+            txtBoxGrandTotal.ResetText();
             txtBoxInTime.Text = DateTime.Now.ToShortTimeString();
-            MessageBox.Show("ALL CLEAR");
             if (resetFor == "clear") {
                 btnSave.Text = "Save";
-                MessageBox.Show("CLEAR");
                 btnSave.Enabled = true;
             }
 
             if (resetFor == "save" || resetFor == "clear")
             {
-                MessageBox.Show("SAVE ANF CLEAR");
-                //->txtBoxInTime.ResetText();
                 txtBoxOutTime.ResetText();
                 ticketTable.Rows.Clear();
                 isGroupRadioBtn.Enabled = true;
@@ -319,7 +338,11 @@ namespace Recreation_center
             prices = (isWeekDay(ticketDate))
                             ? Globals.weekDayPriceListG
                             : Globals.weekEndPriceListG;
-
+            MessageBox.Show(timePrefix[hourStayed] + agePrefix[ticketAge]);
+            System.Diagnostics.Debug.WriteLine("time1 -> " + JsonConvert.SerializeObject(hourStayed));
+            System.Diagnostics.Debug.WriteLine("age2 -> " + JsonConvert.SerializeObject(ticketAge));
+            System.Diagnostics.Debug.WriteLine("pricetime3 -> " + JsonConvert.SerializeObject(timePrefix[hourStayed] + agePrefix[ticketAge]));
+            System.Diagnostics.Debug.WriteLine("price4 -> " + JsonConvert.SerializeObject(prices[0]));
             float ticketprice = prices[0][timePrefix[hourStayed] + agePrefix[ticketAge]];
             float discount = (isGroup) 
                                 ? prices[1][timePrefix[hourStayed] + "Discount"] 
@@ -360,19 +383,66 @@ namespace Recreation_center
             string[] notValidatingList = {
                 "txtBoxPrice",
                 "txtBoxInTime", 
-                "txtBoxOutTime"    
+                "txtBoxOutTime",
+                "txtBoxAddress",
             };
-           
+
+            // this changed
+            foreach (Control control in panelTicketForm.Controls)
+              {
+                  if (control is TextBox)
+                  {
+                      if (!notValidatingList.Contains(control.Name))
+                      {
+                          if (string.IsNullOrEmpty(control.Text))
+                          {
+                              control.BackColor = System.Drawing.Color.LightPink;
+                              MessageBox.Show(control.Name.Substring(6) + " is Empty.", "Empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                              return false;
+                          }
+                          else
+                          {
+                              Regex phoneRegex = new Regex(@"^[9][0-9]{9}$");
+                              if (control.Name == "txtBoxPhone" && !phoneRegex.IsMatch(control.Text.ToString())) 
+                              {
+                                  control.BackColor = System.Drawing.Color.LightPink;
+                                  MessageBox.Show("Invalid Phone number !!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                                  return false;
+                              }
+                              else if (control.Name != "txtBoxPhone" && !control.Text.ToString().All(i => char.IsLetter(i) || char.IsWhiteSpace(i))) 
+                              {
+                                  control.BackColor = System.Drawing.Color.LightPink;
+                                  MessageBox.Show("Invalid " + control.Name.Substring(6) + " !!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                                  return false;
+                              }
+                          }
+
+                      }
+
+                  }
+              }
+
+              // comboBox validation
+              if (cmboBoxAge.SelectedIndex <= -1)
+              {
+                  cmboBoxAge.BackColor = System.Drawing.Color.LightPink;
+                  MessageBox.Show("Age or Group should be selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                  return false;
+              }
+              
+
             return true;
         }
 
         private void makeUserInputsReadOnly(bool trueOrFalse) 
         {
-            //this changed
             txtBoxName.ReadOnly = trueOrFalse;
             txtBoxPhone.ReadOnly = trueOrFalse;
             txtBoxAddress.ReadOnly = trueOrFalse;
-            //btnAdd.Enabled = !trueOrFalse;
             cmboBoxAge.Enabled = !trueOrFalse;
             dateTimePicker1.Enabled = !trueOrFalse;
             isGroupRadioBtn.Enabled = !trueOrFalse;
@@ -381,22 +451,22 @@ namespace Recreation_center
 
         private void txtBoxPhone_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //txtBoxPhone.BackColor = System.Drawing.Color.White;
+            txtBoxPhone.BackColor = System.Drawing.Color.White;
         }
 
         private void txtBoxName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //txtBoxName.BackColor = System.Drawing.Color.White;
+            txtBoxName.BackColor = System.Drawing.Color.White;
         }
 
         private void txtBoxAddress_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //txtBoxAddress.BackColor = System.Drawing.Color.White;
+            txtBoxAddress.BackColor = System.Drawing.Color.White;
         }
 
         private void txtBoxTicketNo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //txtBoxTicketNo.BackColor = System.Drawing.Color.White;
+            txtBoxTicketNo.BackColor = System.Drawing.Color.White;
         }
 
         private void isGroupRadioBtn_CheckedChanged(object sender, EventArgs e)
