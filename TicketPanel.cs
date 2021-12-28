@@ -202,7 +202,7 @@ namespace Recreation_center
                             }
                             
                         }
-                        
+                           
                         //calculating ticket price for checked out ticket
                         if (isSearchedTicketCheckedOut)
                         {
