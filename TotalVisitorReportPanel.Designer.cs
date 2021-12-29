@@ -135,7 +135,6 @@ namespace Recreation_center
             this.ageTable.AllowDrop = true;
             this.ageTable.AllowUserToAddRows = false;
             this.ageTable.AllowUserToDeleteRows = false;
-            this.ageTable.AllowUserToOrderColumns = true;
             this.ageTable.AllowUserToResizeColumns = false;
             this.ageTable.AllowUserToResizeRows = false;
             this.ageTable.BackgroundColor = System.Drawing.SystemColors.Control;

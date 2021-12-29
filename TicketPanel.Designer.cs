@@ -267,6 +267,8 @@ namespace Recreation_center
             // 
             this.ticketTable.AllowUserToAddRows = false;
             this.ticketTable.AllowUserToDeleteRows = false;
+            this.ticketTable.AllowUserToResizeColumns = false;
+            this.ticketTable.AllowUserToResizeRows = false;
             this.ticketTable.BackgroundColor = System.Drawing.SystemColors.Control;
             this.ticketTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ticketTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -286,7 +288,6 @@ namespace Recreation_center
             this.ticketTable.Size = new System.Drawing.Size(385, 179);
             this.ticketTable.TabIndex = 24;
             this.ticketTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ticketTable_CellClick);
-            //this.ticketTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ticketTable_CellContentClick);
             // 
             // TicketNo
             // 

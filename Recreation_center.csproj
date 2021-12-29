@@ -89,6 +89,12 @@
     <Compile Include="TotalVisitorReportPanel.Designer.cs">
       <DependentUpon>TotalVisitorReportPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="viewTicketPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="viewTicketPanel.Designer.cs">
+      <DependentUpon>viewTicketPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="WeeklyReport.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TotalVisitorReportPanel.resx">
       <DependentUpon>TotalVisitorReportPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewTicketPanel.resx">
+      <DependentUpon>viewTicketPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WeeklyReport.resx">
       <DependentUpon>WeeklyReport.cs</DependentUpon>

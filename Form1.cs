@@ -15,6 +15,7 @@ namespace Recreation_center
             adminPanel1.Visible = false;
             ticketPanel1.Visible = true;
             weeklyReport2.Visible = false;
+            viewTicketPanel1.Visible = false;
             totalVisitorReport1.Visible = false;
         }
 
@@ -23,6 +24,7 @@ namespace Recreation_center
             adminPanel1.Visible = true;
             ticketPanel1.Visible = false;
             weeklyReport2.Visible = false;
+            viewTicketPanel1.Visible = false;
             totalVisitorReport1.Visible = false;
         }
 
@@ -31,8 +33,9 @@ namespace Recreation_center
             adminPanel1.Visible = false;
             ticketPanel1.Visible = false;
             weeklyReport2.Visible = false;
+            viewTicketPanel1.Visible = false;
             totalVisitorReport1.Visible = true;
-
+            
             totalVisitorReport1.loadVisitorsInChart();
         }
 
@@ -41,9 +44,21 @@ namespace Recreation_center
             adminPanel1.Visible = false;
             ticketPanel1.Visible = false;
             weeklyReport2.Visible = true;
+            viewTicketPanel1.Visible = false;
             totalVisitorReport1.Visible = false;
-
+            
             weeklyReport2.loadReportToChart();
+        }
+
+        private void btnViewTicket_Click(object sender, EventArgs e)
+        {
+            adminPanel1.Visible = false;
+            ticketPanel1.Visible = false;
+            weeklyReport2.Visible = false;
+            totalVisitorReport1.Visible = false;
+            viewTicketPanel1.Visible = true;
+
+            viewTicketPanel1.fillTicketTable();
         }
     }
 }

@@ -39,10 +39,12 @@ namespace Recreation_center
             this.btnAdmin = new System.Windows.Forms.Button();
             this.btnTicket = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnViewTicket = new System.Windows.Forms.Button();
             this.ticketPanel1 = new Recreation_center.TicketPanel();
             this.adminPanel1 = new Recreation_center.AdminPanel();
             this.totalVisitorReport1 = new Recreation_center.TotalVisitorReportPanel();
             this.weeklyReport2 = new Recreation_center.WeeklyReport();
+            this.viewTicketPanel1 = new Recreation_center.viewTicketPanel();
             this.weeklyReport1 = new Recreation_center.WeeklyReport();
             this.topNavPanel.SuspendLayout();
             this.sideNavPanel.SuspendLayout();
@@ -103,7 +105,7 @@ namespace Recreation_center
             this.btnWeekReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWeekReport.Font = new System.Drawing.Font("Modern No. 20", 13.8F);
             this.btnWeekReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnWeekReport.Location = new System.Drawing.Point(0, 262);
+            this.btnWeekReport.Location = new System.Drawing.Point(2, 261);
             this.btnWeekReport.Margin = new System.Windows.Forms.Padding(2);
             this.btnWeekReport.Name = "btnWeekReport";
             this.btnWeekReport.Size = new System.Drawing.Size(127, 37);
@@ -177,6 +179,24 @@ namespace Recreation_center
             this.label2.TabIndex = 1;
             this.label2.Text = "Developed by Nischal";
             // 
+            // btnViewTicket
+            // 
+            this.btnViewTicket.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnViewTicket.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnViewTicket.FlatAppearance.BorderSize = 0;
+            this.btnViewTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewTicket.Font = new System.Drawing.Font("Modern No. 20", 13.8F);
+            this.btnViewTicket.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnViewTicket.Location = new System.Drawing.Point(0, 382);
+            this.btnViewTicket.Margin = new System.Windows.Forms.Padding(2);
+            this.btnViewTicket.Name = "btnViewTicket";
+            this.btnViewTicket.Size = new System.Drawing.Size(127, 37);
+            this.btnViewTicket.TabIndex = 5;
+            this.btnViewTicket.Text = "View Ticket";
+            this.btnViewTicket.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnViewTicket.UseVisualStyleBackColor = false;
+            this.btnViewTicket.Click += new System.EventHandler(this.btnViewTicket_Click);
+            // 
             // ticketPanel1
             // 
             this.ticketPanel1.BackColor = System.Drawing.Color.Snow;
@@ -211,6 +231,13 @@ namespace Recreation_center
             this.weeklyReport2.Size = new System.Drawing.Size(756, 502);
             this.weeklyReport2.TabIndex = 5;
             // 
+            // viewTicketPanel1
+            // 
+            this.viewTicketPanel1.Location = new System.Drawing.Point(127, 70);
+            this.viewTicketPanel1.Name = "viewTicketPanel1";
+            this.viewTicketPanel1.Size = new System.Drawing.Size(756, 501);
+            this.viewTicketPanel1.TabIndex = 7;
+            // 
             // weeklyReport1
             // 
             this.weeklyReport1.BackColor = System.Drawing.Color.Snow;
@@ -224,6 +251,7 @@ namespace Recreation_center
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 571);
+            this.Controls.Add(this.btnViewTicket);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ticketPanel1);
             this.Controls.Add(this.adminPanel1);
@@ -231,6 +259,8 @@ namespace Recreation_center
             this.Controls.Add(this.topNavPanel);
             this.Controls.Add(this.totalVisitorReport1);
             this.Controls.Add(this.weeklyReport2);
+            this.Controls.Add(this.viewTicketPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -260,6 +290,8 @@ namespace Recreation_center
         private TotalVisitorReportPanel totalVisitorReport1;
         private AdminPanel adminPanel1;
         private TicketPanel ticketPanel1;
+        private viewTicketPanel viewTicketPanel1;
+        private System.Windows.Forms.Button btnViewTicket;
     }
 }
 

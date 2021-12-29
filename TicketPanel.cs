@@ -16,40 +16,41 @@ namespace Recreation_center
         public TicketPanel()
         {
             InitializeComponent();
-
+            
             resetFields(""); // clear text field
             readTicketFile(); // reading tickets file
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            
             if (btnSave.Text.ToString() == "Save")
-            {
-                if (groupTicketList.Count <= 0)
-                {
-                    if (isUserInputValid())
-                    {
-                        saveTicket();
-                    }
-                }
-                else {
-                    saveTicket();
-                }
-                
-            }
-            else
-            {
-                if (Globals.weekDayPriceListG.Count > 0 && Globals.weekEndPriceListG.Count > 0)
-                {
-                    checkoutTicket();
-                }
-                else 
-                {
-                    MessageBox.Show("Price is not set by admin!! ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+             {
+                 if (groupTicketList.Count <= 0)
+                 {
+                     if (isUserInputValid())
+                     {
+                         saveTicket();
+                     }
+                 }
+                 else {
+                     saveTicket();
+                 }
 
-            }
+             }
+             else
+             {
+                 if (Globals.weekDayPriceListG.Count > 0 && Globals.weekEndPriceListG.Count > 0)
+                 {
+                     checkoutTicket();
+                 }
+                 else 
+                 {
+                     MessageBox.Show("Price is not set by admin!! ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                 }
 
+             }
+            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
