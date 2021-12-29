@@ -36,40 +36,13 @@ namespace Recreation_center
 			loadReportToChart();
 		}
 
-		//finding toal visitors a day in a week and total earning a day in a week.
-		private Dictionary<string, float[]> calculateWeeklyReport(Dictionary<string, float[]> weeklyReportList) {
-			
-			foreach (Ticket tk in Globals.myTicket)
-			{
-				if (isBetweenStartAndEndDate(tk.date, selectedWeeklyReportDate.Value))
-				{
-					string ticketDate = tk.date.ToString("MM/dd/yyyy");
-					if (weeklyReportList.ContainsKey(ticketDate))
-					{
-						//@ 0 index for  total visitors.
-						//@ 1 index for total earning.
-						weeklyReportList[ticketDate][0] = weeklyReportList[ticketDate][0] + 1;
-						weeklyReportList[ticketDate][1] = weeklyReportList[ticketDate][1] + tk.price;
-					}
-					else
-					{
-						float[] totalVisitorsAndEarning = { 1, tk.price };
-						weeklyReportList.Add(ticketDate, totalVisitorsAndEarning);
-					}
-				}
-
-			};
-
-			return weeklyReportList;
-		}
-
 		public void loadReportToChart() {
-
+			//@ weeklyReportList {"Date":[totalvisitors, totalEarning]}
 			Dictionary<string, float[]> weeklyReportList = new Dictionary<string, float[]>();
 
-			weeklyReportList =  calculateWeeklyReport(weeklyReportList);
+			weeklyReportList = findEachDayEarningAndVisitor(weeklyReportList);
 
-			calculateTotalEarningAndVisitors(weeklyReportList);
+			calcTotalEarningAndVisitorsOfWeek(weeklyReportList);
 
 			//load weekly report to chart and table
 			weeklyReportTable.Rows.Clear();
@@ -85,8 +58,93 @@ namespace Recreation_center
 			}
 		}
 
+		//finding toal visitors a day in a week and total earning a day in a week.
+		private Dictionary<string, float[]> findEachDayEarningAndVisitor(Dictionary<string, float[]> weeklyReportList)
+		{									
+			string ticketDate = "";
+			float totalPrice = 0;
+			float discountPercent = 0;
+			bool isSelectedDate = false;
+			//@ TicketGroupList :   [ [{G1}], [{G2}, {G2}, {G2}}] ,[{G3}] ]
+			List<List<Ticket>> ticketGroupList = new List<List<Ticket>>();
+
+			groupTicketByID(ticketGroupList);
+
+			foreach (var ticketSubGroup in ticketGroupList)
+			{
+				// calculate total price of ticketGroup and discount %
+				foreach (Ticket ticket in ticketSubGroup)
+				{
+					if (isBetweenStartAndEndDate(ticket.date, weklyDatePicker.Value))
+					{
+						discountPercent = ticket.discountedPercent;
+						totalPrice += ticket.price;
+						isSelectedDate = true;
+						ticketDate = ticket.date.ToShortDateString();
+					}
+
+				}
+
+				// isBetweenStartAndEndDate
+				if (isSelectedDate) 
+				{
+					float discountedAmt = totalPrice - (totalPrice * (discountPercent / 100));
+					totalPrice = 0;
+					isSelectedDate = false;
+					if (weeklyReportList.ContainsKey(ticketDate))
+					{
+						//@ weeklyReportList[ticketDaate][0]  total visitor of that week
+						//@ weeklyReportList[ticketDaate][1] total earning of that week
+						weeklyReportList[ticketDate][0] = weeklyReportList[ticketDate][0] + ticketSubGroup.Count();
+						weeklyReportList[ticketDate][1] = weeklyReportList[ticketDate][1] + discountedAmt;
+					}
+					else
+					{
+						float[] totalVisitorsAndEarning = { ticketSubGroup.Count(), discountedAmt };
+						weeklyReportList.Add(ticketDate, totalVisitorsAndEarning);
+					}
+				}
+
+			}
+			
+			return weeklyReportList;
+		}
+
+		//Grouping or seperating ticket in subList accounting to their group i.e ticketID
+		private void groupTicketByID(List<List<Ticket>> ticketGroupList) {
+
+			int count = -1;
+			List<Ticket> subGroupList = new List<Ticket>();
+			
+			foreach (Ticket tk in Globals.myTicket)
+			{
+				if (count < Globals.myTicket.Count - 1)
+				{
+					count++;
+				}
+
+				subGroupList.Add(tk);
+
+				if (count  < Globals.myTicket.Count-1)
+				{
+					if (Globals.myTicket[count + 1].ticketID != tk.ticketID)
+					{
+						ticketGroupList.Add(subGroupList);
+						subGroupList = new List<Ticket>();
+					}
+				}
+
+				if (count + 1 == Globals.myTicket.Count) // for last ticket group
+				{
+					ticketGroupList.Add(subGroupList);
+				}
+
+			}
+
+		}
+
 		// it return true if the ticket date is between the user selected week.
-        private bool isBetweenStartAndEndDate(DateTime ticketDate, DateTime selectedDate) {
+		private bool isBetweenStartAndEndDate(DateTime ticketDate, DateTime selectedDate) {
 
 			int year = selectedDate.Date.Year;
 			//set the first day of the year
@@ -103,6 +161,7 @@ namespace Recreation_center
 
 			return (startDateOfWeek <= ticketDate) & (endDateOfWeek >= ticketDate);
 		}
+
 
 		//converts dictionary into list and bubble sort according to sortBy param
 		private Dictionary<string, float[]> sortReport(Dictionary<string, float[]> weeklyReportDict)
@@ -131,10 +190,10 @@ namespace Recreation_center
 			return weeklyReportList.ToDictionary(x => x.Key, x => x.Value); // converting list int dictionary
 		}
 
-		private void calculateTotalEarningAndVisitors(Dictionary<string, float[]> weeklyReportList) {
+		private void calcTotalEarningAndVisitorsOfWeek(Dictionary<string, float[]> weeklyReportList) {
 			float totalEarningOfWeek = 0;
 			float totalVisitorsOfWeek = 0;
-
+			
 			foreach (KeyValuePair<string, float[]> data in weeklyReportList) {
 				totalEarningOfWeek += data.Value[1];
 				totalVisitorsOfWeek += data.Value[0];
@@ -146,3 +205,88 @@ namespace Recreation_center
         
     }
 }
+
+
+
+/**
+ else {
+							if (beforeWasGroup) {
+								beforeWasGroup = false;
+								System.Diagnostics.Debug.WriteLine("-----------------Break-----------------------");
+							}
+							System.Diagnostics.Debug.WriteLine("Tickets->  " + JsonConvert.SerializeObject("ID: " + tk.ticketID + "Price: " + tk.price));
+						}
+*/
+
+/*				if (Globals.myTicket[globalTicketIndex].ticketID != tk.ticketID)
+				{
+					list.Add(newList);
+					newList.Clear();
+					System.Diagnostics.Debug.WriteLine("--break--");
+				}
+				*/
+
+
+
+//->>>>
+/*				if (globalTicketIndex + 1 == Globals.myTicket.Count)
+				{
+					System.Diagnostics.Debug.WriteLine("END: ");
+				}*/
+
+
+
+// from cal
+/*
+ foreach (Ticket tk in Globals.myTicket)
+			{
+
+				if (isBetweenStartAndEndDate(tk.date, selectedWeeklyReportDate.Value))
+				{
+					string ticketDate = tk.date.ToString("MM/dd/yyyy");
+					if (weeklyReportList.ContainsKey(ticketDate))
+					{
+						//@ 0 index for  total visitors.
+						//@ 1 index for total earning.
+
+						/*if (tk.isGroup)
+						{
+							beforeWasGroup = true;
+							if (tk.ticketID != tik)
+							{
+								System.Diagnostics.Debug.WriteLine("-----------------NEW GROUP-----------------------");
+								tik = tk.ticketID;
+								isSameGroup = false;
+							}
+							else
+							{
+								isSameGroup = true;
+							}
+							totalPrice += tk.price;
+							System.Diagnostics.Debug.WriteLine("Group->  " + JsonConvert.SerializeObject("ID: " + tk.ticketID + "Price: " + tk.price));
+						}
+						else {
+							if (beforeWasGroup)
+							{
+								beforeWasGroup = false;
+								System.Diagnostics.Debug.WriteLine("TOTAL: " + totalPrice);
+								totalPrice = 0;
+								System.Diagnostics.Debug.WriteLine("-----------------Break-----------------------");
+
+							}
+						}
+						
+						*/
+						// this is
+						/*weeklyReportList[ticketDate][0] = weeklyReportList[ticketDate][0] + 1;
+						weeklyReportList[ticketDate][1] = weeklyReportList[ticketDate][1] + tk.price;*/
+/*					}
+					else
+{// this is
+	/*float[] totalVisitorsAndEarning = { 1, tk.price };
+	weeklyReportList.Add(ticketDate, totalVisitorsAndEarning);*/
+//}
+//				}
+
+//			};
+//*/

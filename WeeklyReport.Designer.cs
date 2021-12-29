@@ -29,13 +29,13 @@ namespace Recreation_center
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.labelWeeklyReportTitle = new System.Windows.Forms.Label();
             this.weeklyReportChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.selectedWeeklyReportDate = new System.Windows.Forms.DateTimePicker();
+            this.weklyDatePicker = new System.Windows.Forms.DateTimePicker();
             this.weeklyReportTable = new System.Windows.Forms.DataGridView();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalVisitors = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,32 +63,32 @@ namespace Recreation_center
             // 
             // weeklyReportChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.weeklyReportChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.weeklyReportChart.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.weeklyReportChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.weeklyReportChart.Legends.Add(legend1);
             this.weeklyReportChart.Location = new System.Drawing.Point(21, 125);
             this.weeklyReportChart.Name = "weeklyReportChart";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "TotalVisitor";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "TotalEarning";
-            this.weeklyReportChart.Series.Add(series3);
-            this.weeklyReportChart.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "TotalVisitor";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "TotalEarning";
+            this.weeklyReportChart.Series.Add(series1);
+            this.weeklyReportChart.Series.Add(series2);
             this.weeklyReportChart.Size = new System.Drawing.Size(330, 323);
             this.weeklyReportChart.TabIndex = 4;
             this.weeklyReportChart.Text = "chart1";
             // 
-            // selectedWeeklyReportDate
+            // weklyDatePicker
             // 
-            this.selectedWeeklyReportDate.Font = new System.Drawing.Font("Modern No. 20", 12F);
-            this.selectedWeeklyReportDate.Location = new System.Drawing.Point(447, 71);
-            this.selectedWeeklyReportDate.Name = "selectedWeeklyReportDate";
-            this.selectedWeeklyReportDate.Size = new System.Drawing.Size(240, 25);
-            this.selectedWeeklyReportDate.TabIndex = 5;
-            this.selectedWeeklyReportDate.ValueChanged += new System.EventHandler(this.selectedWeeklyReportDate_ValueChanged);
+            this.weklyDatePicker.Font = new System.Drawing.Font("Modern No. 20", 12F);
+            this.weklyDatePicker.Location = new System.Drawing.Point(447, 71);
+            this.weklyDatePicker.Name = "weklyDatePicker";
+            this.weklyDatePicker.Size = new System.Drawing.Size(240, 25);
+            this.weklyDatePicker.TabIndex = 5;
+            this.weklyDatePicker.ValueChanged += new System.EventHandler(this.selectedWeeklyReportDate_ValueChanged);
             // 
             // weeklyReportTable
             // 
@@ -205,7 +205,7 @@ namespace Recreation_center
             this.Controls.Add(this.sortByEarningRatioBtn);
             this.Controls.Add(this.sortByVisitorsRadioBtn);
             this.Controls.Add(this.weeklyReportTable);
-            this.Controls.Add(this.selectedWeeklyReportDate);
+            this.Controls.Add(this.weklyDatePicker);
             this.Controls.Add(this.weeklyReportChart);
             this.Controls.Add(this.labelWeeklyReportTitle);
             this.Name = "WeeklyReport";
@@ -221,7 +221,7 @@ namespace Recreation_center
 
         private System.Windows.Forms.Label labelWeeklyReportTitle;
         private System.Windows.Forms.DataVisualization.Charting.Chart weeklyReportChart;
-        private System.Windows.Forms.DateTimePicker selectedWeeklyReportDate;
+        private System.Windows.Forms.DateTimePicker weklyDatePicker;
         private System.Windows.Forms.DataGridView weeklyReportTable;
         private System.Windows.Forms.RadioButton sortByVisitorsRadioBtn;
         private System.Windows.Forms.RadioButton sortByEarningRatioBtn;

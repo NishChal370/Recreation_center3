@@ -40,7 +40,7 @@ namespace Recreation_center
             }
 
             // add group cateogary in aDayGroupCateogTotalListn dictonary
-            string[] groupCateogary = { "0-5", "5-10", "10-15", "Above-15" };
+            string[] groupCateogary = { "2-5", "5-10", "10-15", "Above-15" };
             foreach (string group in groupCateogary)
             {
                 aDayGroupCateogTotalList.Add(group, 0);
@@ -49,20 +49,20 @@ namespace Recreation_center
             // calculated total visitors according to group cateogary
             foreach ( KeyValuePair<int, int> item in aDayGroupVisitorList )
             {
-                if (item.Value < 5) 
+                if (item.Value < 5) //"2-5"
                 {
-                    aDayGroupCateogTotalList["0-5"] = aDayGroupCateogTotalList["0-5"] + item.Value;
+                    aDayGroupCateogTotalList[groupCateogary[0]] = aDayGroupCateogTotalList[groupCateogary[0]] + item.Value;
                 }
-                else if (item.Value < 10) {
-                    aDayGroupCateogTotalList["5-10"] = aDayGroupCateogTotalList["5-10"] + item.Value;
+                else if (item.Value < 10) { //"5-10"
+                    aDayGroupCateogTotalList[groupCateogary[1]] = aDayGroupCateogTotalList[groupCateogary[1]] + item.Value;
                 }
-                else if (item.Value < 15)
+                else if (item.Value < 15)//"10-15"
                 {
-                    aDayGroupCateogTotalList["10-15"] = aDayGroupCateogTotalList["10-15"] + item.Value;
+                    aDayGroupCateogTotalList[groupCateogary[2]] = aDayGroupCateogTotalList[groupCateogary[2]] + item.Value;
                 }
-                else if (item.Value > 15)
+                else if (item.Value > 15) //"Above-15"
                 {
-                    aDayGroupCateogTotalList["Above-15"] = aDayGroupCateogTotalList["Above-15"] + item.Value;
+                    aDayGroupCateogTotalList[groupCateogary[3]] = aDayGroupCateogTotalList[groupCateogary[3]] + item.Value;
                 }
             }
 
@@ -90,7 +90,7 @@ namespace Recreation_center
                 if (selectedReportDate.Value.ToShortDateString() == ticket.date.ToShortDateString())
                 {
                     // for group
-                    if (ticket.isGroup) {
+                    if (ticket.isGroup) { // aDayGroupVisitorList : [ID, "totalNum"]
                         if (aDayGroupVisitorList.ContainsKey(ticket.ticketID))
                         {
                             aDayGroupVisitorList[ticket.ticketID] = aDayGroupVisitorList[ticket.ticketID] + 1;
@@ -112,16 +112,17 @@ namespace Recreation_center
                     }
                 }
             }
-
+            
         }
 
         // convert dictionary into list, bubble sort the list and return list by converting into dictionary
         private Dictionary<string, int> sortTicketVisitorsReportList(Dictionary<string, int> aDayCategoryVisitorDict)
         {
+            
             List<KeyValuePair<string, int>> aDayCategoryVisitorList = aDayCategoryVisitorDict.ToList();
             //bubble sort 
            for (int i = aDayCategoryVisitorList.Count - 1; i > 0; i--)
-            {
+           {
                 for (int j = 0; j <= i - 1; j++)
                 {
                     if (aDayCategoryVisitorList[j].Value > aDayCategoryVisitorList[j + 1].Value)
@@ -131,7 +132,7 @@ namespace Recreation_center
                         aDayCategoryVisitorList[j + 1] = temp;
                     }
                 }
-            }
+           }
 
             return aDayCategoryVisitorList.ToDictionary(x => x.Key, x => x.Value);
         }
