@@ -38,11 +38,12 @@ namespace Recreation_center
             this.btnDayReport = new System.Windows.Forms.Button();
             this.btnAdmin = new System.Windows.Forms.Button();
             this.btnTicket = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.weeklyReport2 = new Recreation_center.WeeklyReport();
             this.ticketPanel1 = new Recreation_center.TicketPanel();
             this.adminPanel1 = new Recreation_center.AdminPanel();
             this.totalVisitorReport1 = new Recreation_center.TotalVisitorReportPanel();
             this.weeklyReport1 = new Recreation_center.WeeklyReport();
-            this.label2 = new System.Windows.Forms.Label();
             this.topNavPanel.SuspendLayout();
             this.sideNavPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -165,36 +166,6 @@ namespace Recreation_center
             this.btnTicket.UseVisualStyleBackColor = false;
             this.btnTicket.Click += new System.EventHandler(this.btnTicket_Click);
             // 
-            // ticketPanel1
-            // 
-            this.ticketPanel1.Location = new System.Drawing.Point(127, 70);
-            this.ticketPanel1.Margin = new System.Windows.Forms.Padding(2);
-            this.ticketPanel1.Name = "ticketPanel1";
-            this.ticketPanel1.Size = new System.Drawing.Size(710, 482);
-            this.ticketPanel1.TabIndex = 2;
-            // 
-            // adminPanel1
-            // 
-            this.adminPanel1.Location = new System.Drawing.Point(127, 70);
-            this.adminPanel1.Margin = new System.Windows.Forms.Padding(2);
-            this.adminPanel1.Name = "adminPanel1";
-            this.adminPanel1.Size = new System.Drawing.Size(710, 482);
-            this.adminPanel1.TabIndex = 3;
-            // 
-            // totalVisitorReport1
-            // 
-            this.totalVisitorReport1.Location = new System.Drawing.Point(127, 70);
-            this.totalVisitorReport1.Name = "totalVisitorReport1";
-            this.totalVisitorReport1.Size = new System.Drawing.Size(710, 482);
-            this.totalVisitorReport1.TabIndex = 4;
-            // 
-            // weeklyReport1
-            // 
-            this.weeklyReport1.Location = new System.Drawing.Point(128, 69);
-            this.weeklyReport1.Name = "weeklyReport1";
-            this.weeklyReport1.Size = new System.Drawing.Size(706, 483);
-            this.weeklyReport1.TabIndex = 5;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -205,6 +176,48 @@ namespace Recreation_center
             this.label2.Size = new System.Drawing.Size(135, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Developed by Nischal";
+            // 
+            // weeklyReport2
+            // 
+            this.weeklyReport2.BackColor = System.Drawing.Color.Snow;
+            this.weeklyReport2.Location = new System.Drawing.Point(128, 69);
+            this.weeklyReport2.Name = "weeklyReport2";
+            this.weeklyReport2.Size = new System.Drawing.Size(706, 483);
+            this.weeklyReport2.TabIndex = 5;
+            // 
+            // ticketPanel1
+            // 
+            this.ticketPanel1.BackColor = System.Drawing.Color.Snow;
+            this.ticketPanel1.Location = new System.Drawing.Point(127, 70);
+            this.ticketPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.ticketPanel1.Name = "ticketPanel1";
+            this.ticketPanel1.Size = new System.Drawing.Size(710, 482);
+            this.ticketPanel1.TabIndex = 2;
+            // 
+            // adminPanel1
+            // 
+            this.adminPanel1.BackColor = System.Drawing.Color.Snow;
+            this.adminPanel1.Location = new System.Drawing.Point(127, 70);
+            this.adminPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.adminPanel1.Name = "adminPanel1";
+            this.adminPanel1.Size = new System.Drawing.Size(710, 482);
+            this.adminPanel1.TabIndex = 3;
+            // 
+            // totalVisitorReport1
+            // 
+            this.totalVisitorReport1.BackColor = System.Drawing.Color.Snow;
+            this.totalVisitorReport1.Location = new System.Drawing.Point(127, 70);
+            this.totalVisitorReport1.Name = "totalVisitorReport1";
+            this.totalVisitorReport1.Size = new System.Drawing.Size(710, 482);
+            this.totalVisitorReport1.TabIndex = 4;
+            // 
+            // weeklyReport1
+            // 
+            this.weeklyReport1.BackColor = System.Drawing.Color.Snow;
+            this.weeklyReport1.Location = new System.Drawing.Point(128, 69);
+            this.weeklyReport1.Name = "weeklyReport1";
+            this.weeklyReport1.Size = new System.Drawing.Size(706, 483);
+            this.weeklyReport1.TabIndex = 5;
             // 
             // Form1
             // 
@@ -217,7 +230,7 @@ namespace Recreation_center
             this.Controls.Add(this.sideNavPanel);
             this.Controls.Add(this.topNavPanel);
             this.Controls.Add(this.totalVisitorReport1);
-            this.Controls.Add(this.weeklyReport1);
+            this.Controls.Add(this.weeklyReport2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -246,6 +259,7 @@ namespace Recreation_center
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private WeeklyReport weeklyReport2;
     }
 }
 

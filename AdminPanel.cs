@@ -73,7 +73,7 @@ namespace Recreation_center
                 {
                     if (c is TextBox)
                     {
-                        if (!validateTextBox(c))
+                        if (!isValidTextBox(c))
                         {
                             isTextBoxValid = false;
                             break;
@@ -91,7 +91,7 @@ namespace Recreation_center
                 // adding or saving priceList to global list
                 if (priceList.Count() == 20 && panel.Name == "adminAgePricePanel" || priceList.Count() == 5 && panel.Name == "adminGroupDiscountPanel")
                 {
-                    if (panel.Name == "adminAgePricePanel") { weekPriceList.Clear(); } // to create new price list
+                    if (panel.Name == "adminAgePricePanel") { weekPriceList.Clear(); } // clear list for new
 
                     weekPriceList.Add(priceList);
 
@@ -107,7 +107,7 @@ namespace Recreation_center
             }
         }
 
-        private bool validateTextBox(Control c)
+        private bool isValidTextBox(Control c)
         {
             Regex ticketPriceRegex = new Regex(@"^[0-9]*\.?[0-9]*$");
 

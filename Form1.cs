@@ -14,7 +14,7 @@ namespace Recreation_center
         {
             adminPanel1.Visible = false;
             ticketPanel1.Visible = true;
-            weeklyReport1.Visible = false;
+            weeklyReport2.Visible = false;
             totalVisitorReport1.Visible = false;
         }
 
@@ -22,7 +22,7 @@ namespace Recreation_center
         {
             adminPanel1.Visible = true;
             ticketPanel1.Visible = false;
-            weeklyReport1.Visible = false;
+            weeklyReport2.Visible = false;
             totalVisitorReport1.Visible = false;
         }
 
@@ -30,7 +30,7 @@ namespace Recreation_center
         {
             adminPanel1.Visible = false;
             ticketPanel1.Visible = false;
-            weeklyReport1.Visible = false;
+            weeklyReport2.Visible = false;
             totalVisitorReport1.Visible = true;
 
             totalVisitorReport1.loadVisitorsInChart();
@@ -40,10 +40,10 @@ namespace Recreation_center
         {
             adminPanel1.Visible = false;
             ticketPanel1.Visible = false;
-            weeklyReport1.Visible = true;
+            weeklyReport2.Visible = true;
             totalVisitorReport1.Visible = false;
 
-            weeklyReport1.loadReportToChart();
+            weeklyReport2.loadReportToChart();
         }
     }
 }
