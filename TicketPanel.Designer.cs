@@ -103,7 +103,7 @@ namespace Recreation_center
             this.panelTicketForm.Location = new System.Drawing.Point(13, 88);
             this.panelTicketForm.Margin = new System.Windows.Forms.Padding(2);
             this.panelTicketForm.Name = "panelTicketForm";
-            this.panelTicketForm.Size = new System.Drawing.Size(680, 374);
+            this.panelTicketForm.Size = new System.Drawing.Size(726, 396);
             this.panelTicketForm.TabIndex = 2;
             // 
             // btnAdd
@@ -114,7 +114,7 @@ namespace Recreation_center
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(565, 141);
+            this.btnAdd.Location = new System.Drawing.Point(601, 141);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(103, 25);
@@ -134,7 +134,7 @@ namespace Recreation_center
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.btnClear);
             this.panel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel1.Location = new System.Drawing.Point(358, 183);
+            this.panel1.Location = new System.Drawing.Point(394, 196);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(312, 179);
             this.panel1.TabIndex = 27;
@@ -242,7 +242,7 @@ namespace Recreation_center
             this.notGroupRadioBtn.AutoSize = true;
             this.notGroupRadioBtn.Checked = true;
             this.notGroupRadioBtn.Font = new System.Drawing.Font("Modern No. 20", 14.25F);
-            this.notGroupRadioBtn.Location = new System.Drawing.Point(510, 141);
+            this.notGroupRadioBtn.Location = new System.Drawing.Point(546, 141);
             this.notGroupRadioBtn.Name = "notGroupRadioBtn";
             this.notGroupRadioBtn.Size = new System.Drawing.Size(50, 25);
             this.notGroupRadioBtn.TabIndex = 26;
@@ -255,7 +255,7 @@ namespace Recreation_center
             // 
             this.isGroupRadioBtn.AutoSize = true;
             this.isGroupRadioBtn.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.isGroupRadioBtn.Location = new System.Drawing.Point(446, 141);
+            this.isGroupRadioBtn.Location = new System.Drawing.Point(482, 141);
             this.isGroupRadioBtn.Name = "isGroupRadioBtn";
             this.isGroupRadioBtn.Size = new System.Drawing.Size(57, 25);
             this.isGroupRadioBtn.TabIndex = 25;
@@ -280,11 +280,13 @@ namespace Recreation_center
             this.ticketInTime,
             this.ticketOutTime,
             this.ticketPrice});
-            this.ticketTable.Location = new System.Drawing.Point(3, 183);
+            this.ticketTable.Location = new System.Drawing.Point(3, 196);
             this.ticketTable.Name = "ticketTable";
             this.ticketTable.ReadOnly = true;
-            this.ticketTable.Size = new System.Drawing.Size(311, 179);
+            this.ticketTable.Size = new System.Drawing.Size(385, 179);
             this.ticketTable.TabIndex = 24;
+            this.ticketTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ticketTable_CellClick);
+            //this.ticketTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ticketTable_CellContentClick);
             // 
             // TicketNo
             // 
@@ -357,7 +359,7 @@ namespace Recreation_center
             // 
             this.txtBoxOutTime.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtBoxOutTime.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxOutTime.Location = new System.Drawing.Point(448, 58);
+            this.txtBoxOutTime.Location = new System.Drawing.Point(484, 58);
             this.txtBoxOutTime.Margin = new System.Windows.Forms.Padding(2);
             this.txtBoxOutTime.Name = "txtBoxOutTime";
             this.txtBoxOutTime.ReadOnly = true;
@@ -368,7 +370,7 @@ namespace Recreation_center
             // 
             this.txtBoxInTime.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtBoxInTime.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxInTime.Location = new System.Drawing.Point(448, 21);
+            this.txtBoxInTime.Location = new System.Drawing.Point(484, 21);
             this.txtBoxInTime.Margin = new System.Windows.Forms.Padding(2);
             this.txtBoxInTime.Name = "txtBoxInTime";
             this.txtBoxInTime.ReadOnly = true;
@@ -379,7 +381,7 @@ namespace Recreation_center
             // 
             this.txtBoxPrice.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtBoxPrice.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPrice.Location = new System.Drawing.Point(448, 99);
+            this.txtBoxPrice.Location = new System.Drawing.Point(484, 99);
             this.txtBoxPrice.Margin = new System.Windows.Forms.Padding(2);
             this.txtBoxPrice.Name = "txtBoxPrice";
             this.txtBoxPrice.ReadOnly = true;
@@ -390,7 +392,7 @@ namespace Recreation_center
             // 
             this.labelPrice.AutoSize = true;
             this.labelPrice.Font = new System.Drawing.Font("Modern No. 20", 16.2F);
-            this.labelPrice.Location = new System.Drawing.Point(354, 97);
+            this.labelPrice.Location = new System.Drawing.Point(390, 97);
             this.labelPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPrice.Name = "labelPrice";
             this.labelPrice.Size = new System.Drawing.Size(58, 24);
@@ -401,7 +403,7 @@ namespace Recreation_center
             // 
             this.labelOutTime.AutoSize = true;
             this.labelOutTime.Font = new System.Drawing.Font("Modern No. 20", 16.2F);
-            this.labelOutTime.Location = new System.Drawing.Point(354, 58);
+            this.labelOutTime.Location = new System.Drawing.Point(390, 58);
             this.labelOutTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelOutTime.Name = "labelOutTime";
             this.labelOutTime.Size = new System.Drawing.Size(93, 24);
@@ -412,7 +414,7 @@ namespace Recreation_center
             // 
             this.labelGroup.AutoSize = true;
             this.labelGroup.Font = new System.Drawing.Font("Modern No. 20", 16.2F);
-            this.labelGroup.Location = new System.Drawing.Point(354, 141);
+            this.labelGroup.Location = new System.Drawing.Point(390, 141);
             this.labelGroup.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelGroup.Name = "labelGroup";
             this.labelGroup.Size = new System.Drawing.Size(66, 24);
@@ -423,7 +425,7 @@ namespace Recreation_center
             // 
             this.labelInTime.AutoSize = true;
             this.labelInTime.Font = new System.Drawing.Font("Modern No. 20", 16.2F);
-            this.labelInTime.Location = new System.Drawing.Point(354, 19);
+            this.labelInTime.Location = new System.Drawing.Point(390, 19);
             this.labelInTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelInTime.Name = "labelInTime";
             this.labelInTime.Size = new System.Drawing.Size(82, 24);
@@ -442,7 +444,7 @@ namespace Recreation_center
             "5-12",
             "12-18",
             "18-60",
-            "Above>60"});
+            "Above 60"});
             this.cmboBoxAge.Location = new System.Drawing.Point(94, 98);
             this.cmboBoxAge.Margin = new System.Windows.Forms.Padding(2);
             this.cmboBoxAge.Name = "cmboBoxAge";
@@ -544,13 +546,12 @@ namespace Recreation_center
             // 
             this.dateTimePicker1.CalendarMonthBackground = System.Drawing.SystemColors.ControlLightLight;
             this.dateTimePicker1.Font = new System.Drawing.Font("Modern No. 20", 12F);
-            this.dateTimePicker1.Location = new System.Drawing.Point(464, 59);
+            this.dateTimePicker1.Location = new System.Drawing.Point(499, 59);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(229, 25);
+            this.dateTimePicker1.Size = new System.Drawing.Size(240, 25);
             this.dateTimePicker1.TabIndex = 4;
-            this.dateTimePicker1.Value = new System.DateTime(2021, 12, 28, 16, 48, 49, 0);
-            //this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dateTimePicker1.Value = new System.DateTime(2021, 12, 29, 17, 3, 38, 0);
             // 
             // txtBoxTicketNo
             // 
@@ -592,7 +593,7 @@ namespace Recreation_center
             this.Controls.Add(this.panelTicketForm);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TicketPanel";
-            this.Size = new System.Drawing.Size(706, 483);
+            this.Size = new System.Drawing.Size(757, 501);
             this.panelTicketForm.ResumeLayout(false);
             this.panelTicketForm.PerformLayout();
             this.panel1.ResumeLayout(false);

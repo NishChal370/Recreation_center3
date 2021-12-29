@@ -296,6 +296,7 @@ namespace Recreation_center
             txtBoxDiscount.ResetText();
             txtBoxAddress.ResetText();
             txtBoxGrandTotal.ResetText();
+            txtBoxPrice.ResetText();
             txtBoxInTime.Text = DateTime.Now.ToShortTimeString();
             if (resetFor == "clear") {
                 btnSave.Text = "Save";
@@ -366,56 +367,54 @@ namespace Recreation_center
                 "txtBoxPrice",
                 "txtBoxInTime", 
                 "txtBoxOutTime",
-                "txtBoxAddress",
             };
 
             foreach (Control control in panelTicketForm.Controls)
-              {
-                  if (control is TextBox)
-                  {
-                      if (!notValidatingList.Contains(control.Name))
-                      {
-                          if (string.IsNullOrEmpty(control.Text))
-                          {
-                              control.BackColor = System.Drawing.Color.LightPink;
-                              MessageBox.Show(control.Name.Substring(6) + " is Empty.", "Empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            {
+                if (control is TextBox)
+                {
+                    if (!notValidatingList.Contains(control.Name))
+                    {
+                        if (string.IsNullOrEmpty(control.Text))
+                        {
+                            control.BackColor = System.Drawing.Color.LightPink;
+                            MessageBox.Show(control.Name.Substring(6) + " is Empty.", "Empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                              return false;
-                          }
-                          else
-                          {
-                              Regex phoneRegex = new Regex(@"^[9][0-9]{9}$");
-                              if (control.Name == "txtBoxPhone" && !phoneRegex.IsMatch(control.Text.ToString())) 
-                              {
-                                  control.BackColor = System.Drawing.Color.LightPink;
-                                  MessageBox.Show("Invalid Phone number !!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else
+                        {
+                            Regex phoneRegex = new Regex(@"^[9][0-9]{9}$");
+                            if (control.Name == "txtBoxPhone" && !phoneRegex.IsMatch(control.Text.ToString())) 
+                            {
+                                control.BackColor = System.Drawing.Color.LightPink;
+                                MessageBox.Show("Invalid Phone number !!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                                  return false;
-                              }
-                              else if (control.Name != "txtBoxPhone" && !control.Text.ToString().All(i => char.IsLetter(i) || char.IsWhiteSpace(i))) 
-                              {
-                                  control.BackColor = System.Drawing.Color.LightPink;
-                                  MessageBox.Show("Invalid " + control.Name.Substring(6) + " !!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return false;
+                            }
+                            else if (control.Name != "txtBoxPhone" && !control.Text.ToString().All(i => char.IsLetter(i) || char.IsWhiteSpace(i))) 
+                            {
+                                control.BackColor = System.Drawing.Color.LightPink;
+                                MessageBox.Show("Invalid " + control.Name.Substring(6) + " !!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                                  return false;
-                              }
-                          }
+                                return false;
+                            }
+                        }
 
-                      }
+                    }
 
-                  }
-              }
+                }
+            }
 
-              // comboBox validation
-              if (cmboBoxAge.SelectedIndex <= -1)
-              {
-                  cmboBoxAge.BackColor = System.Drawing.Color.LightPink;
-                  MessageBox.Show("Age or Group should be selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            // comboBox validation
+            if (cmboBoxAge.SelectedIndex <= -1)
+            {
+                cmboBoxAge.BackColor = System.Drawing.Color.LightPink;
+                MessageBox.Show("Age or Group should be selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                  return false;
-              }
+                return false;
+            }
               
-
             return true;
         }
 
@@ -428,6 +427,28 @@ namespace Recreation_center
             dateTimePicker1.Enabled = !trueOrFalse;
             isGroupRadioBtn.Enabled = !trueOrFalse;
             notGroupRadioBtn.Enabled = !trueOrFalse;
+        }
+
+        private void ticketTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            TextBox[] texBoxList = { txtBoxName, txtBoxPhone, txtBoxAddress, txtBoxInTime, txtBoxOutTime, txtBoxPrice };
+            string[] tblColumnNameList = { "CustomerName", "Phone", "ticketAddress", "ticketIntime", "ticketOutTime", "ticketPrice" };
+            if (e.RowIndex >= 0)
+            {
+                int count = 0;
+                DataGridViewRow row = this.ticketTable.Rows[e.RowIndex];
+
+                foreach (TextBox textBox in texBoxList)
+                {
+                    textBox.Text = (row.Cells[tblColumnNameList[count]].Value != null)
+                                        ? row.Cells[tblColumnNameList[count]].Value.ToString()
+                                        : "";
+                    count++;
+                }
+
+                cmboBoxAge.SelectedItem = row.Cells["ticketAge"].Value.ToString();
+                dateTimePicker1.Value = Convert.ToDateTime(row.Cells["ticketDate"].Value);
+            }
         }
 
         private void txtBoxPhone_KeyPress(object sender, KeyPressEventArgs e)

@@ -128,7 +128,7 @@ namespace Recreation_center
             this.adminAgePricePanel.Location = new System.Drawing.Point(16, 86);
             this.adminAgePricePanel.Margin = new System.Windows.Forms.Padding(2);
             this.adminAgePricePanel.Name = "adminAgePricePanel";
-            this.adminAgePricePanel.Size = new System.Drawing.Size(675, 204);
+            this.adminAgePricePanel.Size = new System.Drawing.Size(723, 204);
             this.adminAgePricePanel.TabIndex = 3;
             // 
             // hourChildTextBox
@@ -136,43 +136,43 @@ namespace Recreation_center
             this.hourChildTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.hourChildTextBox.Location = new System.Drawing.Point(151, 61);
             this.hourChildTextBox.Name = "hourChildTextBox";
-            this.hourChildTextBox.Size = new System.Drawing.Size(80, 23);
+            this.hourChildTextBox.Size = new System.Drawing.Size(99, 23);
             this.hourChildTextBox.TabIndex = 9;
             this.hourChildTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hourChildTextBox_KeyPress);
             // 
             // twoHourChildTextBox
             // 
             this.twoHourChildTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.twoHourChildTextBox.Location = new System.Drawing.Point(256, 61);
+            this.twoHourChildTextBox.Location = new System.Drawing.Point(266, 61);
             this.twoHourChildTextBox.Name = "twoHourChildTextBox";
-            this.twoHourChildTextBox.Size = new System.Drawing.Size(80, 23);
+            this.twoHourChildTextBox.Size = new System.Drawing.Size(99, 23);
             this.twoHourChildTextBox.TabIndex = 9;
             this.twoHourChildTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.twoHourChildTextBox_KeyPress);
             // 
             // threeHourChildTextBox
             // 
             this.threeHourChildTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.threeHourChildTextBox.Location = new System.Drawing.Point(362, 61);
+            this.threeHourChildTextBox.Location = new System.Drawing.Point(381, 61);
             this.threeHourChildTextBox.Name = "threeHourChildTextBox";
-            this.threeHourChildTextBox.Size = new System.Drawing.Size(80, 23);
+            this.threeHourChildTextBox.Size = new System.Drawing.Size(99, 23);
             this.threeHourChildTextBox.TabIndex = 9;
             this.threeHourChildTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.threeHourChildTextBox_KeyPress);
             // 
             // fourHourChildTextBox
             // 
             this.fourHourChildTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.fourHourChildTextBox.Location = new System.Drawing.Point(469, 61);
+            this.fourHourChildTextBox.Location = new System.Drawing.Point(495, 61);
             this.fourHourChildTextBox.Name = "fourHourChildTextBox";
-            this.fourHourChildTextBox.Size = new System.Drawing.Size(80, 23);
+            this.fourHourChildTextBox.Size = new System.Drawing.Size(99, 23);
             this.fourHourChildTextBox.TabIndex = 9;
             this.fourHourChildTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fourHourChildTextBox_KeyPress);
             // 
             // wholeDayChildTextBox
             // 
             this.wholeDayChildTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.wholeDayChildTextBox.Location = new System.Drawing.Point(571, 61);
+            this.wholeDayChildTextBox.Location = new System.Drawing.Point(608, 61);
             this.wholeDayChildTextBox.Name = "wholeDayChildTextBox";
-            this.wholeDayChildTextBox.Size = new System.Drawing.Size(80, 23);
+            this.wholeDayChildTextBox.Size = new System.Drawing.Size(99, 23);
             this.wholeDayChildTextBox.TabIndex = 9;
             this.wholeDayChildTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.wholeDayChildTextBox_KeyPress);
             // 
@@ -181,43 +181,43 @@ namespace Recreation_center
             this.hourTeenTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.hourTeenTextBox.Location = new System.Drawing.Point(151, 95);
             this.hourTeenTextBox.Name = "hourTeenTextBox";
-            this.hourTeenTextBox.Size = new System.Drawing.Size(80, 23);
+            this.hourTeenTextBox.Size = new System.Drawing.Size(99, 23);
             this.hourTeenTextBox.TabIndex = 9;
             this.hourTeenTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hourTeenTextBox_KeyPress);
             // 
             // twoHourTeenTextBox
             // 
             this.twoHourTeenTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.twoHourTeenTextBox.Location = new System.Drawing.Point(256, 95);
+            this.twoHourTeenTextBox.Location = new System.Drawing.Point(266, 95);
             this.twoHourTeenTextBox.Name = "twoHourTeenTextBox";
-            this.twoHourTeenTextBox.Size = new System.Drawing.Size(80, 23);
+            this.twoHourTeenTextBox.Size = new System.Drawing.Size(99, 23);
             this.twoHourTeenTextBox.TabIndex = 9;
             this.twoHourTeenTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.twoHourTeenTextBox_KeyPress);
             // 
             // threeHourTeenTextBox
             // 
             this.threeHourTeenTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.threeHourTeenTextBox.Location = new System.Drawing.Point(362, 95);
+            this.threeHourTeenTextBox.Location = new System.Drawing.Point(381, 95);
             this.threeHourTeenTextBox.Name = "threeHourTeenTextBox";
-            this.threeHourTeenTextBox.Size = new System.Drawing.Size(80, 23);
+            this.threeHourTeenTextBox.Size = new System.Drawing.Size(99, 23);
             this.threeHourTeenTextBox.TabIndex = 9;
             this.threeHourTeenTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.threeHourTeenTextBox_KeyPress);
             // 
             // fourHourTeenTextBox
             // 
             this.fourHourTeenTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.fourHourTeenTextBox.Location = new System.Drawing.Point(469, 95);
+            this.fourHourTeenTextBox.Location = new System.Drawing.Point(495, 95);
             this.fourHourTeenTextBox.Name = "fourHourTeenTextBox";
-            this.fourHourTeenTextBox.Size = new System.Drawing.Size(80, 23);
+            this.fourHourTeenTextBox.Size = new System.Drawing.Size(99, 23);
             this.fourHourTeenTextBox.TabIndex = 9;
             this.fourHourTeenTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fourHourTeenTextBox_KeyPress);
             // 
             // wholeDayTeenTextBox
             // 
             this.wholeDayTeenTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.wholeDayTeenTextBox.Location = new System.Drawing.Point(571, 95);
+            this.wholeDayTeenTextBox.Location = new System.Drawing.Point(608, 95);
             this.wholeDayTeenTextBox.Name = "wholeDayTeenTextBox";
-            this.wholeDayTeenTextBox.Size = new System.Drawing.Size(80, 23);
+            this.wholeDayTeenTextBox.Size = new System.Drawing.Size(99, 23);
             this.wholeDayTeenTextBox.TabIndex = 9;
             this.wholeDayTeenTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.wholeDayTeenTextBox_KeyPress);
             // 
@@ -226,43 +226,43 @@ namespace Recreation_center
             this.hourAdultTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.hourAdultTextBox.Location = new System.Drawing.Point(151, 129);
             this.hourAdultTextBox.Name = "hourAdultTextBox";
-            this.hourAdultTextBox.Size = new System.Drawing.Size(80, 23);
+            this.hourAdultTextBox.Size = new System.Drawing.Size(99, 23);
             this.hourAdultTextBox.TabIndex = 9;
             this.hourAdultTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hourAdultTextBox_KeyPress);
             // 
             // twoHourAdultTextBox
             // 
             this.twoHourAdultTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.twoHourAdultTextBox.Location = new System.Drawing.Point(256, 129);
+            this.twoHourAdultTextBox.Location = new System.Drawing.Point(266, 129);
             this.twoHourAdultTextBox.Name = "twoHourAdultTextBox";
-            this.twoHourAdultTextBox.Size = new System.Drawing.Size(80, 23);
+            this.twoHourAdultTextBox.Size = new System.Drawing.Size(99, 23);
             this.twoHourAdultTextBox.TabIndex = 9;
             this.twoHourAdultTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.twoHourAdultTextBox_KeyPress);
             // 
             // threeHourAdultTextBox
             // 
             this.threeHourAdultTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.threeHourAdultTextBox.Location = new System.Drawing.Point(362, 129);
+            this.threeHourAdultTextBox.Location = new System.Drawing.Point(381, 129);
             this.threeHourAdultTextBox.Name = "threeHourAdultTextBox";
-            this.threeHourAdultTextBox.Size = new System.Drawing.Size(80, 23);
+            this.threeHourAdultTextBox.Size = new System.Drawing.Size(99, 23);
             this.threeHourAdultTextBox.TabIndex = 9;
             this.threeHourAdultTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.threeHourAdultTextBox_KeyPress);
             // 
             // fourHourAdultTextBox
             // 
             this.fourHourAdultTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.fourHourAdultTextBox.Location = new System.Drawing.Point(469, 129);
+            this.fourHourAdultTextBox.Location = new System.Drawing.Point(495, 129);
             this.fourHourAdultTextBox.Name = "fourHourAdultTextBox";
-            this.fourHourAdultTextBox.Size = new System.Drawing.Size(80, 23);
+            this.fourHourAdultTextBox.Size = new System.Drawing.Size(99, 23);
             this.fourHourAdultTextBox.TabIndex = 9;
             this.fourHourAdultTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fourHourAdultTextBox_KeyPress);
             // 
             // wholeDayAdultTextBox
             // 
             this.wholeDayAdultTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.wholeDayAdultTextBox.Location = new System.Drawing.Point(571, 129);
+            this.wholeDayAdultTextBox.Location = new System.Drawing.Point(608, 129);
             this.wholeDayAdultTextBox.Name = "wholeDayAdultTextBox";
-            this.wholeDayAdultTextBox.Size = new System.Drawing.Size(80, 23);
+            this.wholeDayAdultTextBox.Size = new System.Drawing.Size(99, 23);
             this.wholeDayAdultTextBox.TabIndex = 9;
             this.wholeDayAdultTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.wholeDayAdultTextBox_KeyPress);
             // 
@@ -271,43 +271,43 @@ namespace Recreation_center
             this.hourOldTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.hourOldTextBox.Location = new System.Drawing.Point(151, 163);
             this.hourOldTextBox.Name = "hourOldTextBox";
-            this.hourOldTextBox.Size = new System.Drawing.Size(80, 23);
+            this.hourOldTextBox.Size = new System.Drawing.Size(99, 23);
             this.hourOldTextBox.TabIndex = 9;
             this.hourOldTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hourOldTextBox_KeyPress);
             // 
             // twoHourOldTextBox
             // 
             this.twoHourOldTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.twoHourOldTextBox.Location = new System.Drawing.Point(256, 163);
+            this.twoHourOldTextBox.Location = new System.Drawing.Point(266, 163);
             this.twoHourOldTextBox.Name = "twoHourOldTextBox";
-            this.twoHourOldTextBox.Size = new System.Drawing.Size(80, 23);
+            this.twoHourOldTextBox.Size = new System.Drawing.Size(99, 23);
             this.twoHourOldTextBox.TabIndex = 9;
             this.twoHourOldTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.twoHourOldTextBox_KeyPress);
             // 
             // threeHourOldTextBox
             // 
             this.threeHourOldTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.threeHourOldTextBox.Location = new System.Drawing.Point(362, 163);
+            this.threeHourOldTextBox.Location = new System.Drawing.Point(381, 163);
             this.threeHourOldTextBox.Name = "threeHourOldTextBox";
-            this.threeHourOldTextBox.Size = new System.Drawing.Size(80, 23);
+            this.threeHourOldTextBox.Size = new System.Drawing.Size(99, 23);
             this.threeHourOldTextBox.TabIndex = 9;
             this.threeHourOldTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.threeHourOldTextBox_KeyPress);
             // 
             // fourHourOldTextBox
             // 
             this.fourHourOldTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.fourHourOldTextBox.Location = new System.Drawing.Point(469, 163);
+            this.fourHourOldTextBox.Location = new System.Drawing.Point(495, 163);
             this.fourHourOldTextBox.Name = "fourHourOldTextBox";
-            this.fourHourOldTextBox.Size = new System.Drawing.Size(80, 23);
+            this.fourHourOldTextBox.Size = new System.Drawing.Size(99, 23);
             this.fourHourOldTextBox.TabIndex = 9;
             this.fourHourOldTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fourHourOldTextBox_KeyPress);
             // 
             // wholeDayOldTextBox
             // 
             this.wholeDayOldTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.wholeDayOldTextBox.Location = new System.Drawing.Point(571, 163);
+            this.wholeDayOldTextBox.Location = new System.Drawing.Point(608, 163);
             this.wholeDayOldTextBox.Name = "wholeDayOldTextBox";
-            this.wholeDayOldTextBox.Size = new System.Drawing.Size(80, 23);
+            this.wholeDayOldTextBox.Size = new System.Drawing.Size(99, 23);
             this.wholeDayOldTextBox.TabIndex = 9;
             this.wholeDayOldTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.wholeDayOldTextBox_KeyPress);
             // 
@@ -359,7 +359,7 @@ namespace Recreation_center
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(556, 18);
+            this.label5.Location = new System.Drawing.Point(600, 18);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(114, 24);
@@ -370,7 +370,7 @@ namespace Recreation_center
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(484, 18);
+            this.label4.Location = new System.Drawing.Point(516, 18);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 24);
@@ -381,7 +381,7 @@ namespace Recreation_center
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(377, 18);
+            this.label3.Location = new System.Drawing.Point(406, 18);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 24);
@@ -392,7 +392,7 @@ namespace Recreation_center
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(272, 18);
+            this.label2.Location = new System.Drawing.Point(291, 18);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 24);
@@ -403,7 +403,7 @@ namespace Recreation_center
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(168, 18);
+            this.label1.Location = new System.Drawing.Point(175, 18);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 24);
@@ -439,7 +439,7 @@ namespace Recreation_center
             this.adminGroupDiscountPanel.Location = new System.Drawing.Point(16, 306);
             this.adminGroupDiscountPanel.Margin = new System.Windows.Forms.Padding(2);
             this.adminGroupDiscountPanel.Name = "adminGroupDiscountPanel";
-            this.adminGroupDiscountPanel.Size = new System.Drawing.Size(675, 117);
+            this.adminGroupDiscountPanel.Size = new System.Drawing.Size(723, 117);
             this.adminGroupDiscountPanel.TabIndex = 4;
             // 
             // hourDiscountTextBox
@@ -449,7 +449,7 @@ namespace Recreation_center
             this.hourDiscountTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.hourDiscountTextBox.MaxLength = 2;
             this.hourDiscountTextBox.Name = "hourDiscountTextBox";
-            this.hourDiscountTextBox.Size = new System.Drawing.Size(80, 23);
+            this.hourDiscountTextBox.Size = new System.Drawing.Size(99, 23);
             this.hourDiscountTextBox.TabIndex = 66;
             this.hourDiscountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.hourDiscountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hourDiscountTextBox_KeyPress);
@@ -457,11 +457,11 @@ namespace Recreation_center
             // twoHourDiscountTextBox
             // 
             this.twoHourDiscountTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.twoHourDiscountTextBox.Location = new System.Drawing.Point(256, 62);
+            this.twoHourDiscountTextBox.Location = new System.Drawing.Point(266, 62);
             this.twoHourDiscountTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.twoHourDiscountTextBox.MaxLength = 2;
             this.twoHourDiscountTextBox.Name = "twoHourDiscountTextBox";
-            this.twoHourDiscountTextBox.Size = new System.Drawing.Size(80, 23);
+            this.twoHourDiscountTextBox.Size = new System.Drawing.Size(99, 23);
             this.twoHourDiscountTextBox.TabIndex = 65;
             this.twoHourDiscountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.twoHourDiscountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.twoHourDiscountTextBox_KeyPress);
@@ -469,11 +469,11 @@ namespace Recreation_center
             // threeHourDiscountTextBox
             // 
             this.threeHourDiscountTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.threeHourDiscountTextBox.Location = new System.Drawing.Point(362, 62);
+            this.threeHourDiscountTextBox.Location = new System.Drawing.Point(381, 62);
             this.threeHourDiscountTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.threeHourDiscountTextBox.MaxLength = 2;
             this.threeHourDiscountTextBox.Name = "threeHourDiscountTextBox";
-            this.threeHourDiscountTextBox.Size = new System.Drawing.Size(80, 23);
+            this.threeHourDiscountTextBox.Size = new System.Drawing.Size(99, 23);
             this.threeHourDiscountTextBox.TabIndex = 64;
             this.threeHourDiscountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.threeHourDiscountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.threeHourDiscountTextBox_KeyPress);
@@ -481,11 +481,11 @@ namespace Recreation_center
             // fourHourDiscountTextBox
             // 
             this.fourHourDiscountTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.fourHourDiscountTextBox.Location = new System.Drawing.Point(469, 62);
+            this.fourHourDiscountTextBox.Location = new System.Drawing.Point(495, 61);
             this.fourHourDiscountTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.fourHourDiscountTextBox.MaxLength = 2;
             this.fourHourDiscountTextBox.Name = "fourHourDiscountTextBox";
-            this.fourHourDiscountTextBox.Size = new System.Drawing.Size(80, 23);
+            this.fourHourDiscountTextBox.Size = new System.Drawing.Size(99, 23);
             this.fourHourDiscountTextBox.TabIndex = 63;
             this.fourHourDiscountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.fourHourDiscountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fourHourDiscountTextBox_KeyPress);
@@ -493,11 +493,11 @@ namespace Recreation_center
             // wholeDayDiscountTextBox
             // 
             this.wholeDayDiscountTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.wholeDayDiscountTextBox.Location = new System.Drawing.Point(571, 62);
+            this.wholeDayDiscountTextBox.Location = new System.Drawing.Point(608, 61);
             this.wholeDayDiscountTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.wholeDayDiscountTextBox.MaxLength = 2;
             this.wholeDayDiscountTextBox.Name = "wholeDayDiscountTextBox";
-            this.wholeDayDiscountTextBox.Size = new System.Drawing.Size(80, 23);
+            this.wholeDayDiscountTextBox.Size = new System.Drawing.Size(99, 23);
             this.wholeDayDiscountTextBox.TabIndex = 62;
             this.wholeDayDiscountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.wholeDayDiscountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.wholeDayDiscountTextBox_KeyPress);
@@ -517,7 +517,7 @@ namespace Recreation_center
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
-            this.label11.Location = new System.Drawing.Point(556, 24);
+            this.label11.Location = new System.Drawing.Point(600, 24);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(114, 24);
@@ -528,7 +528,7 @@ namespace Recreation_center
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(484, 24);
+            this.label10.Location = new System.Drawing.Point(516, 24);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 24);
@@ -539,7 +539,7 @@ namespace Recreation_center
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(377, 24);
+            this.label9.Location = new System.Drawing.Point(406, 24);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 24);
@@ -550,7 +550,7 @@ namespace Recreation_center
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(272, 24);
+            this.label8.Location = new System.Drawing.Point(291, 24);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 24);
@@ -561,7 +561,7 @@ namespace Recreation_center
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(168, 24);
+            this.label7.Location = new System.Drawing.Point(175, 24);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 24);
@@ -586,7 +586,7 @@ namespace Recreation_center
             this.btnSaveTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveTicket.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnSaveTicket.ForeColor = System.Drawing.Color.White;
-            this.btnSaveTicket.Location = new System.Drawing.Point(494, 427);
+            this.btnSaveTicket.Location = new System.Drawing.Point(537, 441);
             this.btnSaveTicket.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveTicket.Name = "btnSaveTicket";
             this.btnSaveTicket.Size = new System.Drawing.Size(92, 30);
@@ -602,7 +602,7 @@ namespace Recreation_center
             this.btnClearTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearTicket.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnClearTicket.ForeColor = System.Drawing.Color.White;
-            this.btnClearTicket.Location = new System.Drawing.Point(599, 427);
+            this.btnClearTicket.Location = new System.Drawing.Point(647, 441);
             this.btnClearTicket.Margin = new System.Windows.Forms.Padding(2);
             this.btnClearTicket.Name = "btnClearTicket";
             this.btnClearTicket.Size = new System.Drawing.Size(92, 30);
@@ -614,16 +614,16 @@ namespace Recreation_center
             // priceDayCmboBox
             // 
             this.priceDayCmboBox.BackColor = System.Drawing.SystemColors.Window;
-            this.priceDayCmboBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.priceDayCmboBox.Font = new System.Drawing.Font("Modern No. 20", 12F);
             this.priceDayCmboBox.FormattingEnabled = true;
             this.priceDayCmboBox.Items.AddRange(new object[] {
             "Week day",
             "Week end"});
-            this.priceDayCmboBox.Location = new System.Drawing.Point(576, 54);
+            this.priceDayCmboBox.Location = new System.Drawing.Point(625, 59);
             this.priceDayCmboBox.Margin = new System.Windows.Forms.Padding(2);
             this.priceDayCmboBox.Name = "priceDayCmboBox";
             this.priceDayCmboBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.priceDayCmboBox.Size = new System.Drawing.Size(114, 23);
+            this.priceDayCmboBox.Size = new System.Drawing.Size(114, 26);
             this.priceDayCmboBox.TabIndex = 69;
             this.priceDayCmboBox.Text = "Select day...";
             this.priceDayCmboBox.SelectedIndexChanged += new System.EventHandler(this.daySelectionCmboBox_SelectedIndexChanged);
@@ -641,7 +641,7 @@ namespace Recreation_center
             this.Controls.Add(this.labelTicketRate);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AdminPanel";
-            this.Size = new System.Drawing.Size(706, 483);
+            this.Size = new System.Drawing.Size(756, 501);
             this.adminAgePricePanel.ResumeLayout(false);
             this.adminAgePricePanel.PerformLayout();
             this.adminGroupDiscountPanel.ResumeLayout(false);

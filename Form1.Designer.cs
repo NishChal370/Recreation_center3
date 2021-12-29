@@ -39,10 +39,10 @@ namespace Recreation_center
             this.btnAdmin = new System.Windows.Forms.Button();
             this.btnTicket = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.weeklyReport2 = new Recreation_center.WeeklyReport();
             this.ticketPanel1 = new Recreation_center.TicketPanel();
             this.adminPanel1 = new Recreation_center.AdminPanel();
             this.totalVisitorReport1 = new Recreation_center.TotalVisitorReportPanel();
+            this.weeklyReport2 = new Recreation_center.WeeklyReport();
             this.weeklyReport1 = new Recreation_center.WeeklyReport();
             this.topNavPanel.SuspendLayout();
             this.sideNavPanel.SuspendLayout();
@@ -57,14 +57,14 @@ namespace Recreation_center
             this.topNavPanel.Location = new System.Drawing.Point(0, 0);
             this.topNavPanel.Margin = new System.Windows.Forms.Padding(2);
             this.topNavPanel.Name = "topNavPanel";
-            this.topNavPanel.Size = new System.Drawing.Size(837, 70);
+            this.topNavPanel.Size = new System.Drawing.Size(884, 70);
             this.topNavPanel.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Edwardian Script ITC", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(231, 0);
+            this.label1.Location = new System.Drawing.Point(264, -6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(411, 76);
             this.label1.TabIndex = 0;
@@ -82,7 +82,7 @@ namespace Recreation_center
             this.sideNavPanel.Location = new System.Drawing.Point(0, 70);
             this.sideNavPanel.Margin = new System.Windows.Forms.Padding(2);
             this.sideNavPanel.Name = "sideNavPanel";
-            this.sideNavPanel.Size = new System.Drawing.Size(127, 482);
+            this.sideNavPanel.Size = new System.Drawing.Size(127, 501);
             this.sideNavPanel.TabIndex = 1;
             // 
             // pictureBox1
@@ -171,28 +171,20 @@ namespace Recreation_center
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Snow;
             this.label2.Font = new System.Drawing.Font("Segoe Script", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(690, 535);
+            this.label2.Location = new System.Drawing.Point(728, 554);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(135, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Developed by Nischal";
             // 
-            // weeklyReport2
-            // 
-            this.weeklyReport2.BackColor = System.Drawing.Color.Snow;
-            this.weeklyReport2.Location = new System.Drawing.Point(128, 69);
-            this.weeklyReport2.Name = "weeklyReport2";
-            this.weeklyReport2.Size = new System.Drawing.Size(706, 483);
-            this.weeklyReport2.TabIndex = 5;
-            // 
             // ticketPanel1
             // 
             this.ticketPanel1.BackColor = System.Drawing.Color.Snow;
-            this.ticketPanel1.Location = new System.Drawing.Point(127, 70);
+            this.ticketPanel1.Location = new System.Drawing.Point(128, 70);
             this.ticketPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.ticketPanel1.Name = "ticketPanel1";
-            this.ticketPanel1.Size = new System.Drawing.Size(710, 482);
-            this.ticketPanel1.TabIndex = 2;
+            this.ticketPanel1.Size = new System.Drawing.Size(756, 501);
+            this.ticketPanel1.TabIndex = 6;
             // 
             // adminPanel1
             // 
@@ -200,7 +192,7 @@ namespace Recreation_center
             this.adminPanel1.Location = new System.Drawing.Point(127, 70);
             this.adminPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.adminPanel1.Name = "adminPanel1";
-            this.adminPanel1.Size = new System.Drawing.Size(710, 482);
+            this.adminPanel1.Size = new System.Drawing.Size(757, 501);
             this.adminPanel1.TabIndex = 3;
             // 
             // totalVisitorReport1
@@ -208,8 +200,16 @@ namespace Recreation_center
             this.totalVisitorReport1.BackColor = System.Drawing.Color.Snow;
             this.totalVisitorReport1.Location = new System.Drawing.Point(127, 70);
             this.totalVisitorReport1.Name = "totalVisitorReport1";
-            this.totalVisitorReport1.Size = new System.Drawing.Size(710, 482);
+            this.totalVisitorReport1.Size = new System.Drawing.Size(757, 501);
             this.totalVisitorReport1.TabIndex = 4;
+            // 
+            // weeklyReport2
+            // 
+            this.weeklyReport2.BackColor = System.Drawing.Color.Snow;
+            this.weeklyReport2.Location = new System.Drawing.Point(128, 69);
+            this.weeklyReport2.Name = "weeklyReport2";
+            this.weeklyReport2.Size = new System.Drawing.Size(756, 502);
+            this.weeklyReport2.TabIndex = 5;
             // 
             // weeklyReport1
             // 
@@ -223,7 +223,7 @@ namespace Recreation_center
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(837, 552);
+            this.ClientSize = new System.Drawing.Size(884, 571);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ticketPanel1);
             this.Controls.Add(this.adminPanel1);
@@ -248,18 +248,18 @@ namespace Recreation_center
 
         private System.Windows.Forms.Panel topNavPanel;
         private System.Windows.Forms.Panel sideNavPanel;
-        private TicketPanel ticketPanel1;
         private System.Windows.Forms.Button btnTicket;
         private System.Windows.Forms.Button btnDayReport;
         private System.Windows.Forms.Button btnAdmin;
-        private AdminPanel adminPanel1;
-        private TotalVisitorReportPanel totalVisitorReport1;
         private System.Windows.Forms.Button btnWeekReport;
         private WeeklyReport weeklyReport1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private WeeklyReport weeklyReport2;
+        private TotalVisitorReportPanel totalVisitorReport1;
+        private AdminPanel adminPanel1;
+        private TicketPanel ticketPanel1;
     }
 }
 
