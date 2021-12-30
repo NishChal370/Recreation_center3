@@ -15,8 +15,9 @@ namespace Recreation_center
             InitializeComponent();
 
             priceDayCmboBox.SelectedIndex = 0;
-            readFile(Constants.WEEKDAYFILENAME);
-            readFile(Constants.WEEKENDFILENAME);
+            Globals.readFileG("admin", Constants.WEEKDAYFILENAME);
+            Globals.readFileG("admin", Constants.WEEKENDFILENAME);
+
             autoFillTextBox(Globals.weekDayPriceListG);
         }
 
@@ -151,31 +152,6 @@ namespace Recreation_center
                     c.Text = "";
                 }
             }
-        }
-
-        private void readFile(string fileName)
-        {
-            if (File.Exists(fileName))
-            {
-                using (StreamReader r = File.OpenText(fileName))
-                {
-                    string line;
-                    while ((line = r.ReadLine()) != null)
-                    {
-                        List<Dictionary<string, float>> weeklyPriceList = JsonConvert.DeserializeObject<List<Dictionary<string, float>>>(line);
-
-                        if (fileName == Constants.WEEKDAYFILENAME)
-                        {
-                            Globals.weekDayPriceListG = weeklyPriceList;
-                        }
-                        else
-                        {
-                            Globals.weekEndPriceListG = weeklyPriceList;
-                        }
-                    }
-                }
-            }
-
         }
 
         private void autoFillTextBox(List<Dictionary<string, float>> globalPriceList)

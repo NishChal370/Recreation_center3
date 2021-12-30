@@ -22,5 +22,38 @@ namespace Recreation_center
             
             return true;
         }
+
+        public static void readFileG(string readFileFor, string fileName)
+        {
+            if (File.Exists(fileName))
+            {
+                using (StreamReader r = File.OpenText(fileName))
+                {
+                    string line;
+                    while ((line = r.ReadLine()) != null)
+                    {
+                        if (readFileFor == "admin") {
+                            List<Dictionary<string, float>> weeklyPriceList = JsonConvert.DeserializeObject<List<Dictionary<string, float>>>(line);
+
+                            if (fileName == Constants.WEEKDAYFILENAME)
+                            {
+                                weekDayPriceListG = weeklyPriceList;
+                            }
+                            else // for weekend
+                            {
+                               weekEndPriceListG = weeklyPriceList;
+                            }
+
+                        }
+                        else // for ticket
+                        {
+                            myTicket = JsonConvert.DeserializeObject<List<Ticket>>(line);
+                        }
+                       
+                    }
+                }
+            }
+
+        }
     }
 }

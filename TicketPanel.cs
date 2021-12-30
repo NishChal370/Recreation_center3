@@ -18,7 +18,8 @@ namespace Recreation_center
             InitializeComponent();
             
             resetFields(""); // clear text field
-            readTicketFile(); // reading tickets file
+            dateTimePicker1.Value = DateTime.Now;
+            Globals.readFileG("ticket", Constants.TICKETFILENAME); // reading tickets file
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -341,22 +342,6 @@ namespace Recreation_center
             float[] totalPriceDiscountPercent = { ticketprice, discount };
 
             return totalPriceDiscountPercent;
-        }
-
-        private void readTicketFile()
-        {
-           string fileName = Constants.TICKETFILENAME;
-            if (File.Exists(fileName))
-            {
-                using (StreamReader r = File.OpenText(fileName))
-                {
-                    string line;
-                    while ((line = r.ReadLine()) != null)
-                    {
-                        Globals.myTicket = JsonConvert.DeserializeObject<List<Ticket>>(line);
-                    }
-                }
-            }
         }
 
         private bool isWeekDay(DateTime ticketDate)
