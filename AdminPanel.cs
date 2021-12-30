@@ -331,21 +331,3 @@ namespace Recreation_center
 
     }
 }
-
-//.BackColor = System.Drawing.Color.White;
-
-/* private bool writeToText(string fileName, List<Dictionary<string, float>> weekPriceList)
-        {
-            if (!File.Exists(fileName))
-            {
-                File.Create(fileName).Close();
-            }
-
-            StreamWriter outputFile = new StreamWriter(fileName);
-            outputFile.WriteLine( JsonConvert.SerializeObject(weekPriceList) );
-            outputFile.Close();
-
-            return true;
-        }*/
-
-//wholeDayAboveGrupTextBox.BackColor = System.Drawing.Color.White;

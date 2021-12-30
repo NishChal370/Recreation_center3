@@ -55,8 +55,8 @@ namespace Recreation_center
             adminPanel1.Visible = false;
             ticketPanel1.Visible = false;
             weeklyReport2.Visible = false;
-            totalVisitorReport1.Visible = false;
             viewTicketPanel1.Visible = true;
+            totalVisitorReport1.Visible = false;
 
             viewTicketPanel1.fillTicketTable();
         }
