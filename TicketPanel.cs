@@ -17,50 +17,58 @@ namespace Recreation_center
         public TicketPanel()
         {
             InitializeComponent();
-            
+
             resetFields(""); // clear text field
             dateTimePicker1.Value = DateTime.Now;
-            Globals.readFileG("ticket", Constants.TICKETFILENAME); // reading tickets file
+            Globals.readFile("ticket", Constants.TICKETFILENAME); // reading tickets file
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            
-            if (btnSave.Text.ToString() == "Save")
-             {
-                 if (groupTicketList.Count <= 0)
-                 {
-                     if (isUserInputValid())
-                     {
-                         saveTicket();
-                     }
-                 }
-                 else {
-                     saveTicket();
-                 }
 
-             }
-             else
-             {
-                 if (Globals.weekDayPriceListG.Count > 0 && Globals.weekEndPriceListG.Count > 0)
-                 {
-                     checkoutTicket();
-                 }
-                 else 
-                 {
-                     MessageBox.Show("Price is not set by admin!! ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                 }
+            if (isCounterOpen())
+            {
+                if (btnSave.Text.ToString() == "Save")
+                {
+                    if (groupTicketList.Count <= 0)
+                    {
+                        if (isUserInputValid())
+                        {
+                            saveTicket();
+                        }
+                    }
+                    else
+                    {
+                        saveTicket();
+                    }
 
-             }
+                }
+                else
+                {
+                    if (Globals.weekDayPriceListG.Count > 0 && Globals.weekEndPriceListG.Count > 0)
+                    {
+                        checkoutTicket();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Price is not set by admin!! ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+            }
             
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (isUserInputValid())
+            if (isCounterOpen())
             {
-                addGroupTicket();
+                if (isUserInputValid())
+                {
+                    addGroupTicket();
+                }
             }
+            
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -75,8 +83,14 @@ namespace Recreation_center
 
         private void btnSearchTicket_Click(object sender, EventArgs e)
         {
-            resetFields("clear");
-            searchTicket();
+            if (isCounterOpen()) {
+                resetFields("clear");
+                if (isCounterOpen())
+                {
+                    searchTicket();
+                }
+            }
+            
         }
 
         private void saveTicket()
@@ -104,7 +118,8 @@ namespace Recreation_center
             ticketTable.Rows.Clear();
         }
 
-        private void addGroupTicket() {
+        private void addGroupTicket()
+        {
 
             Ticket newTicket = generateNewTicket();
             groupTicketList.Add(newTicket);
@@ -160,7 +175,8 @@ namespace Recreation_center
             return ticketId;
         }
 
-        private void searchTicket() {
+        private void searchTicket()
+        {
             ticketTable.Rows.Clear();
             searchedTicketList.Clear();
             makeUserInputsReadOnly(false);
@@ -232,13 +248,14 @@ namespace Recreation_center
 
         }
 
-        private void calculateCheckedOutTicketPrice( bool isSearchedTicketCheckedOut) {
+        private void calculateCheckedOutTicketPrice( bool isSearchedTicketCheckedOut) 
+        {
 
             if (isSearchedTicketCheckedOut)
             {
-                btnSave.Enabled = false;
                 float totalPrice = 0;
                 btnSave.Enabled = false;
+
                 searchedTicketList.ForEach(x =>
                 {
                     totalPrice += x.price;
@@ -257,9 +274,9 @@ namespace Recreation_center
             float[] ticketPriceAndDiscount = null; 
             foreach (Ticket ticket in searchedTicketList) {
                 // calculating total hrs stayed
-                DateTime inTime = Convert.ToDateTime(ticket.inTime);
                 DateTime outTime = DateTime.Now;
-
+                DateTime inTime = Convert.ToDateTime(ticket.inTime);
+                
                 int totalHrsCustomerStay = (int)(outTime - inTime).TotalHours + 1;
 
                 int hourStayed = (totalHrsCustomerStay > 4 || totalHrsCustomerStay < 0 || ticket.date.Date.ToShortDateString() != DateTime.Now.Date.ToShortDateString())
@@ -297,32 +314,38 @@ namespace Recreation_center
         {
             txtBoxName.ResetText();
             txtBoxPhone.ResetText();
+            txtBoxAddress.ResetText();
             cmboBoxAge.SelectedIndex = -1;
             cmboBoxAge.Text = "Select age....";
-            txtBoxTotalPrice.ResetText();
-            txtBoxDiscount.ResetText();
-            txtBoxAddress.ResetText();
-            txtBoxGrandTotal.ResetText();
-            txtBoxPrice.ResetText();
-            txtBoxInTime.Text = DateTime.Now.ToShortTimeString();
-            if (resetFor == "clear") {
-                btnSave.Text = "Save";
-                btnSave.Enabled = true;
-            }
+            
+            if (groupTicketList.Count <= 0) { // if admin is not adding group list
+                txtBoxPrice.ResetText();
+                txtBoxDiscount.ResetText();
+                txtBoxTotalPrice.ResetText();
+                txtBoxGrandTotal.ResetText();
+                txtBoxInTime.Text = DateTime.Now.ToShortTimeString();
+                if (resetFor == "clear")
+                {
+                    btnSave.Text = "Save";
+                    btnSave.Enabled = true;
+                }
 
-            if (resetFor == "save" || resetFor == "clear")
-            {
-                txtBoxOutTime.ResetText();
-                ticketTable.Rows.Clear();
-                isGroupRadioBtn.Enabled = true;
-                notGroupRadioBtn.Enabled = true;
-                isGroupRadioBtn.Checked = false;
-                notGroupRadioBtn.Checked = true;
+                if (resetFor == "save" || resetFor == "clear")
+                {
+                    txtBoxOutTime.ResetText();
+                    ticketTable.Rows.Clear();
+                    isGroupRadioBtn.Enabled = true;
+                    notGroupRadioBtn.Enabled = true;
+                    isGroupRadioBtn.Checked = false;
+                    notGroupRadioBtn.Checked = true;
+                }
+                else if (resetFor == "add")
+                {
+                    isGroupRadioBtn.Enabled = false;
+                    notGroupRadioBtn.Enabled = false;
+                }
             }
-            else if (resetFor == "add" ) {
-                isGroupRadioBtn.Enabled = false;
-                notGroupRadioBtn.Enabled = false;
-            }
+            
         }
 
         private float[] findIndividualTicketPrice(int hourStayed, DateTime ticketDate, int ticketAge, bool isGroup)
@@ -401,7 +424,7 @@ namespace Recreation_center
             if (cmboBoxAge.SelectedIndex <= -1)
             {
                 cmboBoxAge.BackColor = System.Drawing.Color.LightPink;
-                MessageBox.Show("Age or Group should be selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Age should be selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return false;
             }
@@ -443,6 +466,17 @@ namespace Recreation_center
             }
         }
 
+        public static bool isCounterOpen() {
+            if (DateTime.Now.Hour >= 10 && DateTime.Now.Hour < 17)
+            {
+                return true;
+            }
+            else {
+                MessageBox.Show("Counter close!! ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
         private void txtBoxPhone_KeyPress(object sender, KeyPressEventArgs e)
         {
             txtBoxPhone.BackColor = System.Drawing.Color.White;
@@ -475,6 +509,10 @@ namespace Recreation_center
             btnSave.Enabled = true;
         }
 
+        private void cmboBoxAge_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmboBoxAge.BackColor = System.Drawing.Color.White;
+        }
     }
 
 }

@@ -15,27 +15,30 @@ namespace Recreation_center
             InitializeComponent();
 
             priceDayCmboBox.SelectedIndex = 0;
-            Globals.readFileG("admin", Constants.WEEKDAYFILENAME);
-            Globals.readFileG("admin", Constants.WEEKENDFILENAME);
+            Globals.readFile("admin", Constants.WEEKDAYFILENAME);
+            Globals.readFile("admin", Constants.WEEKENDFILENAME);
 
             autoFillTextBox(Globals.weekDayPriceListG);
         }
 
         private void btnSaveTicket_Click(object sender, EventArgs e)
         {
-            if (priceDayCmboBox.SelectedIndex == 0)
-            {   // save weekday price
-                savePrice("weekDay", Globals.weekDayPriceListG);
+            if (TicketPanel.isCounterOpen()) {
+                if (priceDayCmboBox.SelectedIndex == 0)
+                {   // save weekday price
+                    savePrice("weekDay", Globals.weekDayPriceListG);
 
+                }
+                else if (priceDayCmboBox.SelectedIndex == 1)
+                {   // save weekEnd price
+                    savePrice("weekEnd", Globals.weekEndPriceListG);
+                }
+                else
+                {
+                    MessageBox.Show("Not selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else if (priceDayCmboBox.SelectedIndex == 1)
-            {   // save weekEnd price
-                savePrice("weekEnd", Globals.weekEndPriceListG);
-            }
-            else
-            {
-                MessageBox.Show("Not selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
 
         }
 

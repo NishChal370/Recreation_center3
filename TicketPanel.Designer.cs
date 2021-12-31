@@ -154,7 +154,7 @@ namespace Recreation_center
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Modern No. 20", 16.2F);
-            this.label1.Location = new System.Drawing.Point(6, 21);
+            this.label1.Location = new System.Drawing.Point(3, 21);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 24);
@@ -165,7 +165,7 @@ namespace Recreation_center
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Modern No. 20", 16.2F);
-            this.label2.Location = new System.Drawing.Point(4, 49);
+            this.label2.Location = new System.Drawing.Point(3, 49);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 24);
@@ -212,10 +212,10 @@ namespace Recreation_center
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(2, 113);
+            this.btnSave.Location = new System.Drawing.Point(3, 113);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(308, 30);
+            this.btnSave.Size = new System.Drawing.Size(307, 30);
             this.btnSave.TabIndex = 18;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -228,10 +228,10 @@ namespace Recreation_center
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(2, 147);
+            this.btnClear.Location = new System.Drawing.Point(3, 147);
             this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(308, 30);
+            this.btnClear.Size = new System.Drawing.Size(307, 30);
             this.btnClear.TabIndex = 17;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -452,6 +452,7 @@ namespace Recreation_center
             this.cmboBoxAge.Size = new System.Drawing.Size(220, 25);
             this.cmboBoxAge.TabIndex = 2;
             this.cmboBoxAge.Text = "Select age...";
+            this.cmboBoxAge.SelectedIndexChanged += new System.EventHandler(this.cmboBoxAge_SelectedIndexChanged);
             // 
             // txtBoxAddress
             // 
@@ -546,6 +547,8 @@ namespace Recreation_center
             // dateTimePicker1
             // 
             this.dateTimePicker1.CalendarMonthBackground = System.Drawing.SystemColors.ControlLightLight;
+            this.dateTimePicker1.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Font = new System.Drawing.Font("Modern No. 20", 12F);
             this.dateTimePicker1.Location = new System.Drawing.Point(499, 59);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);

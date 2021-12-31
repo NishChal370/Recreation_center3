@@ -19,10 +19,10 @@ namespace Recreation_center
         {
             loadVisitorsInChart();
         }
-
+       
         public void loadVisitorsInChart()
         {
-            //@ aDayGroupVisitorList for <'group', totalVisitorsOfThatGroup>
+            //@ aDayGroupVisitorList for <'ticketID', totalVisitorsOfThatGroup>
             //@ aDayAgeVisitorList for <'age', totalVisitorsOfThatAge>
             //@ aDayGroupCateogTotalList <'groupCategary', totalNumber>
             Dictionary<int, int> aDayGroupVisitorList = new Dictionary<int, int>();

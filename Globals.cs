@@ -23,7 +23,7 @@ namespace Recreation_center
             return true;
         }
 
-        public static void readFileG(string readFileFor, string fileName)
+        public static void readFile(string readFileFor, string fileName)
         {
             if (File.Exists(fileName))
             {
@@ -55,6 +55,8 @@ namespace Recreation_center
             }
 
         }
+
+
 
     }
 }

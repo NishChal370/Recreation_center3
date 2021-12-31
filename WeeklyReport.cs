@@ -36,7 +36,8 @@ namespace Recreation_center
 			loadReportToChart();
 		}
 
-		public void loadReportToChart() {
+		public void loadReportToChart()
+		{
 			//@ weeklyReportList {"Date":[totalvisitors, totalEarning]}
 			Dictionary<string, float[]> weeklyReportList = new Dictionary<string, float[]>();
 
@@ -144,7 +145,8 @@ namespace Recreation_center
 		}
 
 		// it return true if the ticket date is between the user selected week.
-		private bool isBetweenStartAndEndDate(DateTime ticketDate, DateTime selectedDate) {
+		private bool isBetweenStartAndEndDate(DateTime ticketDate, DateTime selectedDate)
+		{
 
 			int year = selectedDate.Date.Year;
 			//set the first day of the year
