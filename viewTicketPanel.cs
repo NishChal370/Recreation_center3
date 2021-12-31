@@ -21,6 +21,7 @@ namespace Recreation_center
         {
             fillTicketTable();
         }
+
         public void fillTicketTable()
         {
             string[] ageGroupList = {
@@ -50,4 +51,5 @@ namespace Recreation_center
         }
 
     }
+
 }

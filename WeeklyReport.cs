@@ -149,16 +149,13 @@ namespace Recreation_center
 		{
 
 			int year = selectedDate.Date.Year;
-			//set the first day of the year
 			DateTime firstDay = new DateTime(year, 1, 1);
 			CultureInfo cul = CultureInfo.CurrentCulture;
-			//get no of week for the date
 			int weekNo = cul.Calendar.GetWeekOfYear(selectedDate, CalendarWeekRule.FirstDay, DayOfWeek.Sunday);
-			//get no of day
 			int days = (weekNo - 1) * 7;
-			DateTime dt1 = firstDay.AddDays(days);
-			DayOfWeek dayOfWeek = dt1.DayOfWeek;
-			DateTime startDateOfWeek = dt1.AddDays(-(int)dayOfWeek);
+			DateTime dayOne = firstDay.AddDays(days);
+			DayOfWeek dayOfWeek = dayOne.DayOfWeek;
+			DateTime startDateOfWeek = dayOne.AddDays(-(int)dayOfWeek);
 			DateTime endDateOfWeek = startDateOfWeek.AddDays(7);
 
 			return (startDateOfWeek <= ticketDate) & (endDateOfWeek >= ticketDate);
@@ -207,88 +204,3 @@ namespace Recreation_center
         
     }
 }
-
-
-
-/**
- else {
-							if (beforeWasGroup) {
-								beforeWasGroup = false;
-								System.Diagnostics.Debug.WriteLine("-----------------Break-----------------------");
-							}
-							System.Diagnostics.Debug.WriteLine("Tickets->  " + JsonConvert.SerializeObject("ID: " + tk.ticketID + "Price: " + tk.price));
-						}
-*/
-
-/*				if (Globals.myTicket[globalTicketIndex].ticketID != tk.ticketID)
-				{
-					list.Add(newList);
-					newList.Clear();
-					System.Diagnostics.Debug.WriteLine("--break--");
-				}
-				*/
-
-
-
-//->>>>
-/*				if (globalTicketIndex + 1 == Globals.myTicket.Count)
-				{
-					System.Diagnostics.Debug.WriteLine("END: ");
-				}*/
-
-
-
-// from cal
-/*
- foreach (Ticket tk in Globals.myTicket)
-			{
-
-				if (isBetweenStartAndEndDate(tk.date, selectedWeeklyReportDate.Value))
-				{
-					string ticketDate = tk.date.ToString("MM/dd/yyyy");
-					if (weeklyReportList.ContainsKey(ticketDate))
-					{
-						//@ 0 index for  total visitors.
-						//@ 1 index for total earning.
-
-						/*if (tk.isGroup)
-						{
-							beforeWasGroup = true;
-							if (tk.ticketID != tik)
-							{
-								System.Diagnostics.Debug.WriteLine("-----------------NEW GROUP-----------------------");
-								tik = tk.ticketID;
-								isSameGroup = false;
-							}
-							else
-							{
-								isSameGroup = true;
-							}
-							totalPrice += tk.price;
-							System.Diagnostics.Debug.WriteLine("Group->  " + JsonConvert.SerializeObject("ID: " + tk.ticketID + "Price: " + tk.price));
-						}
-						else {
-							if (beforeWasGroup)
-							{
-								beforeWasGroup = false;
-								System.Diagnostics.Debug.WriteLine("TOTAL: " + totalPrice);
-								totalPrice = 0;
-								System.Diagnostics.Debug.WriteLine("-----------------Break-----------------------");
-
-							}
-						}
-						
-						*/
-						// this is
-						/*weeklyReportList[ticketDate][0] = weeklyReportList[ticketDate][0] + 1;
-						weeklyReportList[ticketDate][1] = weeklyReportList[ticketDate][1] + tk.price;*/
-/*					}
-					else
-{// this is
-	/*float[] totalVisitorsAndEarning = { 1, tk.price };
-	weeklyReportList.Add(ticketDate, totalVisitorsAndEarning);*/
-//}
-//				}
-
-//			};
-//*/

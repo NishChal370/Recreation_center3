@@ -516,5 +516,3 @@ namespace Recreation_center
     }
 
 }
-
-//System.Diagnostics.Debug.WriteLine("Local " + JsonConvert.SerializeObject(groupTicketList));
