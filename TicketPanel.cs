@@ -497,6 +497,11 @@ namespace Recreation_center
             txtBoxTicketNo.BackColor = System.Drawing.Color.White;
         }
 
+        private void cmboBoxAge_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmboBoxAge.BackColor = System.Drawing.Color.White;
+        }
+
         private void isGroupRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
             btnAdd.Enabled = true;
@@ -509,10 +514,6 @@ namespace Recreation_center
             btnSave.Enabled = true;
         }
 
-        private void cmboBoxAge_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cmboBoxAge.BackColor = System.Drawing.Color.White;
-        }
     }
 
 }
