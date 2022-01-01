@@ -232,6 +232,7 @@ namespace Recreation_center
             // 
             // viewTicketPanel1
             // 
+            this.viewTicketPanel1.BackColor = System.Drawing.Color.Snow;
             this.viewTicketPanel1.Location = new System.Drawing.Point(127, 70);
             this.viewTicketPanel1.Name = "viewTicketPanel1";
             this.viewTicketPanel1.Size = new System.Drawing.Size(756, 501);

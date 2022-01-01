@@ -308,5 +308,21 @@ namespace Recreation_center
             wholeDayDiscountTextBox.BackColor = System.Drawing.Color.White;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (userNameTxtBox.Text == "admin" && passwordTxtBox.Text == "admin")
+            {
+                panel1.Visible = false;
+            }
+            else {
+                MessageBox.Show("Error");
+            }
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = true;
+        }
     }
 }

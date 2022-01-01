@@ -77,8 +77,16 @@ namespace Recreation_center
             this.btnSaveTicket = new System.Windows.Forms.Button();
             this.btnClearTicket = new System.Windows.Forms.Button();
             this.priceDayCmboBox = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.passwordTxtBox = new System.Windows.Forms.TextBox();
+            this.userNameTxtBox = new System.Windows.Forms.TextBox();
+            this.userNameLabel = new System.Windows.Forms.Label();
+            this.passwordLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.adminAgePricePanel.SuspendLayout();
             this.adminGroupDiscountPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelTicketRate
@@ -628,17 +636,87 @@ namespace Recreation_center
             this.priceDayCmboBox.Text = "Select day...";
             this.priceDayCmboBox.SelectedIndexChanged += new System.EventHandler(this.daySelectionCmboBox_SelectedIndexChanged);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.passwordTxtBox);
+            this.panel1.Controls.Add(this.userNameTxtBox);
+            this.panel1.Controls.Add(this.userNameLabel);
+            this.panel1.Controls.Add(this.passwordLabel);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(756, 501);
+            this.panel1.TabIndex = 10;
+            // 
+            // passwordTxtBox
+            // 
+            this.passwordTxtBox.Font = new System.Drawing.Font("Modern No. 20", 11.25F);
+            this.passwordTxtBox.Location = new System.Drawing.Point(531, 213);
+            this.passwordTxtBox.Name = "passwordTxtBox";
+            this.passwordTxtBox.Size = new System.Drawing.Size(220, 24);
+            this.passwordTxtBox.TabIndex = 4;
+            // 
+            // userNameTxtBox
+            // 
+            this.userNameTxtBox.Font = new System.Drawing.Font("Modern No. 20", 11.25F);
+            this.userNameTxtBox.Location = new System.Drawing.Point(531, 154);
+            this.userNameTxtBox.Name = "userNameTxtBox";
+            this.userNameTxtBox.Size = new System.Drawing.Size(220, 24);
+            this.userNameTxtBox.TabIndex = 3;
+            // 
+            // userNameLabel
+            // 
+            this.userNameLabel.AutoSize = true;
+            this.userNameLabel.Font = new System.Drawing.Font("Modern No. 20", 16.2F);
+            this.userNameLabel.Location = new System.Drawing.Point(423, 152);
+            this.userNameLabel.Name = "userNameLabel";
+            this.userNameLabel.Size = new System.Drawing.Size(102, 24);
+            this.userNameLabel.TabIndex = 2;
+            this.userNameLabel.Text = "UserName";
+            // 
+            // passwordLabel
+            // 
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.Font = new System.Drawing.Font("Modern No. 20", 16.2F);
+            this.passwordLabel.Location = new System.Drawing.Point(421, 213);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(104, 24);
+            this.passwordLabel.TabIndex = 1;
+            this.passwordLabel.Text = "Passoword";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(582, 276);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(647, 17);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 70;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Snow;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.priceDayCmboBox);
             this.Controls.Add(this.btnClearTicket);
             this.Controls.Add(this.btnSaveTicket);
             this.Controls.Add(this.adminGroupDiscountPanel);
             this.Controls.Add(this.adminAgePricePanel);
             this.Controls.Add(this.labelTicketRate);
+            this.Controls.Add(this.button2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AdminPanel";
             this.Size = new System.Drawing.Size(756, 501);
@@ -646,6 +724,8 @@ namespace Recreation_center
             this.adminAgePricePanel.PerformLayout();
             this.adminGroupDiscountPanel.ResumeLayout(false);
             this.adminGroupDiscountPanel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -700,5 +780,12 @@ namespace Recreation_center
         private System.Windows.Forms.TextBox fourHourOldTextBox;
         private System.Windows.Forms.TextBox wholeDayOldTextBox;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label userNameLabel;
+        private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.TextBox userNameTxtBox;
+        private System.Windows.Forms.TextBox passwordTxtBox;
+        private System.Windows.Forms.Button button2;
     }
 }
