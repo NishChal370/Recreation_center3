@@ -183,6 +183,25 @@ namespace Recreation_center
 
         }
 
+        private void loginBtn_Click(object sender, EventArgs e)
+        {
+            if (userNameTxtBox.Text == "admin" && passwordTxtBox.Text == "admin")
+            {
+                loginPanel.Visible = false;
+                userNameTxtBox.Text = "";
+                passwordTxtBox.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Invalid username/password !!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+            loginPanel.Visible = true;
+        }
+
         private void hourChildTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             hourChildTextBox.BackColor = System.Drawing.Color.White;
@@ -308,21 +327,5 @@ namespace Recreation_center
             wholeDayDiscountTextBox.BackColor = System.Drawing.Color.White;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (userNameTxtBox.Text == "admin" && passwordTxtBox.Text == "admin")
-            {
-                panel1.Visible = false;
-            }
-            else {
-                MessageBox.Show("Error");
-            }
-            
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            panel1.Visible = true;
-        }
     }
 }

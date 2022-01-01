@@ -108,7 +108,7 @@ namespace Recreation_center
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnAdd.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.Enabled = false;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -207,7 +207,7 @@ namespace Recreation_center
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnSave.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold);
@@ -223,7 +223,7 @@ namespace Recreation_center
             // 
             // btnClear
             // 
-            this.btnClear.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnClear.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold);
@@ -571,7 +571,7 @@ namespace Recreation_center
             // 
             // btnSearchTicket
             // 
-            this.btnSearchTicket.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnSearchTicket.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnSearchTicket.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearchTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearchTicket.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
