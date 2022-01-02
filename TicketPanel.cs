@@ -19,7 +19,7 @@ namespace Recreation_center
             InitializeComponent();
 
             resetFields(""); // clear text field
-            dateTimePicker1.Value = DateTime.Now;
+            ticketDatePicker.Value = DateTime.Now;
             Globals.readFile("ticket", Constants.TICKETFILENAME); // reading tickets file
         }
 
@@ -30,20 +30,20 @@ namespace Recreation_center
             {
                 if (btnSave.Text.ToString() == "Save")
                 {
-                    if (groupTicketList.Count <= 0)
+                    if (groupTicketList.Count <= 0) // if not saving group ticket
                     {
                         if (isUserInputValid())
                         {
                             saveTicket();
                         }
                     }
-                    else
+                    else // saving grouo ticket
                     {
                         saveTicket();
                     }
 
                 }
-                else
+                else // if check out
                 {
                     if (Globals.weekDayPriceListG.Count > 0 && Globals.weekEndPriceListG.Count > 0)
                     {
@@ -150,7 +150,7 @@ namespace Recreation_center
             ticket.phone = txtBoxPhone.Text;
             ticket.inTime = txtBoxInTime.Text;
             ticket.address = txtBoxAddress.Text;
-            ticket.date = dateTimePicker1.Value;
+            ticket.date = ticketDatePicker.Value;
             ticket.age = cmboBoxAge.SelectedIndex;
             ticket.isGroup = isGroupRadioBtn.Checked;
 
@@ -439,9 +439,10 @@ namespace Recreation_center
             txtBoxPhone.ReadOnly = trueOrFalse;
             txtBoxAddress.ReadOnly = trueOrFalse;
             cmboBoxAge.Enabled = !trueOrFalse;
-            dateTimePicker1.Enabled = !trueOrFalse;
             isGroupRadioBtn.Enabled = !trueOrFalse;
             notGroupRadioBtn.Enabled = !trueOrFalse;
+            ticketDatePicker.Enabled = !trueOrFalse;
+            
         }
 
         private void ticketTable_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -463,7 +464,7 @@ namespace Recreation_center
                 }
 
                 cmboBoxAge.SelectedItem = row.Cells["ticketAge"].Value.ToString();
-                dateTimePicker1.Value = Convert.ToDateTime(row.Cells["ticketDate"].Value);
+                ticketDatePicker.Value = Convert.ToDateTime(row.Cells["ticketDate"].Value);
             }
         }
 

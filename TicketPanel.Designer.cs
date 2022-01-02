@@ -69,7 +69,7 @@ namespace Recreation_center
             this.txtBoxName = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
             this.labelTicketNo = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.ticketDatePicker = new System.Windows.Forms.DateTimePicker();
             this.txtBoxTicketNo = new System.Windows.Forms.TextBox();
             this.btnSearchTicket = new System.Windows.Forms.Button();
             this.panelTicketForm.SuspendLayout();
@@ -544,18 +544,18 @@ namespace Recreation_center
             this.labelTicketNo.TabIndex = 3;
             this.labelTicketNo.Text = "Ticket No";
             // 
-            // dateTimePicker1
+            // ticketDatePicker
             // 
-            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.SystemColors.ControlLightLight;
-            this.dateTimePicker1.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dateTimePicker1.Enabled = false;
-            this.dateTimePicker1.Font = new System.Drawing.Font("Modern No. 20", 12F);
-            this.dateTimePicker1.Location = new System.Drawing.Point(499, 59);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(240, 25);
-            this.dateTimePicker1.TabIndex = 4;
-            this.dateTimePicker1.Value = new System.DateTime(2021, 12, 29, 17, 3, 38, 0);
+            this.ticketDatePicker.CalendarMonthBackground = System.Drawing.SystemColors.ControlLightLight;
+            this.ticketDatePicker.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ticketDatePicker.Enabled = false;
+            this.ticketDatePicker.Font = new System.Drawing.Font("Modern No. 20", 12F);
+            this.ticketDatePicker.Location = new System.Drawing.Point(499, 59);
+            this.ticketDatePicker.Margin = new System.Windows.Forms.Padding(2);
+            this.ticketDatePicker.Name = "ticketDatePicker";
+            this.ticketDatePicker.Size = new System.Drawing.Size(240, 25);
+            this.ticketDatePicker.TabIndex = 4;
+            this.ticketDatePicker.Value = new System.DateTime(2021, 12, 29, 17, 3, 38, 0);
             // 
             // txtBoxTicketNo
             // 
@@ -592,7 +592,7 @@ namespace Recreation_center
             this.BackColor = System.Drawing.Color.Snow;
             this.Controls.Add(this.btnSearchTicket);
             this.Controls.Add(this.txtBoxTicketNo);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.ticketDatePicker);
             this.Controls.Add(this.labelTicketNo);
             this.Controls.Add(this.panelTicketForm);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -617,7 +617,7 @@ namespace Recreation_center
         private System.Windows.Forms.Label labelPhone;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label labelTicketNo;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker ticketDatePicker;
         private System.Windows.Forms.Label labelOutTime;
         private System.Windows.Forms.Label labelInTime;
         private System.Windows.Forms.Label labelGroup;

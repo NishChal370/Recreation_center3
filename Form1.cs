@@ -60,5 +60,6 @@ namespace Recreation_center
 
             viewTicketPanel1.fillTicketTable();
         }
+        
     }
 }
