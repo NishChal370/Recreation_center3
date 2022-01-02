@@ -282,7 +282,7 @@ namespace Recreation_center
                 int hourStayed = (totalHrsCustomerStay >= 5 || totalHrsCustomerStay < 0 || ticket.date.Date.ToShortDateString() != DateTime.Now.Date.ToShortDateString())
                                     ? 5
                                     : totalHrsCustomerStay;
-                MessageBox.Show(hourStayed.ToString());
+
                 // ticket price and discount
                 ticketPriceAndDiscount = findIndividualTicketPrice(hourStayed, ticket.date, ticket.age, ticket.isGroup);
 
