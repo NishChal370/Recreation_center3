@@ -204,6 +204,7 @@ namespace Recreation_center
             this.ticketPanel1.Name = "ticketPanel1";
             this.ticketPanel1.Size = new System.Drawing.Size(756, 501);
             this.ticketPanel1.TabIndex = 6;
+            //this.ticketPanel1.Load += new System.EventHandler(this.ticketPanel1_Load);
             // 
             // adminPanel1
             // 

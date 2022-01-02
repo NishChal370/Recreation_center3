@@ -279,9 +279,10 @@ namespace Recreation_center
                 
                 int totalHrsCustomerStay = (int)(outTime - inTime).TotalHours + 1;
 
-                int hourStayed = (totalHrsCustomerStay > 4 || totalHrsCustomerStay < 0 || ticket.date.Date.ToShortDateString() != DateTime.Now.Date.ToShortDateString())
-                                    ? 4
+                int hourStayed = (totalHrsCustomerStay >= 5 || totalHrsCustomerStay < 0 || ticket.date.Date.ToShortDateString() != DateTime.Now.Date.ToShortDateString())
+                                    ? 5
                                     : totalHrsCustomerStay;
+                MessageBox.Show(hourStayed.ToString());
                 // ticket price and discount
                 ticketPriceAndDiscount = findIndividualTicketPrice(hourStayed, ticket.date, ticket.age, ticket.isGroup);
 
@@ -358,9 +359,9 @@ namespace Recreation_center
                             ? Globals.weekDayPriceListG
                             : Globals.weekEndPriceListG;
 
-            float ticketprice = prices[0][timePrefix[hourStayed] + agePrefix[ticketAge]];
+            float ticketprice = prices[0][timePrefix[hourStayed-1] + agePrefix[ticketAge]];
             float discount = (isGroup) 
-                                ? prices[1][timePrefix[hourStayed] + "Discount"] 
+                                ? prices[1][timePrefix[hourStayed-1] + "Discount"] 
                                 : 0;
 
             float[] totalPriceDiscountPercent = { ticketprice, discount };
