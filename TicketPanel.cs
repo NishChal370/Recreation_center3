@@ -37,7 +37,7 @@ namespace Recreation_center
                             saveTicket();
                         }
                     }
-                    else // saving grouo ticket
+                    else // saving group ticket
                     {
                         saveTicket();
                     }
@@ -308,7 +308,7 @@ namespace Recreation_center
                 fillTicketTable(ticket);
             });
 
-            MessageBox.Show("Ticket checked out !!!", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Ticket: "+ searchedTicketList[0].ticketID+ " checked out !!!", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         
         private void resetFields(string resetFor)
@@ -433,6 +433,20 @@ namespace Recreation_center
             return true;
         }
 
+        public static bool isCounterOpen()
+        {
+            if (DateTime.Now.Hour >= 10 && DateTime.Now.Hour < 17)
+            {
+                return true;
+            }
+            else
+            {
+               // MessageBox.Show("Counter close!! ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return true; //false
+            }
+            
+        }
+
         private void makeUserInputsReadOnly(bool trueOrFalse) 
         {
             txtBoxName.ReadOnly = trueOrFalse;
@@ -465,17 +479,6 @@ namespace Recreation_center
 
                 cmboBoxAge.SelectedItem = row.Cells["ticketAge"].Value.ToString();
                 ticketDatePicker.Value = Convert.ToDateTime(row.Cells["ticketDate"].Value);
-            }
-        }
-
-        public static bool isCounterOpen() {
-            if (DateTime.Now.Hour >= 10 && DateTime.Now.Hour < 17)
-            {
-                return true;
-            }
-            else {
-                MessageBox.Show("Counter close!! ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
             }
         }
 

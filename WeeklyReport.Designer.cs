@@ -29,10 +29,10 @@ namespace Recreation_center
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.labelWeeklyReportTitle = new System.Windows.Forms.Label();
             this.weeklyReportChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.weklyDatePicker = new System.Windows.Forms.DateTimePicker();
@@ -46,6 +46,7 @@ namespace Recreation_center
             this.totalEarningLabel = new System.Windows.Forms.Label();
             this.totalVisitorsResultLabel = new System.Windows.Forms.Label();
             this.totalEarningResultLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.weeklyReportChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weeklyReportTable)).BeginInit();
             this.SuspendLayout();
@@ -63,20 +64,20 @@ namespace Recreation_center
             // 
             // weeklyReportChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.weeklyReportChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.weeklyReportChart.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.weeklyReportChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.weeklyReportChart.Legends.Add(legend1);
             this.weeklyReportChart.Location = new System.Drawing.Point(22, 125);
             this.weeklyReportChart.Name = "weeklyReportChart";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "TotalVisitor";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "TotalEarning";
-            this.weeklyReportChart.Series.Add(series3);
-            this.weeklyReportChart.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "TotalVisitor";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "TotalEarning";
+            this.weeklyReportChart.Series.Add(series1);
+            this.weeklyReportChart.Series.Add(series2);
             this.weeklyReportChart.Size = new System.Drawing.Size(346, 357);
             this.weeklyReportChart.TabIndex = 4;
             this.weeklyReportChart.Text = "chart1";
@@ -128,24 +129,24 @@ namespace Recreation_center
             // sortByVisitorsRadioBtn
             // 
             this.sortByVisitorsRadioBtn.AutoSize = true;
-            this.sortByVisitorsRadioBtn.Location = new System.Drawing.Point(542, 103);
+            this.sortByVisitorsRadioBtn.Location = new System.Drawing.Point(608, 105);
             this.sortByVisitorsRadioBtn.Name = "sortByVisitorsRadioBtn";
-            this.sortByVisitorsRadioBtn.Size = new System.Drawing.Size(91, 17);
+            this.sortByVisitorsRadioBtn.Size = new System.Drawing.Size(58, 17);
             this.sortByVisitorsRadioBtn.TabIndex = 7;
             this.sortByVisitorsRadioBtn.TabStop = true;
-            this.sortByVisitorsRadioBtn.Text = "sort by visitors";
+            this.sortByVisitorsRadioBtn.Text = "Visitors";
             this.sortByVisitorsRadioBtn.UseVisualStyleBackColor = true;
             this.sortByVisitorsRadioBtn.CheckedChanged += new System.EventHandler(this.sortByVisitorsRadioBtn_CheckedChanged);
             // 
             // sortByEarningRatioBtn
             // 
             this.sortByEarningRatioBtn.AutoSize = true;
-            this.sortByEarningRatioBtn.Location = new System.Drawing.Point(639, 103);
+            this.sortByEarningRatioBtn.Location = new System.Drawing.Point(672, 103);
             this.sortByEarningRatioBtn.Name = "sortByEarningRatioBtn";
-            this.sortByEarningRatioBtn.Size = new System.Drawing.Size(94, 17);
+            this.sortByEarningRatioBtn.Size = new System.Drawing.Size(61, 17);
             this.sortByEarningRatioBtn.TabIndex = 8;
             this.sortByEarningRatioBtn.TabStop = true;
-            this.sortByEarningRatioBtn.Text = "sort by earning";
+            this.sortByEarningRatioBtn.Text = "Earning";
             this.sortByEarningRatioBtn.UseVisualStyleBackColor = true;
             this.sortByEarningRatioBtn.CheckedChanged += new System.EventHandler(this.sortByEarningRatioBtn_CheckedChanged);
             // 
@@ -193,11 +194,21 @@ namespace Recreation_center
             this.totalEarningResultLabel.TabIndex = 12;
             this.totalEarningResultLabel.Text = "0";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(556, 107);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Sort by: ";
+            // 
             // WeeklyReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Snow;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.totalEarningResultLabel);
             this.Controls.Add(this.totalVisitorsResultLabel);
             this.Controls.Add(this.totalEarningLabel);
@@ -232,5 +243,6 @@ namespace Recreation_center
         private System.Windows.Forms.Label totalEarningLabel;
         private System.Windows.Forms.Label totalVisitorsResultLabel;
         private System.Windows.Forms.Label totalEarningResultLabel;
+        private System.Windows.Forms.Label label1;
     }
 }

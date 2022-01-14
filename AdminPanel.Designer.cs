@@ -79,13 +79,13 @@ namespace Recreation_center
             this.btnClearTicket = new System.Windows.Forms.Button();
             this.priceDayCmboBox = new System.Windows.Forms.ComboBox();
             this.loginPanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.passwordTxtBox = new System.Windows.Forms.TextBox();
             this.userNameTxtBox = new System.Windows.Forms.TextBox();
             this.userNameLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.loginBtn = new System.Windows.Forms.Button();
             this.logoutBtn = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.adminAgePricePanel.SuspendLayout();
             this.adminGroupDiscountPanel.SuspendLayout();
             this.loginPanel.SuspendLayout();
@@ -652,6 +652,16 @@ namespace Recreation_center
             this.loginPanel.Size = new System.Drawing.Size(756, 501);
             this.loginPanel.TabIndex = 10;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(50, 78);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(332, 345);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
             // passwordTxtBox
             // 
             this.passwordTxtBox.Font = new System.Drawing.Font("Modern No. 20", 11.25F);
@@ -718,16 +728,6 @@ namespace Recreation_center
             this.logoutBtn.Text = "Logout";
             this.logoutBtn.UseVisualStyleBackColor = false;
             this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(50, 78);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(332, 345);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
             // 
             // AdminPanel
             // 
